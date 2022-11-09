@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: maroon;
+    text-align: left;
+    padding: 20px;
+    width: 100%;
+    position: fixed;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li.logo {
+    flex: 1;
+}
+
+nav ul li.nav_input {
+    padding-left: 5px;
+    padding-right: 25px;
+}
+
+#logo {
+    width: 1.25em;
+}
+
+img.header_img{
+    width: 100%;
+}
