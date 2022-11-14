@@ -34,11 +34,36 @@ nav ul li.nav_input {
 }
 
 #logo {
-    width: 100%;
+    height: 90%;
+    float: left;
 }
 
 img.header_img{
     width: 100%;
+}
+
+
+.header_login{
+    flex-grow: 3;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1%;
+}
+
+.header_image{
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around;
+    height: 100%;
+    width: 25%;
+}
+
+header{
+    background-color: #7B1112;
+    height: 10%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start
 }
 
 div.announcements>div, div.sidebar>div{

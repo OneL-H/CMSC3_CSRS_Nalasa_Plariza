@@ -6,7 +6,25 @@
     </head>
 
     <body>
-        <nav>
+
+        <header>
+            <div class="header_image">
+                <img id="logo" src="logo_upmin_2.png">
+                <h1 style="float:left"> UPMIN CSRS </h1>
+            </div>
+            <div class="header_login">
+                <form>
+                    <label for="student_id">STUDENT ID</label>
+                    <input type="text" id="student_id" name="student_id">
+
+                    <label for="student_password">PASSWORD</label>
+                    <input type="password" id="student_password" name="student_password">
+                    <input type="submit" value="Log In">
+                </form>
+            </div>
+        </header>
+
+        <nav style="visibility: collapse;">
             <ul>
                 <li style="width: 5%; height: 100%; margin-right: 1%;"><img id="logo" src="logo_upmin_2.png"></li>
                 <li class="logo"><h1> UPMIN CSRS </h1></li>
@@ -23,6 +41,7 @@
                 </li>
             </ul>
         </nav>
+
         <img src="header_upmin.jpg" class="header_img">
 
 
