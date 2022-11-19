@@ -121,17 +121,20 @@ div.announcements {
     width: 65%;
     float: left;
     margin-left: 1.5%;
+    color: #014421;
 }
 
 div.sidebar {
     width: 30%;
     float: right;
     margin-right: 1.5%;
+    color: #014421;
 }
 
 div.solo {
     width: 100%;
     padding: 0 30px;
+    color: #014421;
 }
 
 div.solo>div>h1 {
@@ -144,11 +147,15 @@ div h1 {margin-bottom: 8px;}
 div.announcements>h1 {
     font-size: 95px;
     padding-top: 30px;
+    color: #151414;
 }
+
+div.announcements>p {color: #151414;}
 
 div.solo>h1 {
     font-size: 55px;
     padding-top: 30px;
+    color: #151414;
 }
 
 div.solo>h3 {
@@ -174,6 +181,11 @@ ul>ul {
     padding-right: 30px;
 }
 
-div.solo>p {
-    padding: 10px 0 20px;
+div.solo>p {padding: 10px 0 20px;}
+
+div.solo a {
+    color: #014421;
+    text-decoration: underline;
 }
+
+div.solo a:hover {color: #7B1112;}
