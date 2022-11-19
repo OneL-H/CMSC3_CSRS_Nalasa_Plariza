@@ -47,11 +47,13 @@ nav>h1 {padding: 1%;}
 nav>div.dropdown {
     flex-grow: 1;
     position: relative;
-    padding: 2% 1.7%;
+    height: 100%;
     text-align: center;
-    box-sizing: border-box;
-    display: inline-block;
-    z-index: 3;
+}
+
+nav>div.dropdown>p {
+    position: relative;
+    top: 43%;
 }
 
 nav>div.dropdown:hover {
@@ -62,7 +64,7 @@ nav>div.dropdown:hover {
     display: none;
     position: absolute;
     right: 0;
-    top: 101%; /* scuffed */
+    top: 100%; /* scuffed */
     background-color: #ebebebd3;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     width: 100%;
