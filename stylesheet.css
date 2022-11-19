@@ -5,65 +5,91 @@
     font-family: sans-serif;
 }
 
-body {
-    background-color: #EBEBEB;
-}
+body {background-color: #EBEBEB;}
 
-header{
+header {
+    color: #EBEBEB;
     background-color: #7B1112;
-    height: 10%; 
+    height: 10%;
     display: flex; 
     align-items: center; 
     justify-content: stretch;
 }
 
-header>*{
-    margin: 1%;
-}
+header>* {margin: 1%;}
 
-#logo {
-    height: 85%;
-}
+#logo {height: 85%;}
 
-.header_login{
+.header_login {
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
     padding: 1%;
 }
 
-nav{
+nav {
     padding-left: 1%;
     box-sizing: border-box;
+    color: #EBEBEB;
     background-color: #7B1112;
     height: 10%;
     width: 100%;
     position: fixed;
-    /* visibility: collapse; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-height: 100%;
+    text-transform: uppercase;
 }
 
-nav>h1{
-    padding: 1%;
-}
+nav>h1 {padding: 1%;}
 
-nav>a{
+nav>div.dropdown {
     flex-grow: 1;
-    padding: 1.7%;
+    position: relative;
+    height: 100%;
     text-align: center;
-    box-sizing: border-box;
+}
+
+nav>div.dropdown>p {
+    position: relative;
+    top: 43%;
 }
 
 nav>a:hover{
     background-color: #70232431;
 }
 
-img.header_img{
-    width: 100%;
+nav>div.dropdown:hover {
+    background-color: #6e1517;
 }
+
+.dropdown_content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%; /* scuffed */
+    background-color: #ebebebd3;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdown_content a {
+    font-weight: 400;
+    text-decoration: none;
+    color: #6e1517;
+    display: block;
+    padding: 1.6% 0;
+}
+
+.dropdown_content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown_content {display: block;}
+
+img.header_img {width: 100%;}
 
 div.announcements>div, div.sidebar>div{
     background-color: #C8C8C8;
@@ -84,6 +110,4 @@ div.sidebar {
     margin-right: 1.5%;
 }
 
-div h1 {
-    margin-bottom: 8px;
-}
+div h1 {margin-bottom: 8px;}
