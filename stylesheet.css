@@ -7,6 +7,7 @@
 
 body {
     background-color: #EBEBEB;
+    overflow-x: hidden;
     overflow-y: scroll;
 }
 
@@ -43,6 +44,7 @@ nav {
     align-items: center;
     max-height: 100%;
     text-transform: uppercase;
+    z-index: 5;
 }
 
 nav>h1 {padding: 1%;}
@@ -56,7 +58,7 @@ div.dropdown {
 }
 
 #wearehere {
-    background-color: #881113;
+    background-color: #861112;
     flex-grow: 1;
     position: relative;
     height: 100%;
@@ -82,14 +84,12 @@ div.dropdown>p, nav>div#wearehere>p {
 
 div.dropdown:hover {background-color: #6e1517;}
 
-nav>a:hover {background-color: #70232431;}
-
 .dropdown_content {
     display: none;
     position: absolute;
     right: 0;
-    top: 100%; /* scuffed */
-    background-color: #ebebebd3;
+    top: 100%;
+    background-color: #ebebebec;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     width: 100%;
     z-index: 1;
@@ -101,6 +101,7 @@ nav>a:hover {background-color: #70232431;}
     color: #6e1517;
     display: block;
     padding: 2% 0 1.5%;
+    transition: 0.25s;
 }
 
 .dropdown_content a:hover {background-color: #f1f1f1;}
@@ -117,13 +118,13 @@ div.announcements>div, div.sidebar>div, div.solo>div {
 }
 
 div.announcements {
-    width: 70%;
+    width: 65%;
     float: left;
     margin-left: 1.5%;
 }
 
 div.sidebar {
-    width: 25%;
+    width: 30%;
     float: right;
     margin-right: 1.5%;
 }
@@ -134,11 +135,45 @@ div.solo {
 }
 
 div.solo>div>h1 {
-    font-size: 60px;
+    font-size: 38px;
+    padding-bottom: 5px;
+}
+
+div h1 {margin-bottom: 8px;}
+
+div.announcements>h1 {
+    font-size: 95px;
+    padding-top: 30px;
+}
+
+div.solo>h1 {
+    font-size: 55px;
+    padding-top: 30px;
+}
+
+div.solo>h3 {
+    font-size: 15px;
+    font-weight: 400;
 }
 
 div.solo>div>p {
     font-size: 20px;
 }
 
-div h1 {margin-bottom: 8px;}
+div.solo>div>ol, div.solo>div>ul {
+    font-size: 20px;
+    position: relative;
+    left: 60px;
+    padding-right: 60px;
+}
+
+ul>ul {
+    list-style-type: none;
+    position: relative;
+    left: 30px;
+    padding-right: 30px;
+}
+
+div.solo>p {
+    padding: 10px 0 20px;
+}
