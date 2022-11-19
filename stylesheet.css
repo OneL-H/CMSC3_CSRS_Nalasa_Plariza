@@ -56,6 +56,10 @@ nav>div.dropdown>p {
     top: 43%;
 }
 
+nav>a:hover{
+    background-color: #70232431;
+}
+
 nav>div.dropdown:hover {
     background-color: #6e1517;
 }
