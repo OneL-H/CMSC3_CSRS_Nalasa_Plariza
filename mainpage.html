@@ -6,28 +6,28 @@
     </head>
 
     <body>
-        
         <header>
             <img id="logo" src="logo_upmin_2.png">
             <h1 style="flex-grow: 1; color: #EBEBEB;"> UPMIN CSRS </h1>
             <div class="header_login">
                 <form>
-                    <label for="student_id">STUDENT ID</label>
+                    <label for="student_id" style="padding-right: 3px;">STUDENT ID</label>
                     <input type="text" id="student_id" name="student_id">
-
-                    <label for="student_password">PASSWORD</label>
+                    <label for="student_password" style="padding: 0 3px 0 12px;">PASSWORD</label>
                     <input type="password" id="student_password" name="student_password">
-                    <a href="mainpage_loggedin.html"><button type="button">Log In</button></a>
+                    <a href="mainpage_loggedin.html" style="padding-left: 12px;"><button type="button">Log In</button></a>
                 </form>
             </div>
         </header>
 
-        <!--okay this IS temporary, add to separate version for logged in-->
-        
-        <img src="header_upmin.jpg" class="header_img">
-
-
-        <!-- ordering is still manual -->
+        <!-- picture -->
+        <div class="img_container">
+            <img src="header_upmin.jpg" class="header_img">
+            <div class="text_box">
+                <h1>UNIVERSITY OF THE PHILIPPINES MINDANAO</h1>
+                <h2>COMPUTERIZED STUDENT RECORDS SYSTEM</h2>
+            </div>
+        </div>
 
         <div class="sidebar">
 
@@ -155,6 +155,11 @@
                 <h1>TITLE 11</h1>
                 <p>announcement 11</p>
             </div>
+            
+            <footer class="mainpage_footer">
+                <p>Copyright © 2022 NALASA PLARIZA</p>
+            </footer>
+        </div>
 
     </body>
 </html>

@@ -9,6 +9,7 @@ body {
     background-color: #EBEBEB;
     overflow-x: hidden;
     overflow-y: scroll;
+    min-height: 100vh;
 }
 
 header {
@@ -110,6 +111,27 @@ div.dropdown:hover {background-color: #6e1517;}
 .dropdown_content a:hover {background-color: #f1f1f1;}
 
 .dropdown:hover .dropdown_content {display: block;}
+
+.img_container {
+    position: relative;
+    text-align: left;
+    color: #EBEBEB;
+}
+
+.img_container>.text_box {
+    position: absolute;
+    bottom: 15px;
+    left: 30px;
+    text-shadow: 3px 3px 10px #15141494;
+}
+
+.text_box>h1 {
+    font-size: 70px;
+    position: relative;
+    top: 15px;
+}
+
+.text_box>h2 {font-size: 60px;}
 
 img.header_img {width: 100%;}
 
@@ -220,3 +242,13 @@ div.announcements a, div.sidebar a, div.solo a {
 }
 
 div.announcements a:hover, div.sidebar a:hover, div.solo a:hover {color: #bb3033;}
+
+footer {
+    padding: 15px 15px 15px 28px;
+    color: #a7a7a7;
+}
+
+footer.mainpage_footer {
+    margin: 0;
+    padding: 15px 0;
+}
