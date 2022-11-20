@@ -92,7 +92,7 @@ div.dropdown:hover {background-color: #6e1517;}
     position: absolute;
     right: 0;
     top: 100%;
-    background-color: #ebebebec;
+    background-color: #e6e6e6e5;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     width: 100%;
     z-index: 1;
@@ -139,6 +139,8 @@ div.sidebar {
     float: right;
     margin-right: 1.5%;
     color: #014421;
+    position: relative;
+    top: 26px;
 }
 
 div.solo {
@@ -161,6 +163,25 @@ div.announcements>h1 {
 }
 
 div.announcements>p {color: #151414;}
+
+div.sidebar>h1 {
+    font-size: 50px;
+    padding-top: 15px;
+    color: #151414;
+    text-align: center;
+}
+
+div.sidebar>h1#faq {font-size: 33px;}
+
+div.sidebar>h1#personalannouncements {font-size: 37px;}
+
+div.sidebar>div.afterh1 {margin-top: 0;}
+
+div.sidebar>div>ol, div.sidebar>div>ul {
+    position: relative;
+    left: 30px;
+    padding-right: 30px;
+}
 
 div.solo>h1 {
     font-size: 55px;
@@ -193,9 +214,9 @@ ul>ul {
 
 div.solo>p {padding: 10px 0 20px;}
 
-div.solo a {
-    color: #014421;
+div.announcements a, div.sidebar a, div.solo a {
+    color: #7B1112;
     text-decoration: underline;
 }
 
-div.solo a:hover {color: #7B1112;}
+div.announcements a:hover, div.sidebar a:hover, div.solo a:hover {color: #bb3033;}
