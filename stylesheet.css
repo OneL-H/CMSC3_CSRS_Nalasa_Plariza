@@ -15,7 +15,7 @@ body {
 header {
     color: #EBEBEB;
     background-color: #7B1112;
-    height: 10%;
+    height: 7%;
     display: flex; 
     align-items: center; 
     justify-content: stretch;
@@ -25,7 +25,7 @@ header {
 
 header>* {margin: 1%;}
 
-#logo {height: 85%;}
+#logo {height: 75%;}
 
 .header_login {
     display: flex;
@@ -39,7 +39,7 @@ nav {
     box-sizing: border-box;
     color: #EBEBEB;
     background-color: #7B1112;
-    height: 10%;
+    height: 7%;
     width: 100%;
     position: fixed;
     display: flex;
