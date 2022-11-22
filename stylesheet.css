@@ -180,7 +180,7 @@ div.solo>div>h1 {
 div h1 {margin-bottom: 8px;}
 
 div.announcements>h1 {
-    font-size: 7vw;
+    font-size: 5.5vw;
     padding-top: 30px;
     color: #151414;
 }
@@ -188,7 +188,7 @@ div.announcements>h1 {
 div.announcements>p {color: #151414;}
 
 div.sidebar>h1 {
-    font-size: 3vw;
+    font-size: 1.9vw;
     padding-top: 15px;
     color: #151414;
     text-align: center;
