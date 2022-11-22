@@ -120,18 +120,21 @@ div.dropdown:hover {background-color: #6e1517;}
 
 .img_container>.text_box {
     position: absolute;
-    bottom: 15px;
-    left: 30px;
-    text-shadow: 3px 3px 10px #15141494;
+    bottom: 4.5%;
+    left: 2.5%;
+    text-shadow: 3px 3px 10px #151414ce;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .text_box>h1 {
-    font-size: 70px;
-    position: relative;
-    top: 15px;
+    height: 55%;
 }
 
-.text_box>h2 {font-size: 60px;}
+.text_box>h2 {height: 45%;}
 
 img.header_img {width: 100%;}
 
@@ -179,7 +182,7 @@ div.solo>div>h1 {
 div h1 {margin-bottom: 8px;}
 
 div.announcements>h1 {
-    font-size: 95px;
+    font-size: 7vw;
     padding-top: 30px;
     color: #151414;
 }
@@ -187,15 +190,13 @@ div.announcements>h1 {
 div.announcements>p {color: #151414;}
 
 div.sidebar>h1 {
-    font-size: 50px;
+    font-size: 3vw;
     padding-top: 15px;
     color: #151414;
     text-align: center;
 }
 
 div.sidebar>h1#faq {font-size: 33px;}
-
-div.sidebar>h1#personalannouncements {font-size: 37px;}
 
 div.sidebar>div.afterh1 {margin-top: 0;}
 
