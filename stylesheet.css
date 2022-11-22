@@ -130,11 +130,9 @@ div.dropdown:hover {background-color: #6e1517;}
     justify-content: flex-end;
 }
 
-.text_box>h1 {
-    height: 55%;
-}
+.text_box>h1 {font-size: 2.5vw;}
 
-.text_box>h2 {height: 45%;}
+.text_box>h2 {font-size: 1.5vw;}
 
 img.header_img {width: 100%;}
 
