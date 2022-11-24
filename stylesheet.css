@@ -242,12 +242,32 @@ div.announcements a, div.sidebar a, div.solo a {
 
 div.announcements a:hover, div.sidebar a:hover, div.solo a:hover {color: #bb3033;}
 
+footer.mainpage_footer {
+    margin: 2%;
+    padding: 15px 0;
+}
+
 footer {
     padding: 15px 15px 15px 28px;
     color: #a7a7a7;
 }
 
-footer.mainpage_footer {
-    margin: 0;
-    padding: 15px 0;
+.center_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.password_change{
+    padding: 1%;
+    background-color: #7B1112;
+    margin-top: 1%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.password_change>*{
+    margin: 0.5%;
 }
