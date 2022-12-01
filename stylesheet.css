@@ -268,10 +268,19 @@ footer {
     flex-direction: column;
 }
 
+.password_change>input{
+    flex-grow: 1.1;
+}
+
 .password_change>a{
     align-self: flex-end;
 }
 
 .password_change>*{
     margin: 0.5%;
+}
+
+.embed_pdf{
+    width: 90%;
+    height: 100%;
 }
