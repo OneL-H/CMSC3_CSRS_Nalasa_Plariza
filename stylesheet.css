@@ -256,6 +256,7 @@ div.solo>p {padding: 10px 0 20px;}
 div.announcements a, div.sidebar a, div.solo a {
     color: #7B1112;
     text-decoration: underline;
+    word-wrap: break-word;
 }
 
 div.announcements a:hover, div.sidebar a:hover, div.solo a:hover {color: #bb3033;}
@@ -266,7 +267,7 @@ footer.mainpage_footer {
 }
 
 footer {
-    padding: 15px 15px 15px 28px;
+    margin: 15px 15px 15px 28px;
     color: #a7a7a7;
 }
 
