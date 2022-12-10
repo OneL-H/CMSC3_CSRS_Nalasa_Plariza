@@ -134,6 +134,8 @@ div.dropdown:hover {background-color: #6e1517;}
 
 .text_box>h2 {font-size: 1.5vw;}
 
+div>p {padding-bottom: 4px;}
+
 img.header_img {width: 100%;}
 
 div.announcements>div, div.sidebar>div, div.solo>div {
@@ -177,7 +179,10 @@ div.solo>div>h1 {
     padding-bottom: 5px;
 }
 
-div h1 {margin-bottom: 8px;}
+div h1 {
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
 
 div.announcements>h1 {
     font-size: 5.5vw;
@@ -185,7 +190,9 @@ div.announcements>h1 {
     color: #151414;
 }
 
-div.announcements>p {color: #151414;}
+div.announcements>p {
+    color: #151414;
+}
 
 div.sidebar>h1 {
     font-size: 1.9vw;
@@ -220,7 +227,18 @@ div.solo>div>p {
 }
 
 div.solo>div>ol, div.solo>div>ul {
-    font-size: 20px;
+    font-size: 19px;
+    position: relative;
+    left: 60px;
+    padding-right: 60px;
+}
+
+div.announcements>div>h1 {font-size: 40px;}
+
+div.announcements>div>p {font-size: 20px;}
+
+div.announcements>div>ol, div.announcements>div>ul {
+    font-size: 19px;
     position: relative;
     left: 60px;
     padding-right: 60px;
