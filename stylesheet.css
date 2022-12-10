@@ -168,17 +168,6 @@ div.sidebar {
     top: 26px;
 }
 
-div.solo {
-    width: 100%;
-    padding: 0 30px;
-    color: #014421;
-}
-
-div.solo>div>h1 {
-    font-size: 38px;
-    padding-bottom: 5px;
-}
-
 div h1 {
     margin-bottom: 8px;
     text-transform: uppercase;
@@ -211,8 +200,19 @@ div.sidebar>div>ol, div.sidebar>div>ul {
     padding-right: 30px;
 }
 
+div.solo {
+    width: 100%;
+    padding: 0 30px;
+    color: #014421;
+}
+
+div.solo>div>h1 {
+    font-size: 32px;
+    padding-bottom: 5px;
+}
+
 div.solo>h1 {
-    font-size: 55px;
+    font-size: 2.5vw;
     padding-top: 30px;
     color: #151414;
 }
@@ -233,6 +233,16 @@ div.solo>div>ol, div.solo>div>ul {
     padding-right: 60px;
 }
 
+div.solo>p {padding: 10px 0 20px;}
+
+div.announcements a, div.sidebar a, div.solo a {
+    color: #7B1112;
+    text-decoration: underline;
+    word-wrap: break-word;
+}
+
+div.announcements a:hover, div.sidebar a:hover, div.solo a:hover {color: #bb3033;}
+
 div.announcements>div>h1 {font-size: 40px;}
 
 div.announcements>div>p {font-size: 20px;}
@@ -250,16 +260,6 @@ ul>ul {
     left: 30px;
     padding-right: 30px;
 }
-
-div.solo>p {padding: 10px 0 20px;}
-
-div.announcements a, div.sidebar a, div.solo a {
-    color: #7B1112;
-    text-decoration: underline;
-    word-wrap: break-word;
-}
-
-div.announcements a:hover, div.sidebar a:hover, div.solo a:hover {color: #bb3033;}
 
 footer.mainpage_footer {
     margin: 2%;
