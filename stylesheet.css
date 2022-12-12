@@ -10,6 +10,7 @@ body {
     overflow-x: hidden;
     overflow-y: scroll;
     min-height: 100vh;
+    font-size: 16px;
 }
 
 header {
@@ -174,7 +175,7 @@ div h1 {
 }
 
 div.announcements>h1 {
-    font-size: 5.5vw;
+    font-size: 4em;
     padding-top: 30px;
     color: #151414;
 }
@@ -184,13 +185,13 @@ div.announcements>p {
 }
 
 div.sidebar>h1 {
-    font-size: 1.9vw;
+    font-size: 2em;
     padding-top: 15px;
     color: #151414;
     text-align: center;
 }
 
-div.sidebar>h1#faq {font-size: 33px;}
+div.sidebar>h1#faq {font-size: 2em;}
 
 div.sidebar>div.afterh1 {margin-top: 0;}
 
@@ -207,27 +208,27 @@ div.solo {
 }
 
 div.solo>div>h1 {
-    font-size: 32px;
+    font-size: 2em;
     padding-bottom: 5px;
 }
 
 div.solo>h1 {
-    font-size: 2.5vw;
+    font-size: 2em;
     padding-top: 30px;
     color: #151414;
 }
 
 div.solo>h3 {
-    font-size: 15px;
+    font-size: 1em;
     font-weight: 400;
 }
 
 div.solo>div>p {
-    font-size: 20px;
+    font-size: 1.25em;
 }
 
 div.solo>div>ol, div.solo>div>ul {
-    font-size: 19px;
+    font-size: 1.2em;
     position: relative;
     left: 60px;
     padding-right: 60px;
@@ -243,12 +244,12 @@ div.announcements a, div.sidebar a, div.solo a {
 
 div.announcements a:hover, div.sidebar a:hover, div.solo a:hover {color: #bb3033;}
 
-div.announcements>div>h1 {font-size: 40px;}
+div.announcements>div>h1 {font-size: 2.5em;}
 
-div.announcements>div>p {font-size: 20px;}
+div.announcements>div>p {font-size: 1.2em;}
 
 div.announcements>div>ol, div.announcements>div>ul {
-    font-size: 19px;
+    font-size: 1em;
     position: relative;
     left: 60px;
     padding-right: 60px;
