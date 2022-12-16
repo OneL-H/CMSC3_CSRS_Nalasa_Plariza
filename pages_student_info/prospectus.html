@@ -4,21 +4,41 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="../stylesheet.css">
         <link rel="shortcut icon" href="../favicon.ico">
+        <style>
+            .link_container{
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .link_container > a{
+                background-color: #7b1112;
+                color: white;
+                padding: 1% 1.25%;
+                margin: 0.5% 0.625%;
+                text-align: center;
+                text-decoration: none;
+                display: block;
+            }
+
+            .link_container > a:hover{
+                background-color: #7b1113dc;
+            }
+        </style>
     </head>
 
     <body>
-        
+
         <nav>
             <img id="logo" src="../logo_upmin_2.png">
             <h1 style="flex-grow: 1; color: #EBEBEB;"> UPMIN CSRS </h1>
-            
+
             <div class="dropdown">
                 <p>home</p>
                 <a id="nav_announcement" href="../mainpage_loggedin.html">
                     <span class="spanner"></span>
                 </a>
             </div>
-            
+
             <div class="dropdown">
                 <p>sections</p>
                 <div class="dropdown_content">
@@ -26,23 +46,36 @@
                     <a href="../pages_menu/privacy.html">privacy notice</a>
                     <a href="../pages_menu/up_email.html">up email</a>
                     <a href="../pages_menu/faq.html">faq</a>
-                  </div>
+                </div>
             </div>
 
+    <<<<<<< Updated upstream
+                <div class="dropdown">
+                    <p>student info</p>
+                    <div class="dropdown_content">
+                        <!--
+                        <a href="sdis.html">sdis</a>
+                        -->
+                        <a href="">prospectus & grades</a>
+                        <!--
+                        <a href="sched.html">class schedule</a>
+                        <a href="residency.html">residency</a>
+                        <a href="matric.html">matriculation</a>
+                        -->
+                        <a href="calendar.html">personal calendar</a>
+                    </div>
+    =======
             <div class="dropdown">
                 <p>student info</p>
                 <div class="dropdown_content">
-                    <!--
                     <a href="sdis.html">sdis</a>
-                    -->
                     <a href="">prospectus & grades</a>
-                    <!--
                     <a href="sched.html">class schedule</a>
                     <a href="residency.html">residency</a>
                     <a href="matric.html">matriculation</a>
-                    -->
                     <a href="calendar.html">personal calendar</a>
-                  </div>
+    >>>>>>> Stashed changes
+                </div>
             </div>
 
             <div class="dropdown">
@@ -50,7 +83,7 @@
                 <div class="dropdown_content">
                     <a href="../pages_account/pwchange.html">change password</a>
                     <a href="../mainpage.html">log out</a>
-                  </div>
+                </div>
             </div>
 
         </nav>
@@ -59,11 +92,24 @@
             <img id="logo" src="logo_upmin_2.png">
             <h1 style="flex-grow: 1; color: #EBEBEB;"> UPMIN CSRS </h1>
         </header>
-        
-        <div class="solo">
-            <div>
-                <h1>PROSPECTUS AND GRADES</h1>
-                <p>This page is under maintenance</p>
+
+
+        <div class="center_container" style="margin-top: 2%;">
+            <h1 style="align-self: flex-start; margin-left: 5%;">PROSPECTUS DOCUMENTS</h1>
+            <div style="width: 90%">
+
+                <h2>College of Humanities and Social Sciences</h2>
+                <div class="link_container">
+                    <a href="prospectus_pdfs\BA_Anthropology.pdf">BS Anthropology</a>
+                    <a href="prospectus_pdfs\BS_Architecture.pdf">BS Architecture</a>
+                    <!-- <a>BA Communication and Media Arts</a> -->
+                    <a href="prospectus_pdfs\BA_English_Creative_Writing.pdf">BA English</a>
+                    <!-- <a>Diploma in Exercise and Sports Science</a>
+                    <a>Diploma/Master in Urban and Regional Planning</a>
+                    <a>Bachelor of Sports Science</a>
+                    <a>Associate in Arts in Sports Studies</a>
+                    <a>Associate in Arts in Sports Studies</a> -->
+                </div>
             </div>
         </div>
 
