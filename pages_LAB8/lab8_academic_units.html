@@ -1,0 +1,90 @@
+<html lang="en">
+
+<head>
+    <title>LAB 8 JQUERY ASSIGNMENT</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="..\stylesheet.css">
+    <link rel="shortcut icon" href="..\favicon.ico">
+    <script src="..\jquery-3.6.4.js"></script>
+    <link rel="stylesheet" href="..\jquery-ui.css">
+    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">-->
+    </script>
+    <script>
+        $(function () {
+            $( "#college_menu" ).selectmenu();
+        });
+    </script>
+    <style>
+        .temp_a {
+            text-decoration: none;
+            color: #EBEBEB;
+            position: relative;
+            top: 43%;
+        }
+        fieldset {
+            border: 0;
+        }
+        label {
+          display: block;
+          margin: 30px 0 0 0;
+        }
+        .overflow {
+          height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img id="logo" src="..\logo_upmin_2.png">
+        <h1 style="flex-grow: 1; color: #EBEBEB;"> CMSC126 LAB 8 </h1>
+
+        <div class="dropdown">
+            <a class="temp_a" href="lab8_homepage.html">home</a>
+        </div>
+
+        <div id="wearehere">
+            <p>academic units</p>
+        </div>
+
+        <div class="dropdown">
+            <a class="temp_a" href="lab8_academic_programs">academic programs</a>
+        </div>
+
+        <div class="dropdown">
+            <a class="temp_a" href="lab8_signup">sign up</a>
+        </div>
+
+    </nav>
+
+    <header>
+        <img id="logo" src="logo_upmin_2.png">
+        <h1 style="flex-grow: 1; color: #EBEBEB;"> UPMIN CSRS </h1>
+    </header>
+
+    <!-- picture -->
+    <div class="img_container">
+        <img src="..\header_upmin.jpg" class="header_img">
+        <div class="text_box">
+            <h1>CMSC128 LAB 8</h1>
+            <h2>jQuery Programming Assignment 1</h2>
+        </div>
+    </div>
+
+    <div class="center_container">
+        <div style="width: 90%; margin: 1%;">
+            <label for="college_menu">Select College</label>
+            <select id="college_menu", name="college_menu">
+                <option>College of Humanities and Social Science</option>
+                <option>College of Science and Mathematics</option>
+                <option>School of Management</option>
+            </select>
+        </div>
+    </div>
+
+    <footer class="mainpage_footer">
+        <p>Copyright © 2022 NALASA PLARIZA</p>
+    </footer>
+</body>
+
+</html>
