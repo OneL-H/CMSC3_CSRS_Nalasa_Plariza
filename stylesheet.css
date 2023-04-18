@@ -300,6 +300,10 @@ footer {
     margin: 0.5%;
 }
 
+.password_change label{
+    color: white;
+}
+
 .embed_pdf {
     width: 90%;
     height: 100%;

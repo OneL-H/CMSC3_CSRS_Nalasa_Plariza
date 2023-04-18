@@ -7,17 +7,13 @@
     <link rel="shortcut icon" href="..\favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="..\jquery-ui-1.13.2.custom\jquery-ui.css"">
+    <link rel="stylesheet" href="..\jquery-ui-1.13.2.custom\jquery-ui.css">
     <script>
-        $(function () {
-            $("#college_menu").selectmenu({
-                select : function( event, ui ){
-                    var selected = $("#college_menu option:selected").val();
-                    open(selected);
-                }
+        $(function(){
+            $( "#acad_programs" ).accordion({
+                collapsible: true
             });
         });
-        // "a page will open"
     </script>
     <style>
         .temp_a {
@@ -76,14 +72,11 @@
     </div>
 
     <div class="center_container">
-        <div style="width: 90%; margin: 1%;">
-            <label for="college_menu">Select College</label>
-            <select id="college_menu", name="college_menu">
-                <option value="college_webpages\lab8_chss.html">College of Humanities and Social Science</option>
-                <option value="college_webpages\lab8_csm.html">College of Science and Mathematics</option>
-                <option value="college_webpages\lab8_som.html">School of Management</option>
-            </select>
-            <p id="shit">changes when you select the thing.</p>
+        <div id="acad_programs" style="width: 80%; margin: 1%;">
+            <h3>le mathematics</h3>
+            <div> <p> its about the maths </p> </div>
+            <h3>le sciences</h3>
+            <div> <p> its about the sciences </p> </div>
         </div>
     </div>
 
