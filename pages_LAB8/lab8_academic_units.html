@@ -9,15 +9,16 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="..\jquery-ui-1.13.2.custom\jquery-ui.css"">
     <script>
+        // targets the college menu to turn it into a select menu
         $(function () {
             $("#college_menu").selectmenu({
-                select : function( event, ui ){
-                    var selected = $("#college_menu option:selected").val();
-                    open(selected);
-                }
-            });
-        });
-        // "a page will open"
+                // triggers when a choice is selected
+                select: function (event, ui) {
+                    // opens the url contained at the value of the selected option under the selectmenu
+                    open($("#college_menu option:selected").val())
+                } 
+            }); 
+        }); // "a page will open" 
     </script>
     <style>
         .temp_a {
@@ -26,15 +27,13 @@
             position: relative;
             top: 43%;
         }
+
         fieldset {
             border: 0;
         }
-        label {
-          display: block;
-          margin: 30px 0 0 0;
-        }
+
         .overflow {
-          height: 200px;
+            height: 200px;
         }
     </style>
 </head>
@@ -53,11 +52,11 @@
         </div>
 
         <div class="dropdown">
-            <a class="temp_a" href="lab8_academic_programs">academic programs</a>
+            <a class="temp_a" href="lab8_academic_programs.html">academic programs</a>
         </div>
 
         <div class="dropdown">
-            <a class="temp_a" href="lab8_signup">sign up</a>
+            <a class="temp_a" href="lab8_signup.html">sign up</a>
         </div>
     </nav>
 
@@ -77,13 +76,15 @@
 
     <div class="center_container">
         <div style="width: 90%; margin: 1%;">
-            <label for="college_menu">Select College</label>
-            <select id="college_menu", name="college_menu">
-                <option value="college_webpages\lab8_chss.html">College of Humanities and Social Science</option>
-                <option value="college_webpages\lab8_csm.html">College of Science and Mathematics</option>
-                <option value="college_webpages\lab8_som.html">School of Management</option>
-            </select>
-            <p id="shit">changes when you select the thing.</p>
+            <h3>Academic Units</h3>
+            <div style="display: flex; align-items: center;">
+                <label for="college_menu" style="margin: 1%">Select College</label>
+                <select id="college_menu", name="college_menu" style="margin: 1%;">
+                    <option value="college_webpages\lab8_chss.html">College of Humanities and Social Science</option>
+                    <option value="college_webpages\lab8_csm.html">College of Science and Mathematics</option>
+                    <option value="college_webpages\lab8_som.html">School of Management</option>
+                </select>
+            </div>
         </div>
     </div>
 
