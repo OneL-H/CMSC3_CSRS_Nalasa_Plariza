@@ -74,13 +74,53 @@
     </div>
 
     <form class="border border-body rounded rounded-2 p-3 m-2">
-        <h2 class="">Student Registration</h2>
-        <div class="row row-cols-2">
-            <div class="w-25 input-group">
-                <input type="text" class="form-control" placeholder="Student Number - Year" aria-label="Student Number - Year">
-                <span class="input-group-text">-</span>
-                <input type="text" class="form-control" placeholder="Student Number - Number" aria-label="Student Number - Number">
-            </div>              
+        <h2 class="">Student Record Creation</h2>
+        <div class="">
+            <div class="row m-1">
+                <div class="col-1">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="year_level">
+                        <label for="SN_number">Yr. Level</label>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="input-group">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="SN_year" name="SN_year" placeholder="Student Number - Year" aria-label="Student Number - Year">
+                            <label for="SN_year">Student Number (Year)</label>
+                        </div>
+                        <span class="input-group-text">-</span>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="SN_number" name="SN_number" placeholder="Student Number - Number" aria-label="Student Number - Number">
+                            <label for="SN_number">Student Number (Number)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-2 row g-1 align-items-center">
+                <div class="col-2 form-floating">
+                    <input type="text" class="form-control" id="last_name" name="last_name">
+                    <label for="last_name">Last Name</label>
+                </div>
+                <div class="col-3 form-floating">
+                    <input type="text" class="form-control" id="first_name" name="first_name">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="col-2 form-floating">
+                    <input type="text" class="form-control" id="middle_name" name="middle_name">
+                    <label for="middle_name">Middle Name</label>
+                </div>
+            </div>
+            <div class="row g-1 m-2">
+                <div class="col-3 form-floating">
+                    <input type="password" class="form-control" id="password_initial" name="password_initial">
+                    <label for="password_initial">Password</label>
+                </div>
+                <div class="col-3 form-floating">
+                    <input type="password" class="form-control" id="password_confirm" name="password_confirm">
+                    <label for="password_confirm">Confirm Password</label>
+                </div>
+            </div>
         </div>
     </form>
 
