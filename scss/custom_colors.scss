@@ -1,0 +1,14 @@
+$primary: #7B1113;
+$secondary: #014421;
+
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$custom-colors: (
+  "rad": #900
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+@import "../node_modules/bootstrap/scss/bootstrap";

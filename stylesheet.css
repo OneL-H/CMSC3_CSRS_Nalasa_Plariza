@@ -153,6 +153,7 @@ div.announcements>div:hover, div.sidebar>div:hover, div.solo>div:hover {
     box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
 }
 
+
 div.announcements {
     width: 65%;
     float: left;
@@ -160,13 +161,15 @@ div.announcements {
     color: #014421;
 }
 
+
 div.sidebar {
     width: 30%;
     float: right;
     margin-right: 1.5%;
-    color: #014421;
     position: relative;
     top: 26px;
+    color: #014421;
+    
 }
 
 div h1 {
