@@ -61,7 +61,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false" href="#">Account</button>
                             <ul class="dropdown-menu dropdown-menu-start w-auto p-1">
                                 <li><a href="pages_account/pwchange.php">change password</a></li>
-                                <li><a href="mainpage.php">log out</a></li>
+                                <li><a href="logout.php">log out</a></li>
                             </ul>
                         </div>
                     </div>

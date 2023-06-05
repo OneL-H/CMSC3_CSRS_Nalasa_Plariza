@@ -1,3 +1,39 @@
+<?php
+    session_start();
+    $error = "";
+        
+    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+        header("location: mainpage.php");
+        exit;
+    }
+
+    if (isset($_POST['change'])) {
+        $mysqli = new mysqli("localhost", "root", "", "csrs");
+
+        if (mysqli_connect_errno()) {
+            echo "failed connection: " . mysqli_connect_error();
+            exit();
+        }
+
+        $query = "SELECT `password` FROM student_info WHERE stud_num = '{$_SESSION["studentnumber"]}'";
+        $result = $mysqli -> query($query);
+        $oldpw = $result -> fetch_assoc();
+
+        if ($oldpw["password"] === $_POST["oldPassword"]) {
+            if (!empty($_POST["newPassword"]) == true or !empty($_POST["confirmPassword"]) == true) {
+                if ($_POST["newPassword"] === $_POST["confirmPassword"]) {
+                    $query = "UPDATE student_info SET `password` = '{$_POST["newPassword"]}' WHERE stud_num = '{$_SESSION["studentnumber"]}'";
+                    $mysqli -> query($query);
+                    header('location: ../mainpage.php');
+                    exit;
+                } else $error = "Confirm does not match new password.<br/><br/>";
+            } else $error = "Blank passwords are invalid.<br/><br/>";
+        } else $error = "Wrong password.<br/><br/>";
+        
+    }
+?>
+
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>UP Mindanao CSRS Website</title>
@@ -63,16 +99,16 @@
         
         <div id="space"></div>
 
-        <form class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-50 mx-auto" action="../mainpage.php">
-            <h2>Password Change</h2>
+        <form method="POST" class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-50 mx-auto">
+            <h2>Password Change for <?php echo htmlspecialchars($_SESSION["studentnumber"]) ?></h2>
             <input class="form-control" id="oldPassword" name="oldPassword" type="password">
             <label class="form-text mb-2" for="oldPassword">Old Password</label>
             <input class="form-control" id="newPassword" name="newPassword" type="password">
             <label class="form-text mb-2" for="newPassword">New Password</label>
             <input class="form-control" id="confirmPassword" name="confirmPassword" type="password">
-            <label class="form-text mb-4" for="confirmPassword">Confirm Password</label><br>
-            <button class="btn btn-secondary">Submit</button>
-                
+            <label class="form-text mb-4" for="confirmPassword">Confirm Password</label>
+            <br><span class="form-text mb-4 text-danger"><?php echo $error; ?></span>
+            <button class="btn btn-secondary" name="change">Submit</button>
         </form>
 
         <script src="../popper.min.js"></script>
