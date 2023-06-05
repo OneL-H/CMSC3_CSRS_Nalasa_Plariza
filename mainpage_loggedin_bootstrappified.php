@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    
+    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+        header("location: mainpage.php");
+        exit;
+    }
+?>
+
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>UP Mindanao CSRS Website</title>
@@ -172,12 +182,8 @@
                 </div>
 
                 <div class="sidebar col-4 ">
-
-                    <?php
-                        if (isset($_POST['login'])) {
-                            echo "<h1 id=\"personalannouncements\">Welcome back, (fname)!</h4>";
-                        }
-                    ?>
+                
+                    <h1 id=personalannouncements>Welcome back, <?php echo htmlspecialchars($_SESSION["studentnumber"]) ?>!</h4>
 
                     <div class="afterh1">
                         <h1>Announcement 1</h1>

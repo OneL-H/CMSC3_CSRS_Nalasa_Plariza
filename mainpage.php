@@ -1,3 +1,33 @@
+<?php
+    $error = "";
+    if (isset($_POST['login'])) {
+        $sn = $_POST['studentNumber'];
+        $pw = $_POST['studentPassword'];
+        $mysqli = new mysqli("localhost", "root", "", "csrs");
+
+        if (mysqli_connect_errno()) {
+            echo "failed connection: " . mysqli_connect_error();
+            exit();
+        }
+
+        $query = "SELECT * FROM student_info";
+
+        if ($result = $mysqli -> query($query)) {
+            while ($row = $result -> fetch_assoc()) {
+                if ($sn == $row["stud_num"] && $pw == $row["password"]) {
+                    session_start();
+                    $_SESSION["studentnumber"] = $sn;
+                    $_SESSION["loggedin"] = true;
+                    header('location: mainpage_loggedin_bootstrappified.php');
+                }
+
+                else $error = "login failed";
+            }
+        }
+    }
+?>
+
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>UP Mindanao CSRS Website</title>
@@ -21,7 +51,10 @@
                     UPMIN CSRS
                 </a>
                 <div class="navbar-collapse justify-content-end" id="">
-                    <form method="POST" class="row m-2" action="mainpage_loggedin_bootstrappified.php">
+                    <form method="POST" class="row m-2">
+                        <div class="col-auto">
+                            <span><?php echo $error; ?></span>
+                        </div>
                         <div class="col-auto">
                             <label class="visually-hidden" for="studentNumber">Student Number</label>
                             <input type="text" class="form-control form-control-sm" id="studentNumber" name="studentNumber" placeholder="Student Number">

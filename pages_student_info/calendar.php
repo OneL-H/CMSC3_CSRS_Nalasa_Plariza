@@ -28,7 +28,7 @@
                             </form>
                         </div>
                         <div class="dropdown col-3">
-                            <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle active"
+                            <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false" href="#">Sections</button>
                             <ul class="dropdown-menu dropdown-menu-start w-auto p-1">
                                 <li><a href="../pages_student/about.php">about</a></li>
@@ -38,7 +38,7 @@
                             </ul>
                         </div>
                         <div class="dropdown col-3">
-                            <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
+                            <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle active"
                                 data-bs-toggle="dropdown" aria-expanded="false" href="#">Student Info</button>
                             <ul class="dropdown-menu dropdown-menu-start w-auto p-1">
                                 <li><a href="sdis.php">sdis</a></li>
