@@ -4,22 +4,37 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="stylesheet.css">
         <link rel="shortcut icon" href="favicon.ico">
+
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link href="scss/custom_colors.css" rel="stylesheet">
     </head>
 
     <body>
-        <header>
-            <img id="logo" src="logo_upmin_2.png">
-            <h1 style="flex-grow: 1; color: #EBEBEB;"> UPMIN CSRS </h1>
-            <div class="header_login">
-                <form>
-                    <label for="student_id" style="padding-right: 3px;">STUDENT ID</label>
-                    <input type="text" id="student_id" name="student_id">
-                    <label for="student_password" style="padding: 0 3px 0 12px;">PASSWORD</label>
-                    <input type="password" id="student_password" name="student_password">
-                    <a href="mainpage_loggedin.html" style="padding-left: 12px;"><button type="button">Log In</button></a>
-                </form>
+        <!--navbar, not logged in-->
+        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top" style="width: 97%">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white" href="#">
+                    <img src="logo_upmin_2.png" id="logo" alt="Logo" width="30" height="30"
+                        class="d-inline-block align-text-top">
+                    UPMIN CSRS
+                </a>
+                <div class="navbar-collapse justify-content-end" id="">
+                    <form method="POST" class="row m-2" action="mainpage_loggedin_bootstrappified.php">
+                        <div class="col-auto">
+                            <label class="visually-hidden" for="studentNumber">Student Number</label>
+                            <input type="text" class="form-control form-control-sm" id="studentNumber" name="studentNumber" placeholder="Student Number">
+                        </div>
+                        <div class="col-auto">
+                            <label class="visually-hidden" for="studentPassword">Password</label>
+                            <input type="password" class="form-control form-control-sm" id="studentPassword" name="studentPassword" placeholder="Password"> 
+                        </div>
+                        <button type="submit" name="login" class="col-auto btn btn-secondary btn-sm">Log In</button>
+                    </form>
+                </div>
             </div>
-        </header>
+        </nav>
 
         <!-- picture -->
         <div class="img_container">
@@ -180,5 +195,8 @@
             </footer>
 
         </div>
+
+        <script src="popper.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
 </html>

@@ -18,10 +18,10 @@
             <div class="dropdown">
                 <p>sections</p>
                 <div class="dropdown_content">
-                    <a href="pages_menu/about.html">about</a>
-                    <a href="pages_menu/privacy.html">privacy notice</a>
-                    <a href="pages_menu/up_email.html">up email</a>
-                    <a href="pages_menu/faq.html">faq</a>
+                    <a href="pages_menu/about.php">about</a>
+                    <a href="pages_menu/privacy.php">privacy notice</a>
+                    <a href="pages_menu/up_email.php">up email</a>
+                    <a href="pages_menu/faq.php">faq</a>
                   </div>
             </div>
 
@@ -29,23 +29,23 @@
                 <p>student info</p>
                 <div class="dropdown_content">
                     <!--
-                    <a href="pages_student_info/sdis.html">sdis</a>
+                    <a href="pages_student_info/sdis.php">sdis</a>
                     -->
-                    <a href="pages_student_info/prospectus.html">prospectus & grades</a>
+                    <a href="pages_student_info/prospectus.php">prospectus & grades</a>
                     <!--
-                    <a href="pages_student_info/sched.html">class schedule</a>
-                    <a href="pages_student_info/residency.html">residency</a>
-                    <a href="pages_student_info/matric.html">matriculation</a>
+                    <a href="pages_student_info/sched.php">class schedule</a>
+                    <a href="pages_student_info/residency.php">residency</a>
+                    <a href="pages_student_info/matric.php">matriculation</a>
                     -->
-                    <a href="pages_student_info/calendar.html">personal calendar</a>
+                    <a href="pages_student_info/calendar.php">personal calendar</a>
                   </div>
             </div>
 
             <div class="dropdown">
                 <p>account</p>
                 <div class="dropdown_content">
-                    <a href="pages_account/pwchange.html">change password</a>
-                    <a href="mainpage.html">log out</a>
+                    <a href="pages_account/pwchange.php">change password</a>
+                    <a href="mainpage.php">log out</a>
                   </div>
             </div>
 

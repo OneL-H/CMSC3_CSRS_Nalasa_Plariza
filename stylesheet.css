@@ -87,8 +87,6 @@ div.dropdown>p, nav>div#wearehere>p {
     z-index: 1;
 }
 
-div.dropdown:hover {background-color: #6e1517;}
-
 .dropdown_content {
     display: none;
     position: absolute;
@@ -311,3 +309,5 @@ footer {
 a.disabled {
     pointer-events: none;
 }
+
+#space {height: 9vh;}
