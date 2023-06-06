@@ -30,7 +30,7 @@
                         <div class="dropdown col-3">
                             <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false" href="#">Sections</button>
-                            <ul class="dropdown-menu dropdown-menu-start w-auto p-1">
+                            <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="../pages_student/about.php">about</a></li>
                                 <li><a href="../pages_student/privacy.php">privacy notice</a></li>
                                 <li><a href="../pages_student/up_email.php">up email</a></li>
@@ -39,8 +39,9 @@
                         </div>
                         <div class="dropdown col-3">
                             <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle active"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">Student Info</button>
-                            <ul class="dropdown-menu dropdown-menu-start w-auto p-1">
+                                data-bs-toggle="dropdown" aria-expanded="false" href="#">Student</button>
+                            <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
+                                <li><a href="info.php">student info</a></li>
                                 <li><a href="sdis.php">sdis</a></li>
                                 <li><a href="prospectus.php">prospectus & grades</a></li>
                                 <li><a href="sched.php">class schedule</a></li>
@@ -52,7 +53,7 @@
                         <div class="dropdown col-3">
                             <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false" href="#">Account</button>
-                            <ul class="dropdown-menu dropdown-menu-start w-auto p-1">
+                            <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="../pages_account/pwchange.php">change password</a></li>
                                 <li><a href="../mainpage.php">log out</a></li>
                             </ul>

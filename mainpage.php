@@ -18,6 +18,7 @@
                     session_start();
                     $_SESSION["studentnumber"] = $sn;
                     $_SESSION["loggedin"] = true;
+                    $_SESSION["error"] = "";
                     header('location: mainpage_loggedin_bootstrappified.php');
                 }
 

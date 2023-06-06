@@ -5,6 +5,24 @@
         header("location: mainpage.php");
         exit;
     }
+
+    $mysqli = new mysqli("localhost", "root", "", "csrs");
+
+    if (mysqli_connect_errno()) {
+        echo "failed connection: " . mysqli_connect_error();
+        exit();
+    }
+
+    $query = "SELECT * FROM student_info WHERE stud_num = '{$_SESSION["studentnumber"]}'";
+
+    if ($result = $mysqli -> query($query)) {
+        while ($row = $result -> fetch_assoc()) {
+            if ($row["didILoginForTheFirstTime"] == 1) {
+                $_SESSION["note"] = "firstLogin";
+                header('location: pages_student_info/infochange.php');
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +55,7 @@
                         <div class="dropdown col-3">
                             <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false" href="#">Sections</button>
-                            <ul class="dropdown-menu dropdown-menu-start w-auto p-1">
+                            <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="pages_menu/about.php">about</a></li>
                                 <li><a href="pages_menu/privacy.php">privacy notice</a></li>
                                 <li><a href="pages_menu/up_email.php">up email</a></li>
@@ -46,8 +64,9 @@
                         </div>
                         <div class="dropdown col-3">
                             <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">Student Info</button>
-                            <ul class="dropdown-menu dropdown-menu-start w-auto p-1">
+                                data-bs-toggle="dropdown" aria-expanded="false" href="#">Student</button>
+                            <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
+                                <li><a href="pages_student_info/info.php">student info</a></li>
                                 <li><a href="pages_student_info/sdis.php">sdis</a></li>
                                 <li><a href="pages_student_info/prospectus.php">prospectus & grades</a></li>
                                 <li><a href="pages_student_info/sched.php">class schedule</a></li>
@@ -59,7 +78,7 @@
                         <div class="dropdown col-3">
                             <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false" href="#">Account</button>
-                            <ul class="dropdown-menu dropdown-menu-start w-auto p-1">
+                            <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="pages_account/pwchange.php">change password</a></li>
                                 <li><a href="logout.php">log out</a></li>
                             </ul>
