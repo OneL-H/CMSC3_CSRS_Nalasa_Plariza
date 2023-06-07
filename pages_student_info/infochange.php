@@ -10,7 +10,8 @@
     */
     $mysqli = new mysqli("localhost", "root", "", "csrs");
 
-    if (isset($_POST['send'])) {
+    $sendBtnValue = $_POST["send"];
+    if (isset($sendBtnValue)) {
         if (mysqli_connect_errno()) {
             echo "failed connection: " . mysqli_connect_error();
             exit();
@@ -53,7 +54,7 @@
         <a class="fixed-top btn btn-primary m-3" style="width: 5%" href="../mainpage_loggedin_bootstrappified.php">Back</a>
 
         <div class="position-absolute row w-100 h-100">
-            <form method="POST" class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto was-validated">
+            <form method="POST" action="infochange.php" class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto was-validated">
                 <div class="container py-2">
                     <div class="row">
                         <div class="col-sm">
@@ -146,7 +147,7 @@
 
                     <div class="row">
                         <div class="col-sm">
-                            <button class="btn btn-secondary" name="send">Submit</button>
+                            <button type="submit" class="btn btn-secondary" value="sneed "name="send">Submit</button>
                         </div>
                     </div>
                 </div>

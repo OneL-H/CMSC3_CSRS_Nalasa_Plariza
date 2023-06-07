@@ -9,7 +9,8 @@
 
     $mysqli = new mysqli("localhost", "root", "", "csrs");
 
-    if (isset($_POST['change'])) {
+    $changeBtnValue = $_POST["change"];
+    if (isset($changeBtnValue)) {
         if (mysqli_connect_errno()) {
             echo "failed connection: " . mysqli_connect_error();
             exit();
@@ -53,7 +54,7 @@
         </form>
 
         <div class="position-absolute row w-100 h-100">
-            <form method="POST" class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-50 mx-auto my-auto">
+            <form method="POST" action="pwchange.php" class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-50 mx-auto my-auto">
                 <h2>Password Change for <?php echo htmlspecialchars($_SESSION["studentnumber"]) ?></h2>
                 <input class="form-control" id="oldPassword" name="oldPassword" type="password">
                 <label class="form-text mb-2" for="oldPassword">Old Password</label>
@@ -62,7 +63,7 @@
                 <input class="form-control" id="confirmPassword" name="confirmPassword" type="password">
                 <label class="form-text mb-4" for="confirmPassword">Confirm Password</label>
                 <br><span class="form-text mb-4 text-danger"><?php echo $error; ?></span>
-                <button class="btn btn-secondary" name="change">Submit</button>
+                <button type="submit" class="btn btn-secondary" value="feed" name="change">Submit</button>
             </form>
         </div>
 
