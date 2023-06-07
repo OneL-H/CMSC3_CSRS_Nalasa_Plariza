@@ -15,13 +15,19 @@
 
     $query = "SELECT * FROM student_info WHERE stud_num = '{$_SESSION["studentnumber"]}'";
 
-    if ($result = $mysqli -> query($query)) {
-        while ($row = $result -> fetch_assoc()) {
-            if ($row["didILoginForTheFirstTime"] == 1) {
-                $_SESSION["note"] = "firstLogin";
-                header('location: pages_student_info/infochange.php');
-            }
-        }
+    $result = $mysqli -> query($query);
+    $data = $result -> fetch_assoc();
+
+    $yr = mb_substr($_SESSION["studentnumber"], 0, 4);
+    $aystart = 2022;
+    $yr = $aystart - $yr + 1;
+    $query = "UPDATE student_info SET `yearlevel` = $yr WHERE stud_num = '{$_SESSION["studentnumber"]}'";
+    
+    $mysqli -> query($query);
+
+    if ($data["didILoginForTheFirstTime"] == 1) {
+        $_SESSION["note"] = "firstLogin";
+        header('location: pages_student_info/infochange.php');
     }
 ?>
 
@@ -64,9 +70,9 @@
                         </div>
                         <div class="dropdown col-3">
                             <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">Student</button>
+                                data-bs-toggle="dropdown" aria-expanded="false" href="#">Student Info</button>
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
-                                <li><a href="pages_student_info/info.php">student info</a></li>
+                                <li><a href="pages_student_info/info.php">student details</a></li>
                                 <li><a href="pages_student_info/sdis.php">sdis</a></li>
                                 <li><a href="pages_student_info/prospectus.php">prospectus & grades</a></li>
                                 <li><a href="pages_student_info/sched.php">class schedule</a></li>
@@ -202,7 +208,7 @@
 
                 <div class="sidebar col-4 ">
                 
-                    <h1 id=personalannouncements>Welcome back, <?php echo htmlspecialchars($_SESSION["studentnumber"]) ?>!</h4>
+                    <h1 id="personalannouncements">Hello, <?php echo $data["fname"] ?>!</h4>
 
                     <div class="afterh1">
                         <h1>Announcement 1</h1>

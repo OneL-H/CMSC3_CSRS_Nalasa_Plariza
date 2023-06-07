@@ -39,9 +39,9 @@
                         </div>
                         <div class="dropdown col-3">
                             <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">Student</button>
+                                data-bs-toggle="dropdown" aria-expanded="false" href="#">Student Info</button>
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
-                                <li><a href="../pages_student_info/info.php">student info</a></li>
+                                <li><a href="../pages_student_info/info.php">student details</a></li>
                                 <li><a href="../pages_student_info/sdis.php">sdis</a></li>
                                 <li><a href="../pages_student_info/prospectus.php">prospectus & grades</a></li>
                                 <li><a href="../pages_student_info/sched.php">class schedule</a></li>

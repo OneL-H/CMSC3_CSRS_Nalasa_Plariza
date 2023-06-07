@@ -8,14 +8,12 @@
     }
 
     $mysqli = new mysqli("localhost", "root", "", "csrs");
+    if (mysqli_connect_errno()) {
+        echo "failed connection: " . mysqli_connect_error();
+        exit();
+    }
 
-    $changeBtnValue = $_POST["change"];
-    if (isset($changeBtnValue)) {
-        if (mysqli_connect_errno()) {
-            echo "failed connection: " . mysqli_connect_error();
-            exit();
-        }
-
+    if (isset($_POST["change"])) {
         $query = "SELECT `password` FROM student_info WHERE stud_num = '{$_SESSION["studentnumber"]}'";
         $result = $mysqli -> query($query);
         $oldpw = $result -> fetch_assoc();
