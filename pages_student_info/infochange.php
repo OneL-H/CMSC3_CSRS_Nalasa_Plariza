@@ -2,14 +2,15 @@
     session_start();
     $error = "";
         
+    /*
     if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-        header("location: mainpage.php");
+        header("location: ../mainpage.php");
         exit;
     }
+    */
+    $mysqli = new mysqli("localhost", "root", "", "csrs");
 
-    if (isset($_POST['change'])) {
-        $mysqli = new mysqli("localhost", "root", "", "csrs");
-
+    if (isset($_POST['send'])) {
         if (mysqli_connect_errno()) {
             echo "failed connection: " . mysqli_connect_error();
             exit();
@@ -19,8 +20,16 @@
         $result = $mysqli -> query($query);
         $data = $result -> fetch_assoc();
 
-        $data['fname'];
-        
+        $data['fname'] = $_POST['firstName'];
+        $data['mname'] = $_POST['middleName'];
+        $data['lname'] = $_POST['lastName'];
+        $data['address1'] = $_POST['address1'];
+        $data['address2'] = $_POST['address2'];
+        $data['bdate'] = $_POST['birthdate'];
+        $data['college'] = $_POST['college'];
+        $data['degprog'] = $_POST['degreeProgram'];
+        $data['sex'] = $_POST['sex'];
+        $data['didILoginForTheFirstTime'] = 1;
     }
 ?>
 
@@ -40,25 +49,24 @@
 
     <body>
         
-        <form action="../mainpage_loggedin_bootstrappified.php" <?php if ($_SESSION["note"] == "firstLogin") echo "style=\"display: none\""?> >
-            <button class="fixed-top btn btn-primary m-3" style="width: 5%" href="../mainpage_loggedin_bootstrappified.php">Back</button>
-        </form>
+        
+        <a class="fixed-top btn btn-primary m-3" style="width: 5%" href="../mainpage_loggedin_bootstrappified.php">Back</a>
 
         <div class="position-absolute row w-100 h-100">
             <form method="POST" class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto was-validated">
                 <div class="container py-2">
                     <div class="row">
                         <div class="col-sm">
-                        <?php
-                            if ($_SESSION["note"] == "firstLogin") {
-                                echo "<h2 class=\"mb-3\">This is your first time logging in! Please enter your student details.</h2>";
-                            }
-                            else {
-                                echo "<h2 class=\"mb-3\">Change Info for ";
-                                echo htmlspecialchars($_SESSION["studentnumber"]);
-                                echo "</h2>";
-                            }
-                        ?>
+                            <?php
+                                if ($_SESSION["note"] == "firstLogin") {
+                                    echo "<h2 class=\"mb-3\">This is your first time logging in! Please enter your student details.</h2>";
+                                }
+                                else {
+                                    echo "<h2 class=\"mb-3\">Change Info for ";
+                                    echo htmlspecialchars($_SESSION["studentnumber"]);
+                                    echo "</h2>";
+                                }
+                            ?>
                         </div>
                     </div>
                 
@@ -86,7 +94,7 @@
 
                     <div class="row">
                         <div class="col-sm">
-                            <input class="form-control is-invalid" id="address2" name="address2" type="text" required>
+                            <input class="form-control" id="address2" name="address2" type="text">
                             <label class="form-text mb-2" for="address2">Address Line 2</label>
                         </div>
                     </div>
@@ -102,7 +110,7 @@
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
-                            <label class="form-text mb-2" for="birthdate">Sex</label>
+                            <label class="form-text mb-2" for="sex">Sex</label>
                         </div>
                     </div>
 
@@ -133,14 +141,17 @@
                             <label class="form-text mb-2" for="degreeProgram">Degree Program</label>
                         </div>
                     </div>
+
+                    <br><span class="form-text mb-4 text-danger"><?php echo $error; ?></span>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <button class="btn btn-secondary" name="send">Submit</button>
+                        </div>
+                    </div>
                 </div>
-                    
-                <br><span class="form-text mb-4 text-danger"><?php echo $error; ?></span>
-                <button class="btn btn-secondary" name="change">Submit</button>
             </form>
         </div>
-
-        
 
         <script src="../popper.min.js"></script>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

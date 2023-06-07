@@ -7,9 +7,9 @@
         exit;
     }
 
-    if (isset($_POST['change'])) {
-        $mysqli = new mysqli("localhost", "root", "", "csrs");
+    $mysqli = new mysqli("localhost", "root", "", "csrs");
 
+    if (isset($_POST['change'])) {
         if (mysqli_connect_errno()) {
             echo "failed connection: " . mysqli_connect_error();
             exit();
@@ -29,7 +29,6 @@
                 } else $error = "Confirm does not match new password.<br/><br/>";
             } else $error = "Blank passwords are invalid.<br/><br/>";
         } else $error = "Wrong password.<br/><br/>";
-        
     }
 ?>
 
