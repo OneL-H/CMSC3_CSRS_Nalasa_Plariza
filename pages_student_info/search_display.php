@@ -103,6 +103,8 @@
             $query .= "college = 'SOM'";
         }
         
+        $query .= "ORDER BY `sex` DESC, `lname` ASC";
+        
         $result = $mysqli -> query($query);
     }
 ?>
@@ -180,6 +182,66 @@
                 if (mysqli_affected_rows($mysqli) == 0) { echo "<div class=\"w-75 mx-auto mt-4\"><h1>There are no records that match.</h1></div>";}
 
                 else {
+
+                    echo "<div class=\"border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto row-gap-2\">
+                        <h1>MATCHING RECORDS</h1>";
+                    while ($data = $result -> fetch_assoc()) {
+                        echo "
+                        <div class=\"row border border-1 rounded rounded-1 border-primary-subtle my-auto p-2 m-2\">
+                            <div class=\"d-flex align-items-end\">";
+    
+                        echo "<h2 class=\"m-1\">";
+                        echo $data["lname"] . ",";
+                        echo "</h2>";
+    
+                        echo "<h4 class=\"m-1\">";
+                        echo $data["fname"] . ", " . $data["mname"];
+                        echo "</h4>";
+    
+                        echo "<h6 class=\"m-1\">";
+                        echo "(" . $data["sex"] . ")";
+                        echo "</h6>";
+    
+                        echo "<h6 class=\"ms-auto\">";
+                        echo $data["stud_num"];
+                        echo "</h6>";
+    
+                        echo "</div>";
+                        echo "<hr class=\"text-black\" style=\"margin: 0.125% !important;\">";
+    
+                        echo "<div class=\"d-flex align-items-center justify-content-around\">";
+                    
+                        echo "<span class=\"m-1\">";
+                        echo $data["college"] . " - " . $data["degprog"];
+                        echo "</span>";
+    
+                        echo "<span class=\"m-1\">";
+                        echo "YEAR LEVEL: " . $data["yearlevel"];
+                        echo "</span>";
+    
+                        echo "<span class=\"m-1\">";
+                        echo "Units Enlisted: " . $data["units_enlisted"];
+                        echo "</span></div>
+                        
+                        <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
+                        <div class=\"row\">";
+    
+                        echo "<span>";
+                        echo "Birthdate: " . $data["bdate"];
+                        echo "</span>
+                        </div>
+                        <div class=\"row\">
+                        <span>";
+    
+                        echo $data["address1"];
+                        echo "</span></div><div class=\"row\"><span>";
+                        
+                        echo $data["address2"];
+                        echo "</span></div></div>";
+                    }
+                    echo "</div>";
+
+                    /*
                         echo "
                         <div class=\"w-75 mx-auto mt-4\"><h1>MATCHING RECORDS</h1>
                             <table class=\"table table-primary\">
@@ -218,6 +280,9 @@
                     }
 
                     echo "</tbody></table></div>";
+
+                    
+                */
                 }
             }  
         ?>
