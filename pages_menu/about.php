@@ -42,6 +42,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false" href="#">Student Info</button>
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="../pages_student_info/info.php">student details</a></li>
+                                <li><a href="../pages_student_info/student_search.php">record search</a></li>
                                 <li><a href="../pages_student_info/sdis.php">sdis</a></li>
                                 <li><a href="../pages_student_info/prospectus.php">prospectus & grades</a></li>
                                 <li><a href="../pages_student_info/sched.php">class schedule</a></li>
@@ -102,7 +103,7 @@
         </div>
         
         <footer>
-            <p>Copyright © 2022 NALASA PLARIZA</p>
+            <p>Copyright © 2023 NALASA PLARIZA</p>
         </footer>
 
         <script src="../popper.min.js"></script>

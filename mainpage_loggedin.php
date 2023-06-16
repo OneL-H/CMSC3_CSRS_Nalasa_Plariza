@@ -169,7 +169,7 @@
             </div>
             
             <footer class="mainpage_footer">
-            <p>Copyright © 2022 NALASA PLARIZA</p>
+            <p>Copyright © 2023 NALASA PLARIZA</p>
             </footer>
         </div>
 
