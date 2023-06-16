@@ -17,85 +17,85 @@
         if (isset($_POST['male'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "sex = 'M'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['female'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "sex = 'F'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['BACMA'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "degprog = 'BA Communication and Media Arts'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['BAE'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "degprog = 'BA English'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['ABE'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "degprog = 'BS Agribusiness Economics'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['ANTHRO'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "degprog = 'BS Anthropology'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['AMATH'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "degprog = 'BS Applied Mathematics'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['ARKI'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "degprog = 'BS Architecture'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['BIO'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "degprog = 'BS Biology'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['CS'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "degprog = 'BS Computer Science'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['FT'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "degprog = 'BS Food Technology'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['SS'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "degprog = 'BS Sports Science'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['CSM'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "college = 'CSM'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['CHSS'])) {
             if ($add_or == 1) $query .= " OR ";
             $query .= "college = 'CHSS'";
-            $or = 1;
+            $add_or = 1;
         }
 
         if (isset($_POST['SOM'])) {
