@@ -62,7 +62,7 @@
 
         <div id="space"></div>
         
-        <div class="border bg-light rounded p-4 m-4">
+        <div class="border bg-light rounded p-4 m-4 shadow-sm">
             <h1>ABOUT</h1>
             <div>
                 <p>The Computerized Student Records System (CSRS) is a project of the Information Technology Office through the initiative of Engr. Ronald A. Barriga (2005-2010 IT Director) under the University of the Philippines Mindanao Integrated Information Management System (UPMIIMS) project in 2006.

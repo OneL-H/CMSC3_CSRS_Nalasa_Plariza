@@ -90,11 +90,11 @@
                     <div class="accordion" id="ann1">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col1" aria-expanded="true" aria-controls="head1">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col1" aria-expanded="true" aria-controls="head1">
                                     <h1>ATTENTION: CONTINUING STUDENTS</h1>
                                 </button>
                             </h2>
-                            <div id="col1" class="accordion-collapse show" data-bs-parent="#ann1">
+                            <div id="col1" class="accordion-collapse show shadow-sm" data-bs-parent="#ann1">
                                 <div class="accordion-body">
                                     <p>You may directly go to <a href="https://bit.ly/RequestForStudentRecords2022">this link</a> for your
                                     requests on the following:</p>
@@ -111,11 +111,11 @@
                     <div class="accordion" id="ann2">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col2" aria-expanded="true" aria-controls="head2">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col2" aria-expanded="true" aria-controls="head2">
                                     <h1>ATTENTION: ALL STUDENTS</h1>
                                 </button>
                             </h2>
-                            <div id="col2" class="accordion-collapse show" data-bs-parent="#ann2">
+                            <div id="col2" class="accordion-collapse show shadow-sm" data-bs-parent="#ann2">
                                 <div class="accordion-body">
                                     <p>MIN STUD 1 (C) HAS BEEN DISSOLVED.</p>
                                 </div>
@@ -126,11 +126,11 @@
                     <div class="accordion" id="ann3">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col3" aria-expanded="true" aria-controls="head2">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col3" aria-expanded="true" aria-controls="head2">
                                     <h1>ATTENTION: ALL STUDENTS</h1>
                                 </button>
                             </h2>
-                            <div id="col3" class="accordion-collapse show" data-bs-parent="#ann3">
+                            <div id="col3" class="accordion-collapse show shadow-sm" data-bs-parent="#ann3">
                                 <div class="accordion-body">
                                     <p>PLEASED BE INFORMED THAT THE FOLLOWING SECIONS IN PE 1 HAS BEEN DISSOLVED: PE 1 (F), PE 1 (G), PE 1 (GH)
                                 and PE 1 (WX)</p>
@@ -142,11 +142,11 @@
                     <div class="accordion" id="ann4">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col4" aria-expanded="true" aria-controls="head2">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col4" aria-expanded="true" aria-controls="head2">
                                     <h1>NEW SECTIONS</h1>
                                 </button>
                             </h2>
-                            <div id="col4" class="accordion-collapse show" data-bs-parent="#ann4">
+                            <div id="col4" class="accordion-collapse show shadow-sm" data-bs-parent="#ann4">
                                 <div class="accordion-body">
                                     <p>The following PE sections have been approved:</p>
                                         <ul>
@@ -166,11 +166,11 @@
                     <div class="accordion" id="ann5">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col5" aria-expanded="true" aria-controls="head2">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col5" aria-expanded="true" aria-controls="head2">
                                     <h1>ALL STUDENTS with INC’s and 4.0’s INCURRED during SECOND SEM. 2018-2019 and 1st sem 2019-2020</h1>
                                 </button>
                             </h2>
-                            <div id="col5" class="accordion-collapse show" data-bs-parent="#ann5">
+                            <div id="col5" class="accordion-collapse show shadow-sm" data-bs-parent="#ann5">
                                 <div class="accordion-body">
                                     <p>Please be informed that you have to complete/remove your Academic Deficiencies <strong>before the first
                                     day of the regular registration period for the SECOND semester, AY 2020-2021 (24 February 2021) or
@@ -184,11 +184,11 @@
                     <div class="accordion" id="ann6">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col6" aria-expanded="true" aria-controls="head2">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col6" aria-expanded="true" aria-controls="head2">
                                     <h1>ATTENTION: BSBIO STUDENTS</h1>
                                 </button>
                             </h2>
-                            <div id="col6" class="accordion-collapse show" data-bs-parent="#ann6">
+                            <div id="col6" class="accordion-collapse show shadow-sm" data-bs-parent="#ann6">
                                 <div class="accordion-body">
                                     <p>The 6 units of Free Electives in the BS Bio Curriculum can be selected from any 3-unit non-Biology
                                     courses that are offered in the University. A student is 'free' to choose from the offerings across
@@ -202,11 +202,11 @@
                     <div class="accordion" id="ann7">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col7" aria-expanded="true" aria-controls="head2">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col7" aria-expanded="true" aria-controls="head2">
                                     <h1>For DMPCS registration / enrollment concerns</h1>
                                 </button>
                             </h2>
-                            <div id="col7" class="accordion-collapse show" data-bs-parent="#ann7">
+                            <div id="col7" class="accordion-collapse show shadow-sm" data-bs-parent="#ann7">
                                 <div class="accordion-body">
                                     <p>For DMPCS registration / enrollment concerns please join our <a
                                     href="https://join.slack.com/t/dmpcspreregistration/shared_invite/zt-gftp4yr7-2NWhfqVqrgVPtk9RlmmRaQ">slack
@@ -222,11 +222,11 @@
                     <div class="accordion" id="ann8">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col8" aria-expanded="true" aria-controls="head2">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col8" aria-expanded="true" aria-controls="head2">
                                     <h1>ATTENTION 3BSFT Students</h1>
                                 </button>
                             </h2>
-                            <div id="col8" class="accordion-collapse show" data-bs-parent="#ann8">
+                            <div id="col8" class="accordion-collapse show shadow-sm" data-bs-parent="#ann8">
                                 <div class="accordion-body">
                                     <p>You are to take FST 164 (pre-req FST 140 and FST 141) instead of FST 151 this 1st sem 2020-2021.</p>
                                 </div>
@@ -237,11 +237,11 @@
                     <div class="accordion" id="ann9">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col9" aria-expanded="true" aria-controls="head2">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col9" aria-expanded="true" aria-controls="head2">
                                     <h1>ATTENTION: all concerned students</h1>
                                 </button>
                             </h2>
-                            <div id="col9" class="accordion-collapse show" data-bs-parent="#ann9">
+                            <div id="col9" class="accordion-collapse show shadow-sm" data-bs-parent="#ann9">
                                 <div class="accordion-body">
                                 <p>Enrolment Period:</p>
                                     <ul>
@@ -259,11 +259,11 @@
                     <div class="accordion" id="ann10">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col10" aria-expanded="true" aria-controls="head2">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col10" aria-expanded="true" aria-controls="head2">
                                     <h1>ATTENTION: all students</h1>
                                 </button>
                             </h2>
-                            <div id="col10" class="accordion-collapse show" data-bs-parent="#ann10">
+                            <div id="col10" class="accordion-collapse show shadow-sm" data-bs-parent="#ann10">
                                 <div class="accordion-body">
                                     <p>You may now view the final examinations schedule for First Semester AY 2019-2020.</p>
                                 </div>
@@ -274,11 +274,11 @@
                     <div class="accordion" id="ann11">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button bg-light border border-primary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#col11" aria-expanded="true" aria-controls="head2">
+                                <button class="accordion-button bg-light border border-primary-subtle shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#col11" aria-expanded="true" aria-controls="head2">
                                     <h1>ATTENTION: all students</h1>
                                 </button>
                             </h2>
-                            <div id="col11" class="accordion-collapse show" data-bs-parent="#ann11">
+                            <div id="col11" class="accordion-collapse show shadow-sm" data-bs-parent="#ann11">
                                 <div class="accordion-body">
                                     <p>PhilArts 1 - Section D and Arts 1 - Section O have been dissolved.</p>
                                 </div>
@@ -293,7 +293,7 @@
 
                 <div class="sidebar col-4">
                     <!-- ABOUT -->
-                    <div class="border rounded p-3">
+                    <div class="border rounded p-3 shadow-sm">
                         <p>The Computerized Student Records System (CSRS) is a project of the Information Technology Office through the initiative of Engr. Ronald A. Barriga (2005-2010 IT Director) under the University of the Philippines Mindanao Integrated Information Management System (UPMIIMS) project in 2006.
                         <br><br>In partnership with:
                         </p>
@@ -327,7 +327,7 @@
                     </div>
 
                     <!-- FAQ -->
-                    <div class="border rounded p-3">
+                    <div class="border rounded p-3 shadow-sm">
                         <h1>Who are the CSRS Administrators?</h1>
                         <ul style="list-style-type: disc">
                             <li>Office of the Registrar</li>
@@ -335,7 +335,7 @@
                         </ul>
                     </div>
 
-                    <div class="border rounded p-3">
+                    <div class="border rounded p-3 shadow-sm">
                         <h1>What if I forgot my password?</h1>
                         <p>Go to your adviser, department chair or to the Office of the College Secretary and ask them to change your password.
                             <br>You may contact your respective Office of the College Secretary through the following email addresses:<br><br></p>
@@ -349,7 +349,7 @@
                         <p><br><strong>TIP:</strong> It's good to establish and maintain good communication lines with your registration adviser.</p>
                     </div>
 
-                    <div class="border rounded p-3">
+                    <div class="border rounded p-3 shadow-sm">
                         <h1>Who is my registration adviser?</h1>
                         <p>Registration advisers are assigned by your respective department chairs.</p>
                     </div>

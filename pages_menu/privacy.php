@@ -77,7 +77,7 @@
         
         <div id="space"></div>
 
-        <div class="border bg-light rounded p-4 m-4">
+        <div class="border bg-light rounded p-4 m-4 shadow-sm">
 
             <h1>UNIVERSITY OF THE PHILIPPINES (UP) PRIVACY NOTICE FOR STUDENTS</h1>
             <h3>(REVISED AS OF THE 1ST SEMESTER/TRIMESTER 2019-2020)</h3>
