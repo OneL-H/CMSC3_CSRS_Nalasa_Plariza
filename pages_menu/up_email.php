@@ -1,3 +1,20 @@
+<?php
+    session_start();
+    
+    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+        header("location: ../mainpage.php");
+        exit;
+    }
+
+    $mysqli = new mysqli("localhost", "root", "", "csrs");
+    $query = "SELECT * FROM student_info WHERE stud_num = '{$_SESSION["studentnumber"]}'";
+
+    $result = $mysqli -> query($query);
+    $data = $result -> fetch_assoc();
+
+    $username = strtolower(mb_substr($data["fname"], 0, 1)) . strtolower(mb_substr($data["mname"], 0, 1)) . strtolower($data["lname"]);
+?>
+
 <html lang="en">
     <head>
         <title>UP Mindanao CSRS Website</title>
@@ -67,13 +84,13 @@
  
             <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
                 <h1>UP EMAIL</h1>
-                <p>Dear [NAME],
+                <p>Dear <?php echo $data["fname"] ?>,
 
                     <br><br>The UP Mail (@up.edu.ph) is an email service available to all currently enrolled UP students and employed faculty and staff, and offices in partnership with Google. To activate your new e-mail, login to your GMail account via <a href="http://google.com/a/up.edu.ph">http://google.com/a/up.edu.ph</a>.
                     
-                    <br><br>Your username is [username] and your temporary password is [password].
+                    <br><br>Your username is <?php echo $username ?> and your temporary password is <?php echo $username ?>.
                     
-                    <br><br>Your new e-mail address in Goolge Apps is [username]@up.edu.ph. You will be prompted to change your password upon log-in.
+                    <br><br>Your new e-mail address in Google Apps is <?php echo $username ?>@up.edu.ph. You will be prompted to change your password upon log-in.
                     
                     <br><br>To know more about the UP Mail, you may visit <a href="https://itdc.up.edu.ph/uis/the-up-mail">https://itdc.up.edu.ph/uis/the-up-mail</a>.
                     
