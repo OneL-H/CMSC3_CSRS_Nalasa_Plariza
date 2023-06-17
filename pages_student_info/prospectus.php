@@ -35,7 +35,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top" style="width: 97%">
+        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top mx-auto" style="width: 97%">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" href="#">
                     <img src="../logo_upmin_2.png" id="logo" alt="Logo" width="30" height="30"
@@ -66,12 +66,8 @@
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="info.php">student details</a></li>
                                 <li><a href="student_search.php">record search</a></li>
-                                <li><a href="sdis.php">sdis</a></li>
                                 <li><a href="prospectus.php">prospectus & grades</a></li>
-                                <li><a href="sched.php">class schedule</a></li>
-                                <li><a href="residency.php">residency</a></li>
-                                <li><a href="matric.php">matriculation</a></li>
-                                <li><a href="calendar.php">personal calendar</a></li>
+                                <li><a href="calendar.php">academic calendar</a></li>
                             </ul>
                         </div>
                         <div class="dropdown col-3">
@@ -89,40 +85,30 @@
 
         <div id="space"></div>
 
-        <div class="center_container" style="margin-top: 2%;">
-            <h1 style="align-self: flex-start; margin-left: 5%; padding-bottom: 10px">PROSPECTUS DOCUMENTS</h1>
+        <div class="border bg-light rounded p-4 m-4">
+            <h1>PROSPECTUS DOCUMENTS</h1>
             
-            <div style="width: 90%">
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
 
-                <h2>College of Humanities and Social Sciences</h2>
-                <div class="link_container">
-                    <a href="prospectus_pdfs\BA_Anthropology.pdf" target="_blank">BS Anthropology</a>
-                    <a href="prospectus_pdfs\BS_Architecture.pdf" target="_blank">BS Architecture</a>
-                    <!-- <a>BA Communication and Media Arts</a> -->
-                    <a href="prospectus_pdfs\BA_English_Creative_Writing.pdf" target="_blank">BA English</a>
-                    <!-- <a>Diploma in Exercise and Sports Science</a>
-                    <a>Diploma/Master in Urban and Regional Planning</a>
-                    <a>Bachelor of Sports Science</a>
-                    <a>Associate in Arts in Sports Studies</a>
-                    <a>Associate in Arts in Sports Studies</a> -->
+                <h3>College of Humanities and Social Sciences</h3>
+                <div class="btn-group mb-4" role="group">
+                    <a href="prospectus_pdfs\BA_Anthropology.pdf" class="btn btn-lg btn-outline-primary">BS Anthropology</a>
+                    <a href="prospectus_pdfs\BS_Architecture.pdf" class="btn btn-lg btn-outline-primary">BS Architecture</a>
+                    <a href="prospectus_pdfs\BA_English_Creative_Writing.pdf" class="btn btn-lg btn-outline-primary">BA English</a>
                 </div>
 
-                <h2>College of Science and Mathematics</h2>
-                <div class="link_container">
-                    <a href="prospectus_pdfs\BS_Applied_Mathematics.pdf" target="_blank">BS Applied Mathematics</a>
-                    <a href="prospectus_pdfs\BS_Biology.pdf" target="_blank">BS Biology</a>
-                    <a href="prospectus_pdfs\BS_Computer_Science.pdf" target="_blank">BS Computer Science</a>
-                    <!--<a>BS Food Technology</a>
-                    <a>MS Food Science</a>-->
+                <h3>College of Science and Mathematics</h3>
+                <div class="btn-group mb-4" role="group">
+                    <a href="prospectus_pdfs\BS_Applied_Mathematics.pdf" class="btn btn-lg btn-outline-primary">BS Applied Mathematics</a>
+                    <a href="prospectus_pdfs\BS_Biology.pdf" class="btn btn-lg btn-outline-primary">BS Biology</a>
+                    <a href="prospectus_pdfs\BS_Computer_Science.pdf" class="btn btn-lg btn-outline-primary">BS Computer Science</a>
                 </div>
 
-                <h2>School of Management</h2>
-                <div class="link_container">
-                    <a href="prospectus_pdfs\BS_Agribusiness_Economics.pdf" target="_blank">BS Agribusiness Economics</a>
-                    <!--<a href="prospectus_pdfs\BS_Biology.pdf">Master in Management</a>-->
-                    <a href="prospectus_pdfs\PHD_Research.pdf" target="_blank">PhD by Research</a>
+                <h3>School of Management</h3>
+                <div class="btn-group mb-4" role="group">
+                    <a href="prospectus_pdfs\BS_Agribusiness_Economics.pdf" class="btn btn-lg btn-outline-primary">BS Agribusiness Economics</a>
+                    <a href="prospectus_pdfs\PHD_Research.pdf" class="btn btn-lg btn-outline-primary">PhD by Research</a>
                 </div>
-
             </div>
         </div>
 

@@ -138,19 +138,10 @@ div>p {padding-bottom: 4px;}
 img.header_img {width: 100%;}
 
 div.announcements>div, div.sidebar>div, div.solo>div {
-    background-color: #c8c8c89d;
     padding: 10px;
     margin-top: 25px;
     margin-bottom: 10px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
 }
-
-div.announcements>div:hover, div.sidebar>div:hover, div.solo>div:hover {
-    background-color: #C8C8C8;
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
-}
-
 
 div.announcements {
     width: 65%;
@@ -310,4 +301,6 @@ a.disabled {
     pointer-events: none;
 }
 
-#space {height: 15vh;}
+#space {height: 9vh;}
+
+#morespace {height: 5vh;}

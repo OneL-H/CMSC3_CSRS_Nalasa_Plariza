@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top" style="width: 97%">
+        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top mx-auto" style="width: 97%">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" href="#">
                     <img src="../logo_upmin_2.png" id="logo" alt="Logo" width="30" height="30"
@@ -43,12 +43,8 @@
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="../pages_student_info/info.php">student details</a></li>
                                 <li><a href="../pages_student_info/student_search.php">record search</a></li>
-                                <li><a href="../pages_student_info/sdis.php">sdis</a></li>
                                 <li><a href="../pages_student_info/prospectus.php">prospectus & grades</a></li>
-                                <li><a href="../pages_student_info/sched.php">class schedule</a></li>
-                                <li><a href="../pages_student_info/residency.php">residency</a></li>
-                                <li><a href="../pages_student_info/matric.php">matriculation</a></li>
-                                <li><a href="../pages_student_info/calendar.php">personal calendar</a></li>
+                                <li><a href="../pages_student_info/calendar.php">academic calendar</a></li>
                             </ul>
                         </div>
                         <div class="dropdown col-3">
@@ -66,18 +62,18 @@
         
         <div id="space"></div>
 
-        <div class="solo">
+        <div class="border bg-light rounded p-4 m-4">
             <h1>FREQUENTLY ASKED QUESTIONS</h1>
-            <div>
-                <h1>Who are the CSRS Administrators?</h1>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
+                <h2>Who are the CSRS Administrators?</h2>
                 <ul style="list-style-type: disc">
                     <li>Office of the Registrar</li>
                     <li>Offices of the College Secretary</li>
                 </ul>
             </div>
 
-            <div>
-                <h1>What if I forgot my password?</h1>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
+                <h2>What if I forgot my password?</h2>
                 <p>Go to your adviser, department chair or to the Office of the College Secretary and ask them to change your password.
                     <br>You may contact your respective Office of the College Secretary through the following email addresses:<br><br></p>
 
@@ -90,8 +86,8 @@
                 <p><br><strong>TIP:</strong> It's good to establish and maintain good communication lines with your registration adviser.</p>
             </div>
 
-            <div>
-                <h1>Who is my registration adviser?</h1>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
+                <h2>Who is my registration adviser?</h2>
                 <p>Registration advisers are assigned by your respective department chairs.</p>
             </div>
         </div>

@@ -19,10 +19,10 @@
     </form>
     <div class="position-absolute row w-100 h-100">
         <form method="POST" action="search_display.php"
-            class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto">
+            class="border border-2 rounded rounded-2 border-primary bg-light m-2 p-3 w-75 mx-auto my-auto">
             <h2>Record Search</h2>
             <div class="container py-2 px-2">
-                <div class="row m-1 p-2 border border-1 border-primary rounded-2">
+                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2">
                     <div class="col col-2 m-2">
                         <label class="form-label" for="stud_num">Student Number:</label>
                         <input class="form-control border border-1 border-primary-subtle" type="text" name="stud_num">
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary rounded-2"><!--select colleges to hit-->
+                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2"><!--select colleges to hit-->
                     <div class="row">
                         <h4>Select Courses:</h2>
                     </div>
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
+                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2 align-items-center">
                     <div class="col-auto">
                         <h4>Select Colleges:</h4>
                     </div>
@@ -191,8 +191,8 @@
                 </div>
             </div>
         </form>
-        <div class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto">
-            <div class="row border border-1 rounded rounded-1 border-primary-subtle my-auto p-2 m-2">
+        <div class="border border-2 rounded rounded-2 border-primary bg-light m-2 p-3 w-75 mx-auto my-auto">
+            <div class="row border border-1 rounded rounded-1 border-primary-subtle bg-light-subtle my-auto p-2 m-2 mb-2">
                 <div class="d-flex align-items-end">
                     <h2 class="m-1">LASTNAME, </h2>
                     <h4 class="m-1">Firstname, Middle Name </h4>
@@ -216,7 +216,7 @@
                     <span>AddressLine2</span>
                 </div>
             </div>
-            <div class="row border border-1 rounded rounded-1 border-primary-subtle my-auto p-2 m-2">
+            <div class="row border border-1 rounded rounded-1 border-primary-subtle bg-light-subtle my-auto p-2 m-2 mb-2">
                 <div class="d-flex align-items-end">
                     <h2 class="m-1">LASTNAME, </h2>
                     <h4 class="m-1">Firstname, Middle Name </h4>

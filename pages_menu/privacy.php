@@ -1,3 +1,18 @@
+<?php
+    session_start();
+    
+    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+        header("location: ../mainpage.php");
+        exit;
+    }
+
+    $mysqli = new mysqli("localhost", "root", "", "csrs");
+    $query = "SELECT * FROM student_info WHERE stud_num = '{$_SESSION["studentnumber"]}'";
+
+    $result = $mysqli -> query($query);
+    $data = $result -> fetch_assoc();
+?>
+
 <html lang="en">
     <head>
         <title>UP Mindanao CSRS Website</title>
@@ -12,7 +27,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top" style="width: 97%">
+        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top mx-auto" style="width: 97%">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" href="#">
                     <img src="../logo_upmin_2.png" id="logo" alt="Logo" width="30" height="30"
@@ -43,12 +58,8 @@
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="../pages_student_info/info.php">student details</a></li>
                                 <li><a href="../pages_student_info/student_search.php">record search</a></li>
-                                <li><a href="../pages_student_info/sdis.php">sdis</a></li>
                                 <li><a href="../pages_student_info/prospectus.php">prospectus & grades</a></li>
-                                <li><a href="../pages_student_info/sched.php">class schedule</a></li>
-                                <li><a href="../pages_student_info/residency.php">residency</a></li>
-                                <li><a href="../pages_student_info/matric.php">matriculation</a></li>
-                                <li><a href="../pages_student_info/calendar.php">personal calendar</a></li>
+                                <li><a href="../pages_student_info/calendar.php">academic calendar</a></li>
                             </ul>
                         </div>
                         <div class="dropdown col-3">
@@ -66,12 +77,12 @@
         
         <div id="space"></div>
 
-        <div class="solo">
+        <div class="border bg-light rounded p-4 m-4">
 
             <h1>UNIVERSITY OF THE PHILIPPINES (UP) PRIVACY NOTICE FOR STUDENTS</h1>
             <h3>(REVISED AS OF THE 1ST SEMESTER/TRIMESTER 2019-2020)</h3>
 
-            <div>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
                 <h1>POLICY</h1>
                 <p>To exercise and safeguard academic freedom and uphold your right to quality education, the University of the Philippines needs to process your personal and sensitive personal information - that is, information that identifies you as an individual.
 
@@ -89,7 +100,7 @@
                 </p>
             </div>
 
-            <div>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
                 <h1>PERSONAL AND SENSITIVE PERSONAL INFORMATION COLLECTED FROM STUDENTS, AND THE PURPOSE/S AND LEGAL BASIS FOR PROCESSING SUCH INFORMATION</h1>
                 <p>Various UP offices collect your personal information through paper based and online processing systems. UP may likewise collect publicly available information about you. Some application forms require you to provide a photograph. In some instances, your image is captured by UP's closed-circuit television (CCTV) cameras, or when UP documents, records, broadcasts (including live streaming), or publishes University activities or events.
 
@@ -141,7 +152,7 @@
                 </p>
             </div>
 
-            <div>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
                 <h1>INSTANCES WHEN YOUR RELEVANT PERSONAL AND/OR SENSITIVE PERSONAL INFORMATION MAY BE DISCLOSED BY <em>UP</em> TO THIRD PARTIES AND THE PURPOSE/S AND LEGAL BASIS FOR SUCH DISCLOSURES</h1>
                 <p>The University will disclose or share your relevant personal and/or sensitive personal information to third parties in order to carry out its mandate as an academic institution, comply with legal obligations, perform its contractual obligations to you, promote and protect your interests, and in order to pursue its legitimate interests or that of a third party. UP discloses such information when required or allowed by law, or with your consent. Examples of these include:
                     <br><br>
@@ -171,7 +182,7 @@
                 </p>
             </div>
 
-            <div>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
                 <h1>HOW <em>UP</em> PROTECTS YOUR PERSONAL AND SENSITIVE PERSONAL INFORMATION</h1>
                 <p>Even prior to the effectivity of the DPA, UP put in place physical, organizational and technical measures to protect your right to privacy and is committed to reviewing and improving the same, so as to be able to comply, among others, with its obligations under the applicable provisions of the Education Act of 1982, which require us to keep your educational records confidential. You may wish, for instance, to read UP's Acceptable Use Policy for Information Technology (IT) Resources (AUP).
 
@@ -181,7 +192,7 @@
                 </p>
             </div>
 
-            <div>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
                 <h1>ACCESS TO AND CORRECTION OF YOUR PERSONAL AND SENSITIVE PERSONAL INFORMATION AND YOUR RIGHTS UNDER THE DPA</h1>
                 <p>You have the right to access personal and sensitive personal information being processed by UP about you. You may access your personal and sensitive personal information, for instance, through UP's information systems such as SAIS or CRS or request documents from relevant offices (e.g. the University Registrar or your College Secretary). In order for UP to see to it that your personal and sensitive personal information are disclosed only to you, these offices will require the presentation of your UP ID or other documents that will enable UP to verify your identity. In case you process or request documents through a representative, in order to protect your privacy, UP requires you to provide a letter of authorization specifying the purpose for the request of documents or the processing of information, and your UP ID or other valid government-issued ID (GIID), as well as the valid GIID of your representative.
 
@@ -200,12 +211,12 @@
                 </ol>
             </div>
 
-            <div>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
                 <h1>HOW WE OBTAIN YOUR CONSENT AND HOW YOU CAN WITHDRAW CONSENT</h1>
                 <p>UP obtains your consent for the processing of your personal and sensitive personal information pursuant to this privacy notice by asking you to sign the relevant form. If you are a minor, we will require your parent or guardian to sign the proper form. If you wish to withdraw consent, kindly write or send an email to your University Registrar at (please insert applicable email address) and identify the processing activity for which you are withdrawing consent. Please attach a copy of your UP ID so that the Registrar will be able to verify your identity. Note that consent may be withdrawn only for a processing activity/ies for which consent is the only applicable lawful ground for such processing. Kindly await your Registrar's action regarding your request. Rest assured that once your Registrar confirms that you have validly withdrawn consent for a processing activity/ies the same shall be effective unless you thereafter send a letter or email to the Registrar with a copy of your ID that you are consenting to such processing activity/ies.</p>
             </div>
 
-            <div>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
                 <h1>REVISIONS TO THE PRIVACY NOTICE AND QUERIES REGARDING DATA PRIVACY</h1>
                 <p><b>The previous privacy notices issued for the 1st and 2nd semesters/trimester 2018-19 have been revised. This amended notice will take effect on 27 August 2019.</b>
                         <br><br>We encourage you to visit this site from time to time to see any further updates regarding this privacy notice. We will alert you regarding changes to this notice through this site.
@@ -269,7 +280,7 @@
                 
             </div>
 
-            <div>
+            <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">
                 <p>
                     I have read the University of the Philippines' Privacy Notice for Students.
 
@@ -279,7 +290,7 @@
                 </p>
             </div>
 
-            <p>[DIGITALLY SIGNED] <em>NAME</em> On mm/dd/yyyy 23:59:59</p>
+            <p>[DIGITALLY SIGNED] <em><?php echo $data["fname"] . " " . $data["mname"] . " " . $data["lname"] ?></em></p>
 
         </div>
 

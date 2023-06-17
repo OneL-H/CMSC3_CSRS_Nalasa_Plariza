@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top" style="width: 97%">
+        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top mx-auto" style="width: 97%">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" href="#">
                     <img src="../logo_upmin_2.png" id="logo" alt="Logo" width="30" height="30"
@@ -43,12 +43,8 @@
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="../pages_student_info/info.php">student details</a></li>
                                 <li><a href="../pages_student_info/student_search.php">record search</a></li>
-                                <li><a href="../pages_student_info/sdis.php">sdis</a></li>
                                 <li><a href="../pages_student_info/prospectus.php">prospectus & grades</a></li>
-                                <li><a href="../pages_student_info/sched.php">class schedule</a></li>
-                                <li><a href="../pages_student_info/residency.php">residency</a></li>
-                                <li><a href="../pages_student_info/matric.php">matriculation</a></li>
-                                <li><a href="../pages_student_info/calendar.php">personal calendar</a></li>
+                                <li><a href="../pages_student_info/calendar.php">academic calendar</a></li>
                             </ul>
                         </div>
                         <div class="dropdown col-3">
@@ -66,7 +62,7 @@
 
         <div id="space"></div>
         
-        <div class="solo">
+        <div class="border bg-light rounded p-4 m-4">
             <h1>ABOUT</h1>
             <div>
                 <p>The Computerized Student Records System (CSRS) is a project of the Information Technology Office through the initiative of Engr. Ronald A. Barriga (2005-2010 IT Director) under the University of the Philippines Mindanao Integrated Information Management System (UPMIIMS) project in 2006.
