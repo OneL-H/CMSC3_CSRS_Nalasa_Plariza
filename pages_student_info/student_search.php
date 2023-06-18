@@ -281,9 +281,6 @@
                         <button type="submit" class="btn btn-secondary" name="send">Submit</button>
                     </div>
                 </div>
-                <div class="row m-1">
-
-                </div>
             </div>
         </form>
     </div>

@@ -14,7 +14,7 @@
     }
 
     function format_results($lname, $fname, $mname, $sex, $studnum, $college, 
-                $degprog, $yearlevel, $unitsenlisted, $bdate, $address1, $address2){
+                $degprog, $yearlevel, $unitsenlisted, $bdate, $address1, $address2, $showbutton){
         
         $template = "<div class=\"row border border-1 rounded rounded-1 border-primary-subtle shadow-sm my-auto p-2 m-2 mb-2\">
                 <div class=\"d-flex align-items-end\"> <h2 class=\"m-1\">";
@@ -40,24 +40,50 @@
 
         $template .= "Units Enlisted: " . $unitsenlisted;
         $template .= "</span> </div> </div> </div> <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
-            <div class=\"row\"> <span>";
+            <div class=\"container d-flex\"> <div class=\"col-auto\"> <div class=\"row\"> <span>";
 
         $template .= "Birthdate: " . $bdate;
         $template .= "</span> </div> <div class=\"row\"> <span>";
 
         $template .= $address1;
-        $template .= "</span></div><div class=\"row\"><span>";
+        $template .= "</span> </div> <div class=\"row\"> <span>";
             
         $template .= $address2;
-        $template .= "</span></div></div>";
+        $template .= "</span> </div> </div>";
+
+        if($showbutton){
+            $template .= "<div class=\"d-flex col flex-column align-self-end align-items-end\">
+                    <form method=\"POST\" action=\"delete.php\">
+                    <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-danger\" name=\"delete_confirm\">Confirm</button>
+                    </form>
+                </div>";
+        }
+        
+                
+        $template .= "</div> </div>";
 
         return $template;
     }
 
-    $query = "SELECT * FROM student_info WHERE stud_num = '{$_POST['namething']}'"; // set this
+    if(isset($_POST['rec_delete'])){
+        $query = "SELECT * FROM student_info WHERE stud_num = '{$_POST['rec_delete']}'"; // set this
+    }
+
+    if(isset($_POST['delete_confirm'])){
+        $query = "SELECT * FROM student_info WHERE stud_num = '{$_POST['delete_confirm']}'"; // set this
+    }
+    
 
     $result = $mysqli -> query($query);
     $data = $result -> fetch_assoc();
+
+    $del_success = false;
+    if(isset($_POST['delete_confirm'])){
+        $del_query = "DELETE FROM student_info WHERE stud_num = '{$_POST['delete_confirm']}'";
+        if($mysqli -> query($del_query) === TRUE){
+            $del_success = TRUE;
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -76,27 +102,33 @@
 
     <body>
         
-        <form action="../mainpage_loggedin_bootstrappified.php">
-            <button class="fixed-top btn btn-primary m-3" style="width: 5%" href="../mainpage_loggedin_bootstrappified.php">Back</button>
-        </form>
+        <a class="fixed-top btn btn-primary m-3" style="width: 5%" href="student_search.php">Back</a>
 
         <div class="position-absolute row w-100 h-100">
-            <div class="border border-3 rounded rounded-2 border-light-subtle bg-light shadow m-2 p-3 w-50 mx-auto my-auto">
-                <h2>Do you want to delete <?php echo "student number here" ?>?</h2>
+            <div class="border border-3 rounded rounded-2 border-light-subtle bg-light shadow m-2 p-3 w-75 mx-auto my-auto">
                 <?php
+                    if(!isset($_POST['delete_confirm'])){
+                        echo "<h2>Do you want to delete {$_POST['rec_delete']}?</h2>";
+                    }else{
+                        if($del_success){
+                            echo "<h2>The following record has been deleted.</h2>";
+                        }else{
+                            echo "<h2>Error deleting record. {$mysqli->error}</h2>";
+                        }
+                    }
+                    
                     echo format_results($data['lname'], $data['fname'], $data['mname'], $data['sex'], 
                                 $data['stud_num'], $data['college'], $data['degprog'], $data['yearlevel'], 
-                                $data['units_enlisted'], $data['bdate'], $data['address1'], $data['address2']);
+                                $data['units_enlisted'], $data['bdate'], $data['address1'], $data['address2'], !isset($_POST['delete_confirm']));
                 ?>
             </div>
         </div>
 
-        
+        <?php
+        echo "<script src=\"../popper.min.js\"></script>
+        <script src=\"../node_modules/bootstrap/dist/js/bootstrap.min.js\"></script>";
 
-        <script src="../popper.min.js"></script>
-        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-        <?php $mysqli -> close(); ?>
+        $mysqli -> close(); ?>
 
     </body>
 </html>

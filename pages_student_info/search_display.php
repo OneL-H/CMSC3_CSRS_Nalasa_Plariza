@@ -274,8 +274,8 @@
             $template .= "</span> </div> </div>";
 
             $template .= "<div class=\"d-flex col flex-column align-self-end align-items-end\">
-                        <form method=\"POST\" action=\"\">
-                        <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-danger\" name=\"delete\">Delete</button>
+                        <form method=\"POST\" action=\"delete.php\">
+                        <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-danger\" name=\"rec_delete\">Delete</button>
                         </form>
                     </div> </div> </div>";
 
