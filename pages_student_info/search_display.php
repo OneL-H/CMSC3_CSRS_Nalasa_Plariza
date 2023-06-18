@@ -24,25 +24,15 @@
         $add_or = 0;
         $query = "SELECT * FROM `student_info` WHERE ";
 
-        $query_multipliers = array(1.1, 3, 2.75, 2.5, 2.3, 1.9, 1.7, 1.2);
-        
-        $studnum_query = "";
-        if($studnum_set){
-            if(isset($_POST['stud_num_number'], $_POST['stud_num_year'])){ // both checked!
-                $studnum_query = "stud_num = '" . $_POST['stud_num_year'] . "-" . $_POST['stud_num_number'] . "'";
-            }else if(isset($_POST['stud_num_number'])){
-                $studnum_query = "stud_num LIKE '%" . $_POST['stud_num_number'] . "'";
-                $query_multipliers[1] = 2.9;
-            }else if(isset($_POST['stud_num_year'])){
-                $studnum_query = "stud_num LIKE '" . $_POST['stud_num_year'] . "%'";
-                $query_multipliers[1] = 1.5;
-            }
+        if (isset($_POST['stud_num'])) {
+            $query .= "stud_num = '{$_POST['stud_num']}'";
+            $add_or = 1;
         }
 
-        $name_query = "";
-        if($name_set){
-            $name_query = "fname LIKE '%" . $_POST['name'] . "%' OR mname LIKE '%" . $_POST['name'] . "%'"
-                . " OR lname LIKE '%" . $_POST['name'] . "%'";
+        if (isset($_POST['male'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "sex = 'M'";
+            $add_or = 1;
         }
 
         $bdate_query = "";
@@ -53,47 +43,58 @@
             else if($to_checker == 1) $bdate_query = "bdate <= '{$_POST['bdate_to']}'";
         }
 
-        $address_query = "";
-        if($address_set){
-            $address_query = "address1 LIKE '%" . $_POST['address'] 
-                . "%' OR address2 LIKE '%" . $_POST['address'] . "%'";
+        if (isset($_POST['BACMA'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "degprog = 'BA Communication and Media Arts'";
+            $add_or = 1;
         }
 
-        $courses_query = "";
-        if($courses_set){
-            $courses_query = "degprog IN (";
-
-            for($i = 0; $i < sizeof($_POST['courses']); $i++){
-                if($i != 0) $courses_query .= ", ";
-                $courses_query .= "'" . $_POST['courses'][$i]. "'";
-                
-            }
-
-            $courses_query .= ")";
+        if (isset($_POST['BAE'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "degprog = 'BA English'";
+            $add_or = 1;
         }
 
-        $colleges_query = "";
-        if($colleges_set){
-            $colleges_query = "college IN (";
-
-            for($i = 0; $i < sizeof($_POST['colleges']); $i++){
-                if($i != 0) $colleges_query .= ", ";
-                $colleges_query .= "'" . $_POST['colleges'][$i] . "'";
-                
-            }
-
-            $colleges_query .= ")";
+        if (isset($_POST['ABE'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "degprog = 'BS Agribusiness Economics'";
+            $add_or = 1;
         }
 
-        $yr_query = "";
-        if($year_set){
-            $yr_query = "yearlevel IN (";
-            for($i = 0; $i < sizeof($_POST['yr']); $i++){
-                if($i != 0) $yr_query .= ", ";
-                $yr_query .= $_POST['yr'][$i];
-            }
+        if (isset($_POST['ANTHRO'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "degprog = 'BS Anthropology'";
+            $add_or = 1;
+        }
 
-            $yr_query .= ")";
+        if (isset($_POST['AMATH'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "degprog = 'BS Applied Mathematics'";
+            $add_or = 1;
+        }
+
+        if (isset($_POST['ARKI'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "degprog = 'BS Architecture'";
+            $add_or = 1;
+        }
+
+        if (isset($_POST['BIO'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "degprog = 'BS Biology'";
+            $add_or = 1;
+        }
+
+        if (isset($_POST['CS'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "degprog = 'BS Computer Science'";
+            $add_or = 1;
+        }
+
+        if (isset($_POST['FT'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "degprog = 'BS Food Technology'";
+            $add_or = 1;
         }
 
         $sex_query = "";
@@ -122,40 +123,21 @@
             }
             $allquery .= $q;
         }
-        
-        
-        $templatequery = "SELECT stud_num FROM student_info WHERE ";
-        $matching_ids = array();
-        for($j = 0; $j < 8; $j++){
-            if($querylist[$j] != ""){
-                $tempquery = $templatequery . $querylist[$j];
-                $tempresults = $mysqli -> query($tempquery);
-                while($data = $tempresults -> fetch_assoc()){
-                    if(array_key_exists($data['stud_num'], $matching_ids)){
-                        $matching_ids[$data['stud_num']] *= $query_multipliers[$j];
-                    }else{
-                        $matching_ids += [$data['stud_num'] => $query_multipliers[$j]];
-                    }
-                }
-            }
+
+        if (isset($_POST['CHSS'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "college = 'CHSS'";
+            $add_or = 1;
         }
 
-        arsort($matching_ids);
-        $best_query = "SELECT * FROM student_info WHERE stud_num IN (";
-        $best_ordering = ") ORDER BY FIELD (stud_num, ";
-        $id_count = 0;
-        $id_limit = 5;
-        foreach($matching_ids as $k => $i){
-            if($id_count == $id_limit) break;
-            if($id_count > 0){
-                $best_query .= ", ";
-                $best_ordering .= ", ";
-            }
-            $best_query .= "'" . $k . "'";
-            $best_ordering .= "'" . $k . "'";
-            $id_count++;
+        if (isset($_POST['SOM'])) {
+            if ($add_or == 1) $query .= " OR ";
+            $query .= "college = 'SOM'";
         }
-        $best_query .= $best_ordering . ")";
+        
+        $query .= "ORDER BY `sex` DESC, `lname` ASC";
+        
+        $result = $mysqli -> query($query);
     }
 ?>
 
@@ -268,8 +250,8 @@
 
             return $template;
         }
-
             if(isset($_POST['send'])) {
+                if (mysqli_affected_rows($mysqli) == 0) { echo "<div class=\"w-75 mx-auto mt-4\"><h1>There are no records that match.</h1></div>";}
 
                 $exact_result = $mysqli -> query($allquery);
                 echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
@@ -282,19 +264,44 @@
                             $data['stud_num'], $data['college'], $data['degprog'], $data['yearlevel'], 
                             $data['units_enlisted'], $data['bdate'], $data['address1'], $data['address2']);
                     }
-                }
-                echo "</div>";
+                    echo "</div>";
 
-                $best_result = $mysqli -> query($best_query);
-                echo "<div class=\"border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
-                if(mysqli_affected_rows($mysqli) == 0){
-                    echo "<h3>NO GOOD MATCHES. </h3>";
-                }else{
-                    echo "<h1>BEST MATCH/ES: </h1>";
-                    while ($data = $best_result -> fetch_assoc()) {
-                        echo format_results($data['lname'], $data['fname'], $data['mname'], $data['sex'], $data['stud_num'], 
-                            $data['college'], $data['degprog'], $data['yearlevel'], $data['units_enlisted'], $data['bdate'], 
-                            $data['address1'], $data['address2']);
+                    /*
+                        echo "
+                        <div class=\"w-75 mx-auto mt-4\"><h1>MATCHING RECORDS</h1>
+                            <table class=\"table table-primary\">
+                                <thead>
+                                    <tr>
+                                        <th scope=\"col\" class=\"col-sm-4\">Name</th>
+                                        <th scope=\"col\" class=\"col-sm-1\">Sex</th>
+                                        <th scope=\"col\" class=\"col-sm-1\">Year Level</th>
+                                        <th scope=\"col\" class=\"col-sm-2\">College</th>
+                                        <th scope=\"col\" class=\"col-sm-4\">Degree Program</th>
+                                    </tr>
+                                </thead>
+                                <tbody class=\"table-light\">
+                    ";
+                    
+                    while ($data = $result -> fetch_assoc()) {
+                        echo "<tr><td scope=\"col\">";
+                        echo $data["fname"] . " " . $data["mname"] . " " . $data["lname"];
+                        echo "</td>";
+
+                        echo "<td scope=\"col\">";
+                        echo $data["sex"];
+                        echo "</td>";
+
+                        echo "<td scope=\"col\">";
+                        echo $data["yearlevel"];
+                        echo "</td>";
+
+                        echo "<td scope=\"col\">";
+                        echo $data["college"];
+                        echo "</td>";
+
+                        echo "<td scope=\"col\">";
+                        echo $data["degprog"];
+                        echo "</td></tr>";
                     }
                 }
                 echo "</div>";
@@ -304,7 +311,7 @@
         <footer>
             <p>Copyright © 2023 NALASA PLARIZA</p>
         </footer>
-
+      
         <?php echo "<script src=\"../popper.min.js\"></script>
         <script src=\"../node_modules/bootstrap/dist/js/bootstrap.min.js\"></script>";
         ?>
