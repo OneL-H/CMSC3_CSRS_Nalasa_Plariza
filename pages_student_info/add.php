@@ -16,11 +16,10 @@
     if (isset($_POST['send'])) {
         $query = "INSERT INTO `student_info` (`stud_num`, `password`, `didILoginForTheFirstTime`, `yearlevel`, 
         `fname`, `mname`, `lname`, `address1`, `address2`, `bdate`, `college`, `degprog`, `sex`)
-        VALUES ('{$_POST['stud_num']}', '{$_POST['password']}', 0, '{$_POST['yearlevel']}', 
+        VALUES ('{$_POST['stud_num']}', '{$_POST['password']}', 1, '{$_POST['yearlevel']}', 
         '{$_POST['firstName']}', '{$_POST['middleName']}', '{$_POST['lastName']}',
         '{$_POST['address1']}', '{$_POST['address2']}', '{$_POST['birthdate']}', '{$_POST['college']}',
         '{$_POST['degreeProgram']}', '{$_POST['sex']}')";
-        echo $query;
         $mysqli -> query($query);
     }
 ?>
