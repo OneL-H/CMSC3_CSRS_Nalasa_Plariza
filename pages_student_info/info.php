@@ -85,35 +85,35 @@
         
         <div class="w-50 mx-auto mt-4">
             <h1>STUDENT INFO</h1>
-            <table class="table table-primary">
+            <table class="table table-primary shadow">
                 <tbody>
                     <tr>
-                        <td scope="row">Name</td>
-                        <td class="table-light"><?php echo $data["fname"] . " " . $data["mname"] . " " . $data["lname"] ?></td>
+                        <td scope="row" class="border border-2 border-primary">Name</td>
+                        <td class="table-light border border-2 border-light-subtle text-primary"><?php echo $data["fname"] . " " . $data["mname"] . " " . $data["lname"] ?></td>
                     </tr>
                     <tr>
-                        <td scope="row">Address</td>
-                        <td class="table-light"><?php echo $data["address1"] . " " . $data["address2"] ?></td>
+                        <td scope="row" class="border border-2 border-primary">Address</td>
+                        <td class="table-light border border-2 border-light-subtle"><?php echo $data["address1"] . " " . $data["address2"] ?></td>
                     </tr>
                     <tr>
-                        <td scope="row">Sex</td>
-                        <td class="table-light"><?php echo $data["sex"] ?></td>
+                        <td scope="row" class="border border-2 border-primary">Sex</td>
+                        <td class="table-light border border-2 border-light-subtle"><?php echo $data["sex"] ?></td>
                     </tr>
                     <tr>
-                        <td scope="row">Birthdate</td>
-                        <td class="table-light"><?php echo $data["bdate"] ?></td>
+                        <td scope="row" class="border border-2 border-primary">Birthdate</td>
+                        <td class="table-light border border-2 border-light-subtle"><?php echo $data["bdate"] ?></td>
                     </tr>
                     <tr>
-                        <td scope="row">College</td>
-                        <td class="table-light"><?php echo $data["college"] ?></td>
+                        <td scope="row" class="border border-2 border-primary">College</td>
+                        <td class="table-light border border-2 border-light-subtle"><?php echo $data["college"] ?></td>
                     </tr>
                     <tr>
-                        <td scope="row">Degree Program</td>
-                        <td class="table-light"><?php echo $data["degprog"] ?></td>
+                        <td scope="row" class="border border-2 border-primary">Degree Program</td>
+                        <td class="table-light border border-2 border-light-subtle"><?php echo $data["degprog"] ?></td>
                     </tr>
                     <tr>
-                        <td scope="row">Year Level</td>
-                        <td class="table-light"><?php echo $data["yearlevel"] ?></td>
+                        <td scope="row" class="border border-2 border-primary">Year Level</td>
+                        <td class="table-light border border-2 border-light-subtle"><?php echo $data["yearlevel"] ?></td>
                     </tr>
                 </tbody>
             </table>
@@ -128,5 +128,8 @@
 
         <script src="../popper.min.js"></script>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <?php $mysqli -> close(); ?>
+
     </body>
 </html>

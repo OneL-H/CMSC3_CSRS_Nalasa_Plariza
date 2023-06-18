@@ -48,7 +48,7 @@
     </head>
 
     <body>
-        <a class="fixed-top btn btn-primary m-3" style="width: 5%<?php if ($data["didILoginForTheFirstTime"] == 1) echo "; display: none" ?>" href="../mainpage_loggedin_bootstrappified.php">Back</a>
+        <a class="fixed-top btn btn-primary m-3" style="width: 5%<?php if ($data["didILoginForTheFirstTime"] == 1) echo "; display: none" ?>" href="info.php">Back</a>
 
         <div class="position-absolute row w-100 h-100">
             <form method="POST" action="infochange.php" class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto was-validated">
@@ -67,7 +67,7 @@
                             ?>
                         </div>
                     </div>
-                
+
                     <div class="row">
                         <div class="col-sm-5">
                             <input class="form-control" id="firstName" name="firstName" type="text" <?php echo "value=\"{$data["fname"]}\"" ?> required>
@@ -100,13 +100,13 @@
                     <div class="row">
                         <div class="col-sm-7">
                             <input class="form-control" id="birthdate" name="birthdate" type="date" <?php echo "value=\"{$data["bdate"]}\"" ?> required>
-                            <label class="form-text mb-2" for="birthdate">Birthdaedede</label>
+                            <label class="form-text mb-2" for="birthdate">Birthdatede</label>
                         </div>
                         <div class="col-sm">
                             <select class="form-select" id="sex" name="sex" required>
                                 <?php if ($data["didILoginForTheFirstTime"] == 1) echo "<option disabled selected hidden value=\"\">Choose...</option>"; ?>
-                                <option value="Male" <?php $data["sex"] == "Male" ? "selected" : ""; ?>>Male</option>
-                                <option value="Female" <?php $data["sex"] == "Female" ? "selected" : ""; ?>>Female</option>
+                                <option value="Male" <?php if($data["sex"] == 'M') echo 'selected' ?>>Male</option>
+                                <option value="Female" <?php if($data["sex"] == 'F') echo 'selected' ?>>Female</option>
                             </select>
                             <label class="form-text mb-2" for="sex">Sex</label>
                         </div>
@@ -116,25 +116,25 @@
                         <div class="col-sm-6">
                             <select class="form-select" id="college" name="college" required>
                                 <?php if ($data["didILoginForTheFirstTime"] == 1) echo "<option disabled selected hidden value=\"\">Choose...</option>"; ?>
-                                <option value="CHSS" <?php $data["college"] == "CHSS" ? "selected" : ""; ?>>College of Humanities and Social Sciences</option>
-                                <option value="CSM" <?php $data["college"] == "CSM" ? "selected" : ""; ?>>College of Science and Mathematics</option>
-                                <option value="SOM" <?php $data["college"] == "SOM" ? "selected" : ""; ?>>School of Management</option>
+                                <option value="CHSS" <?php if($data["college"] == 'CHSS') echo 'selected' ?>>College of Humanities and Social Sciences</option>
+                                <option value="CSM" <?php if($data["college"] == 'CSM') echo 'selected' ?>>College of Science and Mathematics</option>
+                                <option value="SOM" <?php if($data["college"] == 'SOM') echo 'selected' ?>>School of Management</option>
                             </select>
                             <label class="form-text mb-2" for="college">College</label>
                         </div>
                         <div class="col-sm">
                             <select class="form-select" id="degreeProgram" name="degreeProgram" required>
                                 <?php if ($data["didILoginForTheFirstTime"] == 1) echo "<option disabled selected hidden value=\"\">Choose...</option>"; ?>
-                                <option <?php $data["degprog"] == "BA Communication and Media Arts" ? "selected" : ""; ?> value="BA Communication and Media Arts">BA Communication and Media Arts</option>
-                                <option <?php $data["degprog"] == "BA English" ? "selected" : ""; ?> value="BA English">BA English</option>
-                                <option <?php $data["degprog"] == "BS Agribusiness Economics" ? "selected" : ""; ?> value="BS Agribusiness Economics">BS Agribusiness Economics</option>
-                                <option <?php $data["degprog"] == "BS Anthropology" ? "selected" : ""; ?> value="BS Anthropology">BS Anthropology</option>
-                                <option <?php $data["degprog"] == "BS Applied Mathematics" ? "selected" : ""; ?> value="BS Applied Mathematics">BS Applied Mathematics</option>
-                                <option <?php $data["degprog"] == "BS Architecture" ? "selected" : ""; ?> value="BS Architecture">BS Architecture</option>
-                                <option <?php $data["degprog"] == "BS Biology" ? "selected" : ""; ?> value="BS Biology">BS Biology</option>
-                                <option <?php $data["degprog"] == "BS Computer Science" ? "selected" : ""; ?> value="BS Computer Science">BS Computer Science</option>
-                                <option <?php $data["degprog"] == "BS Food Technology" ? "selected" : ""; ?> value="BS Food Technology">BS Food Technology</option>
-                                <option <?php $data["degprog"] == "BS Sports Science" ? "selected" : ""; ?> value="BS Sports Science">BS Sports Science</option>
+                                <option <?php if($data["degprog"] == 'BA Communication and Media Arts') echo 'selected' ?> value="BA Communication and Media Arts">BA Communication and Media Arts</option>
+                                <option <?php if($data["degprog"] == 'BA English') echo 'selected' ?> value="BA English">BA English</option>
+                                <option <?php if($data["degprog"] == 'BS Agribusiness Economics') echo 'selected' ?> value="BS Agribusiness Economics">BS Agribusiness Economics</option>
+                                <option <?php if($data["degprog"] == 'BS Anthropology') echo 'selected' ?> value="BS Anthropology">BS Anthropology</option>
+                                <option <?php if($data["degprog"] == 'BS Applied Mathematics') echo 'selected' ?> value="BS Applied Mathematics">BS Applied Mathematics</option>
+                                <option <?php if($data["degprog"] == 'BS Architecture') echo 'selected' ?> value="BS Architecture">BS Architecture</option>
+                                <option <?php if($data["degprog"] == 'BS Biology') echo 'selected' ?> value="BS Biology">BS Biology</option>
+                                <option <?php if($data["degprog"] == 'BS Computer Science') echo 'selected' ?> value="BS Computer Science">BS Computer Science</option>
+                                <option <?php if($data["degprog"] == 'BS Food Technology') echo 'selected' ?> value="BS Food Technology">BS Food Technology</option>
+                                <option <?php if($data["degprog"] == 'BS Sports Science') echo 'selected' ?> value="BS Sports Science">BS Sports Science</option>
                             </select>
                             <label class="form-text mb-2" for="degreeProgram">Degree Program</label>
                         </div>
@@ -151,5 +151,8 @@
 
         <script src="../popper.min.js"></script>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+        <?php $mysqli -> close(); ?>
+
     </body>
 </html>

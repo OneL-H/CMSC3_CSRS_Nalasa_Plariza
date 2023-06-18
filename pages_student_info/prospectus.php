@@ -85,7 +85,7 @@
 
         <div id="space"></div>
 
-        <div class="border bg-light rounded p-4 m-4 shadow-sm">
+        <div class="border bg-light rounded p-4 m-4 shadow">
             <h1>PROSPECTUS DOCUMENTS</h1>
             
             <div class="border border-primary-subtle bg-light-subtle rounded p-4 my-4">

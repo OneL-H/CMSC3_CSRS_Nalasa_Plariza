@@ -19,7 +19,7 @@
     </form>
     <div class="position-absolute row w-100 h-100">
         <form method="POST" action="search_display.php"
-            class="border border-2 rounded rounded-2 border-primary bg-light m-2 p-3 w-75 mx-auto my-auto">
+            class="border border-2 rounded rounded-2 border-primary bg-light shadow m-2 p-3 w-75 mx-auto my-auto">
             <h2>Record Search</h2>
             <div class="container py-2 px-2">
                 <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2">
@@ -28,7 +28,7 @@
                         <input class="form-control border border-1 border-primary-subtle" type="number" name="stud_num_year">
                     </div>
                     <div class="col col-2 m-2">
-                        <label class="form-label" for="stud_num_number">Student Number (number):</label>
+                        <label class="form-label" for="stud_num_number">Student Number (num):</label>
                         <input class="form-control border border-1 border-primary-subtle" type="number" name="stud_num_number">
                     </div>
                     <div class="col col-2 m-2">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
+                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2 align-items-center">
                     <div class="col-auto">
                         <h4>Birthday: </h4>
                     </div>
@@ -86,7 +86,7 @@
                     </div>
 
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
+                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2 align-items-center">
                     <div class="col-auto">
                         <h4>Include Year Levels:</h4>
                     </div>
@@ -283,60 +283,6 @@
                 </div>
             </div>
         </form>
-<<<<<<< Updated upstream
-        <div class="border border-2 rounded rounded-2 border-primary bg-light m-2 p-3 w-75 mx-auto my-auto">
-            <div class="row border border-1 rounded rounded-1 border-primary-subtle bg-light-subtle my-auto p-2 m-2 mb-2">
-                <div class="d-flex align-items-end">
-                    <h2 class="m-1">LASTNAME, </h2>
-                    <h4 class="m-1">Firstname, Middle Name </h4>
-                    <h6 class="m-1"> (M/F) </h6>
-                    <h6 class="ms-auto">20XX-#####</h6>
-                </div>
-                <hr class="text-black" style="margin: 0.125% !important;">
-                <div class="d-flex align-items-center justify-content-around">
-                    <span class="m-1">CLG - DEGPROG</span>
-                    <span class="m-1">YEAR LEVEL: X</span>
-                    <span class="m-1">Units Enlisted: XX</span>
-                </div>
-                <hr class="text-black" style="margin: 0.125% !important;">
-                <div class="row">
-                    <span>Birthdate: YYYY-MM-DD</span>
-                </div>
-                <div class="row">
-                    <span>AddressLine3</span>
-                </div>
-                <div class="row">
-                    <span>AddressLine2</span>
-                </div>
-            </div>
-            <div class="row border border-1 rounded rounded-1 border-primary-subtle bg-light-subtle my-auto p-2 m-2 mb-2">
-                <div class="d-flex align-items-end">
-                    <h2 class="m-1">LASTNAME, </h2>
-                    <h4 class="m-1">Firstname, Middle Name </h4>
-                    <h6 class="m-1"> (M/F) </h6>
-                    <h6 class="ms-auto">20XX-#####</h6>
-                </div>
-                <hr class="text-black" style="margin: 0.125% !important;">
-                <div class="d-flex align-items-center justify-content-around">
-                    <span class="m-1">CLG - DEGPROG</span>
-                    <span class="m-1">YEAR LEVEL: X</span>
-                    <span class="m-1">Units Enlisted: XX</span>
-                </div>
-                <hr class="text-black" style="margin: 0.125% !important;">
-                <div class="row">
-                    <span>Birthdate: YYYY-MM-DD</span>
-                </div>
-                <div class="row">
-                    <span>AddressLine3</span>
-                </div>
-                <div class="row">
-                    <span>AddressLine2</span>
-                </div>
-            </div>
-        </div>
-
-=======
->>>>>>> Stashed changes
     </div>
 
 

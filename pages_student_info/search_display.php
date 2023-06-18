@@ -7,10 +7,11 @@
 
     $studnum_set = (isset($_POST['stud_num_number']) && !empty($_POST['stud_num_number'])) 
         or (isset($_POST['stud_num_year']) && !empty($_POST['stud_num_year']));
-    $name_set = isset($_POST['name']) && !empty($_POST['name']) ;
-    $bdate_set = (isset($_POST['bdate_exact']) && !empty($_POST['bdate_exact'])) 
-        or (isset($_POST['bdate_from']) && !empty($_POST['bdate_from']))
-        or (isset($_POST['bdate_to']) && !empty($_POST['bdate_to']));
+    $name_set = isset($_POST['name']) && !empty($_POST['name']);
+    $exact_checker = isset($_POST['bdate_exact']) && !empty($_POST['bdate_exact']);
+    $from_checker = isset($_POST['bdate_from']) && !empty($_POST['bdate_from']);
+    $to_checker = isset($_POST['bdate_to']) && !empty($_POST['bdate_to']);
+    $bdate_set = ($exact_checker or $from_checker or $to_checker);
     $address_set = isset($_POST['address']) && !empty($_POST['address']);
 
     $courses_set = !empty($_POST["courses"]);
@@ -46,15 +47,10 @@
 
         $bdate_query = "";
         if($bdate_set){
-            if(isset($_POST['bdate_exact'])){ // simplest case. date exactly this.
-                $bdate_query = "bdate = " . $_POST['bdate_exact'];
-            }else if(isset($_POST['bdate_from'], $_POST['bdate_to'])){
-                $bdate_query = "bdate BETWEEN " . $_POST['bdate_from'] . " and " . $_POST['bdate_to'];
-            }else if(isset($_POST['bdate_from'])){
-                $bdate_query = "bdate >= " . $_POST['bdate_from'];
-            }else if(isset($_POST['bdate_to'])){
-                $bdate_query = "bdate <= " . $_POST['bdate_to'];
-            }
+            if($exact_checker == 1) $bdate_query = "bdate = '{$_POST['bdate_exact']}'";
+            else if($from_checker == 1 && $to_checker == 1) $bdate_query = "bdate BETWEEN '{$_POST['bdate_from']}' and '{$_POST['bdate_to']}'";
+            else if($from_checker == 1) $bdate_query = "bdate >= '{$_POST['bdate_from']}'";
+            else if($to_checker == 1) $bdate_query = "bdate <= '{$_POST['bdate_to']}'";
         }
 
         $address_query = "";
@@ -104,19 +100,24 @@
         if($sex_set){
             if($_POST['sex'] == 'M'){
                 $sex_query = "sex = 'M'";
-            }else{
+            }else if ($_POST['sex'] == 'F'){
                 $sex_query = "sex = 'F'";
             }
         }
         
-        $allquery = "SELECT * FROM student_info WHERE ";
+        $allquery = "SELECT * FROM student_info";
         $querylist = array($sex_query, $studnum_query, $name_query, $bdate_query, $address_query, $courses_query, $colleges_query, $yr_query);
         $and_needed = false;
+        $firstinsert = 0;
         foreach($querylist as $q){
             if($q == "") continue;
             if($and_needed){
                 $allquery .= " AND ";
             }else{
+                if($firstinsert == 0) {
+                    $allquery .= " WHERE ";
+                    $firstinsert = 1;
+                }
                 $and_needed = true;
             }
             $allquery .= $q;
@@ -227,7 +228,7 @@
         function format_results($lname, $fname, $mname, $sex, $studnum, $college, 
                     $degprog, $yearlevel, $unitsenlisted, $bdate, $address1, $address2){
             
-            $template = "<div class=\"row border border-1 rounded rounded-1 border-primary-subtle my-auto p-2 m-2\">
+            $template = "<div class=\"row border border-1 rounded rounded-1 border-primary-subtle shadow-sm my-auto p-2 m-2 mb-2\">
                     <div class=\"d-flex align-items-end\"> <h2 class=\"m-1\">";
     
             $template .= $lname;
@@ -241,16 +242,16 @@
 
             $template .= $studnum;
             $template .= "</h6> </div> <hr class=\"text-black\" style=\"margin: 0.125% !important;\"> 
-                <div class=\"d-flex align-items-center justify-content-around\"> <span class=\"m-1\">";
+                <div class=\"container align-items-center\"> <div class=\"row py-2\"> <div class=\"col-sm-5\"> <span>";
 
             $template .= $college . " - " . $degprog;
-            $template .= "</span> <span class=\"m-1\">";
+            $template .= "</span> </div> <div class=\"col-sm-4\"> <span>";
 
             $template .= "YEAR LEVEL: " . $yearlevel;
-            $template .= "</span> <span class=\"m-1\">";
+            $template .= "</span> </div> <div class=\"col-sm-3\"> <span>";
 
             $template .= "Units Enlisted: " . $unitsenlisted;
-            $template .= "</span> </div> <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
+            $template .= "</span> </div> </div> </div> <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
                 <div class=\"row\"> <span>";
 
             $template .= "Birthdate: " . $bdate;
@@ -267,80 +268,21 @@
 
             if(isset($_POST['send'])) {
 
-<<<<<<< Updated upstream
-                else {
-
-                    echo "<div class=\"border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto row-gap-2\">
-                        <h1>MATCHING RECORDS</h1>";
-                    while ($data = $result -> fetch_assoc()) {
-                        echo "
-                        <div class=\"row border border-1 rounded rounded-1 border-primary-subtle my-auto p-2 m-2 mb-2\">
-                            <div class=\"d-flex align-items-end\">";
-    
-                        echo "<h2 class=\"m-1\">";
-                        echo $data["lname"] . ",";
-                        echo "</h2>";
-    
-                        echo "<h4 class=\"m-1\">";
-                        echo $data["fname"] . ", " . $data["mname"];
-                        echo "</h4>";
-    
-                        echo "<h6 class=\"m-1\">";
-                        echo "(" . $data["sex"] . ")";
-                        echo "</h6>";
-    
-                        echo "<h6 class=\"ms-auto\">";
-                        echo $data["stud_num"];
-                        echo "</h6>";
-    
-                        echo "</div>";
-                        echo "<hr class=\"text-black\" style=\"margin: 0.125% !important;\">";
-    
-                        echo "<div class=\"d-flex align-items-center justify-content-around\">";
-                    
-                        echo "<span class=\"m-1\">";
-                        echo $data["college"] . " - " . $data["degprog"];
-                        echo "</span>";
-    
-                        echo "<span class=\"m-1\">";
-                        echo "YEAR LEVEL: " . $data["yearlevel"];
-                        echo "</span>";
-    
-                        echo "<span class=\"m-1\">";
-                        echo "Units Enlisted: " . $data["units_enlisted"];
-                        echo "</span></div>
-                        
-                        <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
-                        <div class=\"row\">";
-    
-                        echo "<span>";
-                        echo "Birthdate: " . $data["bdate"];
-                        echo "</span>
-                        </div>
-                        <div class=\"row\">
-                        <span>";
-    
-                        echo $data["address1"];
-                        echo "</span></div><div class=\"row\"><span>";
-                        
-                        echo $data["address2"];
-                        echo "</span></div></div>";
-=======
                 $exact_result = $mysqli -> query($allquery);
-                echo "<div class=\"border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
+                echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
                 if(mysqli_affected_rows($mysqli) == 0){
                     echo "<h3>NO EXACT MATCH. </h3>";
                 }else{
-                    echo "<h1>EXACT MATCH/ES: </h1>";
+                    echo "<h1>EXACT MATCHES: </h1>";
                     while ($data = $exact_result -> fetch_assoc()) {
                         echo format_results($data['lname'], $data['fname'], $data['mname'], $data['sex'], 
                             $data['stud_num'], $data['college'], $data['degprog'], $data['yearlevel'], 
                             $data['units_enlisted'], $data['bdate'], $data['address1'], $data['address2']);
->>>>>>> Stashed changes
                     }
                 }
                 echo "</div>";
 
+                /*
                 $best_result = $mysqli -> query($best_query);
                 echo "<div class=\"border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
                 if(mysqli_affected_rows($mysqli) == 0){
@@ -354,49 +296,7 @@
                     }
                 }
                 echo "</div>";
-
-                /*
-                    echo "
-                    <div class=\"w-75 mx-auto mt-4\"><h1>MATCHING RECORDS</h1>
-                        <table class=\"table table-primary\">
-                            <thead>
-                                <tr>
-                                    <th scope=\"col\" class=\"col-sm-4\">Name</th>
-                                    <th scope=\"col\" class=\"col-sm-1\">Sex</th>
-                                    <th scope=\"col\" class=\"col-sm-1\">Year Level</th>
-                                    <th scope=\"col\" class=\"col-sm-2\">College</th>
-                                    <th scope=\"col\" class=\"col-sm-4\">Degree Program</th>
-                                </tr>
-                            </thead>
-                            <tbody class=\"table-light\">
-                ";
-                
-                while ($data = $result -> fetch_assoc()) {
-                    echo "<tr><td scope=\"col\">";
-                    echo $data["fname"] . " " . $data["mname"] . " " . $data["lname"];
-                    echo "</td>";
-
-                    echo "<td scope=\"col\">";
-                    echo $data["sex"];
-                    echo "</td>";
-
-                    echo "<td scope=\"col\">";
-                    echo $data["yearlevel"];
-                    echo "</td>";
-
-                    echo "<td scope=\"col\">";
-                    echo $data["college"];
-                    echo "</td>";
-
-                    echo "<td scope=\"col\">";
-                    echo $data["degprog"];
-                    echo "</td></tr>";
-                }
-
-                echo "</tbody></table></div>";
-
-                
-            */
+                */
             }
         ?>
 
@@ -407,5 +307,8 @@
         <?php echo "<script src=\"../popper.min.js\"></script>
         <script src=\"../node_modules/bootstrap/dist/js/bootstrap.min.js\"></script>";
         ?>
+
+        <?php $mysqli -> close(); ?>
+
     </body>
 </html>
