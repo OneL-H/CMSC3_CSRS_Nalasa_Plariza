@@ -262,16 +262,22 @@
 
             $template .= "Units Enlisted: " . $unitsenlisted;
             $template .= "</span> </div> </div> </div> <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
-                <div class=\"row\"> <span>";
+                <div class=\"container d-flex\"> <div class=\"col-auto\"> <div class=\"row\"> <span>";
 
             $template .= "Birthdate: " . $bdate;
             $template .= "</span> </div> <div class=\"row\"> <span>";
 
             $template .= $address1;
-            $template .= "</span></div><div class=\"row\"><span>";
+            $template .= "</span> </div> <div class=\"row\"> <span>";
                 
             $template .= $address2;
-            $template .= "</span></div></div>";
+            $template .= "</span> </div> </div>";
+
+            $template .= "<div class=\"d-flex col flex-column align-self-end align-items-end\">
+                        <form method=\"POST\" action=\"delete.php\">
+                        <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-danger\" name=\"rec_delete\">Delete</button>
+                        </form>
+                    </div> </div> </div>";
 
             return $template;
         }
