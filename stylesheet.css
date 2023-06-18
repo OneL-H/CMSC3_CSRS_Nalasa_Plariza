@@ -36,82 +36,11 @@ header>* {margin: 1%;}
 }
 
 nav {
-    padding-left: 1%;
-    box-sizing: border-box;
-    color: #EBEBEB;
-    background-color: #7B1112;
     height: 7%;
-    width: 100%;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-height: 100%;
     text-transform: uppercase;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 20px rgba(0,0,0,.4);
     z-index: 5;
 }
-
-nav>h1 {padding: 1%;}
-
-div.dropdown {
-    flex-grow: 1;
-    height: 100%;
-    width: 1%;
-    text-align: center;
-    position: relative;
-}
-
-#wearehere {
-    background-color: #861112;
-    flex-grow: 1;
-    position: relative;
-    height: 100%;
-    width: 1%;
-    text-align: center;
-}
-
-div.dropdown>p, nav>div#wearehere>p {
-    text-decoration: none;
-    color: #EBEBEB;
-    position: relative;
-    top: 43%;
-}
-
-.spanner {
-    position: absolute; 
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-div.dropdown:hover {background-color: #6e1517;}
-
-.dropdown_content {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background-color: #e6e6e6e5;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    width: 100%;
-    z-index: 1;
-}
-
-.dropdown_content a {
-    font-weight: 400;
-    text-decoration: none;
-    color: #6e1517;
-    display: block;
-    padding: 2% 0 1.5%;
-    transition: 0.25s;
-}
-
-.dropdown_content a:hover {background-color: #f1f1f1;}
-
-.dropdown:hover .dropdown_content {display: block;}
 
 .img_container {
     position: relative;
@@ -135,140 +64,48 @@ div.dropdown:hover {background-color: #6e1517;}
 
 .text_box>h2 {font-size: 1.5vw;}
 
-div>p {padding-bottom: 4px;}
-
 img.header_img {width: 100%;}
 
 div.announcements>div, div.sidebar>div, div.solo>div {
-    background-color: #c8c8c89d;
     padding: 10px;
     margin-top: 25px;
     margin-bottom: 10px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-
-div.announcements>div:hover, div.sidebar>div:hover, div.solo>div:hover {
-    background-color: #C8C8C8;
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
 }
 
 div.announcements {
     width: 65%;
     float: left;
     margin-left: 1.5%;
-    color: #014421;
 }
 
 div.sidebar {
     width: 30%;
     float: right;
     margin-right: 1.5%;
-    color: #014421;
     position: relative;
     top: 26px;
 }
 
 div h1 {
-    margin-bottom: 8px;
     text-transform: uppercase;
 }
 
 div.announcements>h1 {
     font-size: 4em;
     padding-top: 30px;
-    color: #151414;
-}
-
-div.announcements>p {
-    color: #151414;
+    padding-left: 10px;
 }
 
 div.sidebar>h1 {
     font-size: 2em;
     padding-top: 15px;
-    color: #151414;
     text-align: center;
 }
 
-div.sidebar>h1#faq {font-size: 2em;}
-
 div.sidebar>div.afterh1 {margin-top: 0;}
 
-div.sidebar>div>ol, div.sidebar>div>ul {
-    position: relative;
-    left: 30px;
-    padding-right: 30px;
-}
-
-div.solo {
-    width: 100%;
-    padding: 0 30px;
-    color: #014421;
-}
-
-div.solo>div>h1 {
-    font-size: 2em;
-    padding-bottom: 5px;
-}
-
-div.solo>h1 {
-    font-size: 2em;
-    padding-top: 30px;
-    color: #151414;
-}
-
-div.solo>h3 {
-    font-size: 1em;
-    font-weight: 400;
-}
-
-div.solo>div>p {
-    font-size: 1.25em;
-}
-
-div.solo>div>ol, div.solo>div>ul {
-    font-size: 1.2em;
-    position: relative;
-    left: 60px;
-    padding-right: 60px;
-}
-
-div.solo>p {padding: 10px 0 20px;}
-
-div.announcements a, div.sidebar a, div.solo a {
-    color: #7B1112;
-    text-decoration: underline;
-    word-wrap: break-word;
-}
-
-div.announcements a:hover, div.sidebar a:hover, div.solo a:hover {color: #bb3033;}
-
-div.announcements>div>h1 {font-size: 2.5em;}
-
-div.announcements>div>p {font-size: 1.2em;}
-
-div.announcements>div>ol, div.announcements>div>ul {
-    font-size: 1em;
-    position: relative;
-    left: 60px;
-    padding-right: 60px;
-}
-
-ul>ul {
-    list-style-type: none;
-    position: relative;
-    left: 30px;
-    padding-right: 30px;
-}
-
-footer.mainpage_footer {
-    margin: 2%;
-    padding: 15px 0;
-}
-
 footer {
-    margin: 15px 15px 15px 28px;
+    margin: 15px;
     color: #a7a7a7;
 }
 
@@ -308,3 +145,7 @@ footer {
 a.disabled {
     pointer-events: none;
 }
+
+#space {height: 9vh;}
+
+#morespace {height: 5vh;}
