@@ -16,7 +16,7 @@
     function format_results($lname, $fname, $mname, $sex, $studnum, $college, 
                 $degprog, $yearlevel, $unitsenlisted, $bdate, $address1, $address2, $showbutton){
         
-        $template = "<div class=\"row border border-1 rounded rounded-1 border-primary-subtle shadow-sm my-auto p-2 m-2 mb-3\">
+        $template = "<div class=\"row border border-1 rounded rounded-1 border-primary-subtle shadow-sm my-auto p-2 m-2 mb-2\">
                 <div class=\"d-flex align-items-end\"> <h2 class=\"m-1\">";
 
         $template .= $lname;
@@ -121,10 +121,6 @@
                                 $data['stud_num'], $data['college'], $data['degprog'], $data['yearlevel'], 
                                 $data['units_enlisted'], $data['bdate'], $data['address1'], $data['address2'], !isset($_POST['delete_confirm']));
                 ?>
-                <form method="POST">
-                    <button class="btn btn-success" value="<?php echo $_POST['delete'] ?>" name="remove">Yes</button>
-                    <button class="btn btn-danger" name="exit">No</button>
-                </form>
             </div>
         </div>
 
