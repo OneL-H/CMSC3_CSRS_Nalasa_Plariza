@@ -232,6 +232,7 @@
         </nav>
 
         <div id="space"></div>
+        <div id="morespace"></div>
 
         <?php
         function format_results($lname, $fname, $mname, $sex, $studnum, $college, 
@@ -278,13 +279,12 @@
             if(isset($_POST['send'])) {
 
                 
-                echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
-                echo $allquery;
+                echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 mb-5 p-3 w-75 mx-auto my-auto row-gap-2\">";
                 $exact_result = $mysqli -> query($allquery);
                 if(mysqli_affected_rows($mysqli) == 0){
                     echo "<h3>NO EXACT MATCH. </h3>";
                 }else{
-                    echo "<h1>EXACT MATCH/ES: </h1>";
+                    echo "<h1>EXACT MATCHES: </h1>";
                     while ($data = $exact_result -> fetch_assoc()) {
                         echo format_results($data['lname'], $data['fname'], $data['mname'], $data['sex'], 
                             $data['stud_num'], $data['college'], $data['degprog'], $data['yearlevel'], 
@@ -294,13 +294,12 @@
                 echo "</div>";
 
                 
-                echo "<div class=\"border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
-                echo $best_query;
+                echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 mb-5 p-3 w-75 mx-auto my-auto row-gap-2\">";
                 $best_result = $mysqli -> query($best_query);
                 if(mysqli_affected_rows($mysqli) == 0){
                     echo "<h3>NO GOOD MATCHES. </h3>";
                 }else{
-                    echo "<h1>BEST MATCH/ES: </h1>";
+                    echo "<h1>BEST MATCHES: </h1>";
                     while ($data = $best_result -> fetch_assoc()) {
                         echo format_results($data['lname'], $data['fname'], $data['mname'], $data['sex'], $data['stud_num'], 
                             $data['college'], $data['degprog'], $data['yearlevel'], $data['units_enlisted'], $data['bdate'], 

@@ -22,7 +22,7 @@
             class="border border-2 rounded rounded-2 border-primary bg-light shadow m-2 p-3 w-75 mx-auto my-auto">
             <h2>Record Search</h2>
             <div class="container py-2 px-2">
-                <div class="row m-1 p-2 border border-1 border-primary rounded-2">
+                <div class="row m-1 p-2 border border-1 border-primary bg-light-subtle rounded-2">
                     <div class="col col-2 m-2">
                         <label class="form-label" for="stud_num">Student Number (year):</label>
                         <input class="form-control border border-1 border-primary-subtle" type="text" name="stud_num_year">
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary rounded-2"><!--select colleges to hit-->
+                <div class="row m-1 p-2 border border-1 border-primary bg-light-subtle rounded-2"><!--select colleges to hit-->
                     <div class="row">
                         <h4>Select Courses:</h2>
                     </div>
@@ -246,7 +246,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
+                <div class="row m-1 p-2 border border-1 border-primary bg-light-subtle rounded-2 align-items-center">
                     <div class="col-auto">
                         <h4>Select Colleges:</h4>
                     </div>
