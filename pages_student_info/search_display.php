@@ -173,7 +173,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top mx-auto" style="width: 97%">
+        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top" style="width: 97%">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" href="#">
                     <img src="../logo_upmin_2.png" id="logo" alt="Logo" width="30" height="30"
@@ -204,8 +204,12 @@
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="info.php">student details</a></li>
                                 <li><a href="student_search.php">record search</a></li>
+                                <li><a href="sdis.php">sdis</a></li>
                                 <li><a href="prospectus.php">prospectus & grades</a></li>
-                                <li><a href="calendar.php">academic calendar</a></li>
+                                <li><a href="sched.php">class schedule</a></li>
+                                <li><a href="residency.php">residency</a></li>
+                                <li><a href="matric.php">matriculation</a></li>
+                                <li><a href="calendar.php">personal calendar</a></li>
                             </ul>
                         </div>
                         <div class="dropdown col-3">
@@ -222,7 +226,6 @@
         </nav>
 
         <div id="space"></div>
-        <div id="morespace"></div>
 
         <?php
         function format_results($lname, $fname, $mname, $sex, $studnum, $college, 
@@ -282,7 +285,6 @@
                 }
                 echo "</div>";
 
-                /*
                 $best_result = $mysqli -> query($best_query);
                 echo "<div class=\"border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
                 if(mysqli_affected_rows($mysqli) == 0){
@@ -296,7 +298,6 @@
                     }
                 }
                 echo "</div>";
-                */
             }
         ?>
 
@@ -309,6 +310,5 @@
         ?>
 
         <?php $mysqli -> close(); ?>
-
     </body>
 </html>

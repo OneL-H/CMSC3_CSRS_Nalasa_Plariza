@@ -22,7 +22,7 @@
             class="border border-2 rounded rounded-2 border-primary bg-light shadow m-2 p-3 w-75 mx-auto my-auto">
             <h2>Record Search</h2>
             <div class="container py-2 px-2">
-                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2">
+                <div class="row m-1 p-2 border border-1 border-primary rounded-2">
                     <div class="col col-2 m-2">
                         <label class="form-label" for="stud_num_year">Student Number (year):</label>
                         <input class="form-control border border-1 border-primary-subtle" type="number" name="stud_num_year">
@@ -145,7 +145,88 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2"><!--select colleges to hit-->
+                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
+                    <div class="col-auto">
+                        <h4>Birthday: </h4>
+                    </div>
+                    <div class="col col-2 m-2">
+                        <label class="form-label" for="bdate_exact">Birthdate (exact):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_exact">
+                    </div>
+                    <div class="col col-2 m-2">
+                        <label class="form-label" for="bdate_from">Birthdate (from):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_from">
+                    </div>
+                    <div class="col col-2 m-2">
+                        <label class="form-label" for="bdate_to">Birthdate (to):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_to">
+                    </div>
+                    <div class="col col-2 m-2">
+                        <span class="form-text">Note: Only exact date searched if specified, regardless of from or to dates.
+                        </span>
+                    </div>
+
+                </div>
+                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
+                    <div class="col-auto">
+                        <h4>Include Year Levels:</h4>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="1" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr_1">
+                                1
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="2" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr_2">
+                                2
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="3" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr_3">
+                                3
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="4" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr">
+                                4
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="5" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr_5">
+                                5
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="6" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr_6">
+                                6
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-1 p-2 border border-1 border-primary rounded-2"><!--select colleges to hit-->
                     <div class="row">
                         <h4>Select Courses:</h2>
                     </div>
@@ -246,7 +327,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2 align-items-center">
+                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
                     <div class="col-auto">
                         <h4>Select Colleges:</h4>
                     </div>
