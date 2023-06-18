@@ -121,10 +121,6 @@
                                 $data['stud_num'], $data['college'], $data['degprog'], $data['yearlevel'], 
                                 $data['units_enlisted'], $data['bdate'], $data['address1'], $data['address2'], !isset($_POST['delete_confirm']));
                 ?>
-                <form method="POST">
-                    <button class="btn btn-success" value="<?php echo $_POST['delete'] ?>" name="remove">Yes</button>
-                    <button class="btn btn-danger" name="exit">No</button>
-                </form>
             </div>
         </div>
 
