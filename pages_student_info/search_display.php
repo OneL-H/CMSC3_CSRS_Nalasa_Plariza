@@ -5,8 +5,9 @@
         exit();
     }
 
-    $studnum_set = (isset($_POST['stud_num_number']) && !empty($_POST['stud_num_number'])) 
-        or (isset($_POST['stud_num_year']) && !empty($_POST['stud_num_year']));
+    $studnum_year_set = isset($_POST['stud_num_year']) && !empty($_POST['stud_num_year']);
+    $studnum_num_set = isset($_POST['stud_num_number']) && !empty($_POST['stud_num_number']);
+    $studnum_set = ($studnum_num_set || $studnum_year_set);
     $name_set = isset($_POST['name']) && !empty($_POST['name']);
     $exact_checker = isset($_POST['bdate_exact']) && !empty($_POST['bdate_exact']);
     $from_checker = isset($_POST['bdate_from']) && !empty($_POST['bdate_from']);
@@ -28,12 +29,12 @@
         
         $studnum_query = "";
         if($studnum_set){
-            if(isset($_POST['stud_num_number'], $_POST['stud_num_year'])){ // both checked!
+            if($studnum_num_set && $studnum_year_set){ // both checked!
                 $studnum_query = "stud_num = '" . $_POST['stud_num_year'] . "-" . $_POST['stud_num_number'] . "'";
-            }else if(isset($_POST['stud_num_number'])){
+            }else if($studnum_num_set){
                 $studnum_query = "stud_num LIKE '%" . $_POST['stud_num_number'] . "'";
                 $query_multipliers[1] = 2.9;
-            }else if(isset($_POST['stud_num_year'])){
+            }else if($studnum_year_set){
                 $studnum_query = "stud_num LIKE '" . $_POST['stud_num_year'] . "%'";
                 $query_multipliers[1] = 1.5;
             }
@@ -41,22 +42,22 @@
 
         $name_query = "";
         if($name_set){
-            $name_query = "fname LIKE '%" . $_POST['name'] . "%' OR mname LIKE '%" . $_POST['name'] . "%'"
-                . " OR lname LIKE '%" . $_POST['name'] . "%'";
+            $name_query = "(fname LIKE '%" . $_POST['name'] . "%' OR mname LIKE '%" . $_POST['name'] . "%'"
+                . " OR lname LIKE '%" . $_POST['name'] . "%')";
         }
 
         $bdate_query = "";
         if($bdate_set){
             if($exact_checker == 1) $bdate_query = "bdate = '{$_POST['bdate_exact']}'";
-            else if($from_checker == 1 && $to_checker == 1) $bdate_query = "bdate BETWEEN '{$_POST['bdate_from']}' and '{$_POST['bdate_to']}'";
+            else if($from_checker == 1 && $to_checker == 1) $bdate_query = "bdate BETWEEN '{$_POST['bdate_from']}' AND '{$_POST['bdate_to']}'";
             else if($from_checker == 1) $bdate_query = "bdate >= '{$_POST['bdate_from']}'";
             else if($to_checker == 1) $bdate_query = "bdate <= '{$_POST['bdate_to']}'";
         }
 
         $address_query = "";
         if($address_set){
-            $address_query = "address1 LIKE '%" . $_POST['address'] 
-                . "%' OR address2 LIKE '%" . $_POST['address'] . "%'";
+            $address_query = "(address1 LIKE '%" . $_POST['address'] 
+                . "%' OR address2 LIKE '%" . $_POST['address'] . "%')";
         }
 
         $courses_query = "";
@@ -140,22 +141,27 @@
             }
         }
 
-        arsort($matching_ids);
-        $best_query = "SELECT * FROM student_info WHERE stud_num IN (";
-        $best_ordering = ") ORDER BY FIELD (stud_num, ";
-        $id_count = 0;
-        $id_limit = 5;
-        foreach($matching_ids as $k => $i){
-            if($id_count == $id_limit) break;
-            if($id_count > 0){
-                $best_query .= ", ";
-                $best_ordering .= ", ";
+        if(empty($matching_ids)){
+            $best_query = $allquery;
+        }else{
+            arsort($matching_ids);
+            $best_query = "SELECT * FROM student_info WHERE stud_num IN (";
+            $best_ordering = ") ORDER BY FIELD (stud_num, ";
+            $id_count = 0;
+            $id_limit = 5;
+            foreach($matching_ids as $k => $i){
+                if($id_count == $id_limit) break;
+                if($id_count > 0){
+                    $best_query .= ", ";
+                    $best_ordering .= ", ";
+                }
+                $best_query .= "'" . $k . "'";
+                $best_ordering .= "'" . $k . "'";
+                $id_count++;
             }
-            $best_query .= "'" . $k . "'";
-            $best_ordering .= "'" . $k . "'";
-            $id_count++;
+            $best_query .= $best_ordering . ")";
         }
-        $best_query .= $best_ordering . ")";
+        
     }
 ?>
 
@@ -271,12 +277,14 @@
 
             if(isset($_POST['send'])) {
 
-                $exact_result = $mysqli -> query($allquery);
+                
                 echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
+                echo $allquery;
+                $exact_result = $mysqli -> query($allquery);
                 if(mysqli_affected_rows($mysqli) == 0){
                     echo "<h3>NO EXACT MATCH. </h3>";
                 }else{
-                    echo "<h1>EXACT MATCHES: </h1>";
+                    echo "<h1>EXACT MATCH/ES: </h1>";
                     while ($data = $exact_result -> fetch_assoc()) {
                         echo format_results($data['lname'], $data['fname'], $data['mname'], $data['sex'], 
                             $data['stud_num'], $data['college'], $data['degprog'], $data['yearlevel'], 
@@ -285,8 +293,10 @@
                 }
                 echo "</div>";
 
-                $best_result = $mysqli -> query($best_query);
+                
                 echo "<div class=\"border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
+                echo $best_query;
+                $best_result = $mysqli -> query($best_query);
                 if(mysqli_affected_rows($mysqli) == 0){
                     echo "<h3>NO GOOD MATCHES. </h3>";
                 }else{

@@ -24,8 +24,8 @@
             <div class="container py-2 px-2">
                 <div class="row m-1 p-2 border border-1 border-primary rounded-2">
                     <div class="col col-2 m-2">
-                        <label class="form-label" for="stud_num">Student Number:</label>
-                        <input class="form-control border border-1 border-primary-subtle" type="text" name="stud_num">
+                        <label class="form-label" for="stud_num">Student Number (year):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="text" name="stud_num_year">
                     </div>
                     <div class="col col-2 m-2">
                         <label class="form-label" for="stud_num_number">Student Number (num):</label>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2 align-items-center">
+                <div class="row m-1 p-2 border border-1 border-primary bg-light-subtle rounded-2 align-items-center">
                     <div class="col-auto">
                         <h4>Birthday: </h4>
                     </div>
@@ -86,7 +86,7 @@
                     </div>
 
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2 align-items-center">
+                <div class="row m-1 p-2 border border-1 border-primary bg-light-subtle rounded-2 align-items-center">
                     <div class="col-auto">
                         <h4>Include Year Levels:</h4>
                     </div>
@@ -141,49 +141,6 @@
                                 value="6" id="yr" name="yr[]">
                             <label class="form-check-label" for="yr_6">
                                 6
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
-                    <div class="col-auto">
-                        <h4>Birthday: </h4>
-                    </div>
-                    <div class="col col-2 m-2">
-                        <label class="form-label" for="bdate_exact">Birthdate (exact):</label>
-                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_exact">
-                    </div>
-                    <div class="col col-2 m-2">
-                        <label class="form-label" for="bdate_from">Birthdate (from):</label>
-                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_from">
-                    </div>
-                    <div class="col col-2 m-2">
-                        <label class="form-label" for="bdate_to">Birthdate (to):</label>
-                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_to">
-                    </div>
-                    <div class="col col-2 m-2">
-                        <span class="form-text">Note: Only exact date searched if specified, regardless of from or to dates.
-                        </span>
-                    </div>
-
-                </div>
-                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
-                    <div class="col-auto">
-                        <h4>Include Year Levels:</h4>
-                    </div>
-                    <div class="col-auto">
-                        <div class="form-check">
-                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="M" id="male" name="male" checked aria-checked="true">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Male
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="F" id="female" name="female" checked aria-checked="true">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Female
                             </label>
                         </div>
                     </div>
