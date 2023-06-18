@@ -1,10 +1,9 @@
-a prototype frontend for the UP Mindanao CSRS
-(no backend included)
+a prototype website for the UP Mindanao CSRS
+complete with frontend and backend (Bootstrap, MySQL and PHP)
 
-current scope / sites to include: 
-homepage
-FAQ
-about
-privacy notice
-announcements
-password reset
+FOR THIS WEBSITE TO WORK:
+create a database with the name "csrs", then import the sql file onto it
+
+landing page is mainpage.php
+
+by Nalasa and Plariza
