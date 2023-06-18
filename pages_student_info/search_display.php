@@ -210,11 +210,8 @@
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="info.php">student details</a></li>
                                 <li><a href="student_search.php">record search</a></li>
-                                <li><a href="sdis.php">sdis</a></li>
+                                <li><a href="add.php">add record</a></li>
                                 <li><a href="prospectus.php">prospectus & grades</a></li>
-                                <li><a href="sched.php">class schedule</a></li>
-                                <li><a href="residency.php">residency</a></li>
-                                <li><a href="matric.php">matriculation</a></li>
                                 <li><a href="calendar.php">personal calendar</a></li>
                             </ul>
                         </div>

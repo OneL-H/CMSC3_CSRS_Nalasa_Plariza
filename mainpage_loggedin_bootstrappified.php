@@ -17,11 +17,6 @@
 
     $result = $mysqli -> query($query);
     $data = $result -> fetch_assoc();
-
-    $yr = mb_substr($_SESSION["studentnumber"], 0, 4);
-    $aystart = 2022;
-    $yr = $aystart - $yr + 1;
-    $query = "UPDATE student_info SET `yearlevel` = $yr WHERE stud_num = '{$_SESSION["studentnumber"]}'";
     
     $mysqli -> query($query);
 
@@ -74,6 +69,7 @@
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="pages_student_info/info.php">student details</a></li>
                                 <li><a href="pages_student_info/student_search.php">record search</a></li>
+                                <li><a href="pages_student_info/add.php">add record</a></li>
                                 <li><a href="pages_student_info/prospectus.php">prospectus & grades</a></li>
                                 <li><a href="pages_student_info/calendar.php">academic calendar</a></li>
                             </ul>
