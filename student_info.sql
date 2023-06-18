@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2023 at 09:37 AM
+-- Generation Time: Jun 18, 2023 at 02:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -49,6 +49,9 @@ CREATE TABLE `student_info` (
 --
 
 INSERT INTO `student_info` (`stud_num`, `password`, `units_enlisted`, `didILoginForTheFirstTime`, `yearlevel`, `fname`, `mname`, `lname`, `address1`, `address2`, `bdate`, `college`, `degprog`, `sex`) VALUES
+('2019-10613', '2019-10613', 0, 0, 4, 'Walter', 'Hartwell', 'White', '308 Negra Arroyo Lane, Albuquerque, New Mexico', '', '1998-09-07', 'CSM', 'BS Food Technology', 'M'),
+('2020-11111', '2020-11111', 0, 0, 3, 'Vic', 'Calag', 'Calag', 'Davao City', '', '1999-01-01', 'CSM', 'BS Computer Science', 'M'),
+('2021-06531', '2021-06531', 0, 0, 2, 'Tyrone Vincent', 'Sanchez', 'Parker', 'Davao City', '', '2001-09-06', 'CHSS', 'BS Architecture', 'M'),
 ('2022-03484', 'gian', 0, 0, 1, 'Violette Gwen Rai', 'Esperancilla', 'Rosales', 'Tipaz Road, Magugpo East, Tagum City', '', '2003-08-15', 'CSM', 'BS Biology', 'F'),
 ('2022-05204', 'ilovegwen', 0, 0, 1, 'Gian Paolo', 'Debarbo', 'Plariza', 'B1 L1 P3 Niagara Falls St., Wellspring Village, Catalunan Pequeno, Davao City', '', '2004-02-01', 'CSM', 'BS Computer Science', 'M'),
 ('2022-12345', '12345', 0, 0, 1, 'Juan', 'Jose', 'Dela Cruz', 'Manila, Davao City', '', '2010-10-10', 'CHSS', 'BA Communication and Media Arts', 'M');
