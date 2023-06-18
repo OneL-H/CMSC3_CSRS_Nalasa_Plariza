@@ -16,7 +16,7 @@
     function format_results($lname, $fname, $mname, $sex, $studnum, $college, 
                 $degprog, $yearlevel, $unitsenlisted, $bdate, $address1, $address2){
         
-        $template = "<div class=\"row border border-1 rounded rounded-1 border-primary-subtle shadow-sm my-auto p-2 m-2 mb-2\">
+        $template = "<div class=\"row border border-1 rounded rounded-1 border-primary-subtle shadow-sm my-auto p-2 m-2 mb-3\">
                 <div class=\"d-flex align-items-end\"> <h2 class=\"m-1\">";
 
         $template .= $lname;
@@ -54,10 +54,16 @@
         return $template;
     }
 
-    $query = "SELECT * FROM student_info WHERE stud_num = '{$_POST['namething']}'"; // set this
+    $query = "SELECT * FROM student_info WHERE stud_num = '{$_POST['delete']}'";
 
     $result = $mysqli -> query($query);
     $data = $result -> fetch_assoc();
+
+    if(isset($_POST['remove'])) {
+        $query = "DELETE FROM student_info WHERE stud_num = '{$_POST['remove']}'";
+        $mysqli -> query($query);
+        header('location: student_search.php');
+    } else if(isset($_POST['exit'])) header('location: student_search.php');
 ?>
 
 <!DOCTYPE html>
@@ -75,19 +81,19 @@
     </head>
 
     <body>
-        
-        <form action="../mainpage_loggedin_bootstrappified.php">
-            <button class="fixed-top btn btn-primary m-3" style="width: 5%" href="../mainpage_loggedin_bootstrappified.php">Back</button>
-        </form>
 
         <div class="position-absolute row w-100 h-100">
             <div class="border border-3 rounded rounded-2 border-light-subtle bg-light shadow m-2 p-3 w-50 mx-auto my-auto">
-                <h2>Do you want to delete <?php echo "student number here" ?>?</h2>
+                <h2>Do you want to delete <?php echo $_POST['delete'] ?>?</h2>
                 <?php
                     echo format_results($data['lname'], $data['fname'], $data['mname'], $data['sex'], 
                                 $data['stud_num'], $data['college'], $data['degprog'], $data['yearlevel'], 
                                 $data['units_enlisted'], $data['bdate'], $data['address1'], $data['address2']);
                 ?>
+                <form method="POST">
+                    <button class="btn btn-success" value="<?php echo $_POST['delete'] ?>" name="remove">Yes</button>
+                    <button class="btn btn-danger" name="exit">No</button>
+                </form>
             </div>
         </div>
 
