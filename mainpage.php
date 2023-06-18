@@ -25,6 +25,7 @@
                 else $error = "login failed";
             }
         }
+        $mysqli -> close();
     }
 ?>
 
@@ -54,7 +55,7 @@
                 <div class="navbar-collapse justify-content-end" id="">
                     <form method="POST" class="row m-2">
                         <div class="col-auto">
-                            <span><?php echo $error; ?></span>
+                            <span class="text-light fw-bold"><?php echo $error; ?></span>
                         </div>
                         <div class="col-auto">
                             <label class="visually-hidden" for="studentNumber">Student Number</label>

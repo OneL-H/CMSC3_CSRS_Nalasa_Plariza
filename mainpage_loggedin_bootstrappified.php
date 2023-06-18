@@ -378,6 +378,8 @@
             </div>
         </div>
 
+        <?php $mysqli -> close(); ?>
+
         <script src="popper.min.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>

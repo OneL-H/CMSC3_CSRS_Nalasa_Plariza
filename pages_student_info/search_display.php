@@ -5,7 +5,22 @@
         exit();
     }
 
-    if (isset($_POST['send'])) {
+    $studnum_set = (isset($_POST['stud_num_number']) && !empty($_POST['stud_num_number'])) 
+        or (isset($_POST['stud_num_year']) && !empty($_POST['stud_num_year']));
+    $name_set = isset($_POST['name']) && !empty($_POST['name']);
+    $exact_checker = isset($_POST['bdate_exact']) && !empty($_POST['bdate_exact']);
+    $from_checker = isset($_POST['bdate_from']) && !empty($_POST['bdate_from']);
+    $to_checker = isset($_POST['bdate_to']) && !empty($_POST['bdate_to']);
+    $bdate_set = ($exact_checker or $from_checker or $to_checker);
+    $address_set = isset($_POST['address']) && !empty($_POST['address']);
+
+    $courses_set = !empty($_POST["courses"]);
+    $colleges_set = !empty($_POST["colleges"]);
+    $year_set = !empty($_POST["yr"]);
+
+    $sex_set = $_POST['sex'] != 'B';
+    
+    if (isset($_POST['send'])){
         $add_or = 0;
         $query = "SELECT * FROM `student_info` WHERE ";
 
@@ -20,10 +35,12 @@
             $add_or = 1;
         }
 
-        if (isset($_POST['female'])) {
-            if ($add_or == 1) $query .= " OR ";
-            $query .= "sex = 'F'";
-            $add_or = 1;
+        $bdate_query = "";
+        if($bdate_set){
+            if($exact_checker == 1) $bdate_query = "bdate = '{$_POST['bdate_exact']}'";
+            else if($from_checker == 1 && $to_checker == 1) $bdate_query = "bdate BETWEEN '{$_POST['bdate_from']}' and '{$_POST['bdate_to']}'";
+            else if($from_checker == 1) $bdate_query = "bdate >= '{$_POST['bdate_from']}'";
+            else if($to_checker == 1) $bdate_query = "bdate <= '{$_POST['bdate_to']}'";
         }
 
         if (isset($_POST['BACMA'])) {
@@ -80,16 +97,31 @@
             $add_or = 1;
         }
 
-        if (isset($_POST['SS'])) {
-            if ($add_or == 1) $query .= " OR ";
-            $query .= "degprog = 'BS Sports Science'";
-            $add_or = 1;
+        $sex_query = "";
+        if($sex_set){
+            if($_POST['sex'] == 'M'){
+                $sex_query = "sex = 'M'";
+            }else if ($_POST['sex'] == 'F'){
+                $sex_query = "sex = 'F'";
+            }
         }
-
-        if (isset($_POST['CSM'])) {
-            if ($add_or == 1) $query .= " OR ";
-            $query .= "college = 'CSM'";
-            $add_or = 1;
+        
+        $allquery = "SELECT * FROM student_info";
+        $querylist = array($sex_query, $studnum_query, $name_query, $bdate_query, $address_query, $courses_query, $colleges_query, $yr_query);
+        $and_needed = false;
+        $firstinsert = 0;
+        foreach($querylist as $q){
+            if($q == "") continue;
+            if($and_needed){
+                $allquery .= " AND ";
+            }else{
+                if($firstinsert == 0) {
+                    $allquery .= " WHERE ";
+                    $firstinsert = 1;
+                }
+                $and_needed = true;
+            }
+            $allquery .= $q;
         }
 
         if (isset($_POST['CHSS'])) {
@@ -123,7 +155,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top mx-auto" style="width: 97%">
+        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top" style="width: 97%">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" href="#">
                     <img src="../logo_upmin_2.png" id="logo" alt="Logo" width="30" height="30"
@@ -154,8 +186,12 @@
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="info.php">student details</a></li>
                                 <li><a href="student_search.php">record search</a></li>
+                                <li><a href="sdis.php">sdis</a></li>
                                 <li><a href="prospectus.php">prospectus & grades</a></li>
-                                <li><a href="calendar.php">academic calendar</a></li>
+                                <li><a href="sched.php">class schedule</a></li>
+                                <li><a href="residency.php">residency</a></li>
+                                <li><a href="matric.php">matriculation</a></li>
+                                <li><a href="calendar.php">personal calendar</a></li>
                             </ul>
                         </div>
                         <div class="dropdown col-3">
@@ -172,69 +208,61 @@
         </nav>
 
         <div id="space"></div>
-        <div id="morespace"></div>
 
         <?php
+        function format_results($lname, $fname, $mname, $sex, $studnum, $college, 
+                    $degprog, $yearlevel, $unitsenlisted, $bdate, $address1, $address2){
+            
+            $template = "<div class=\"row border border-1 rounded rounded-1 border-primary-subtle shadow-sm my-auto p-2 m-2 mb-2\">
+                    <div class=\"d-flex align-items-end\"> <h2 class=\"m-1\">";
+    
+            $template .= $lname;
+            $template .= ",</h2> <h4 class=\"m-1\">";
+
+            $template .= $fname . ", " . $mname;
+            $template .= "</h4> <h6 class=\"m-1\">";
+
+            $template .= "(" . $sex . ")";
+            $template .= "</h6> <h6 class=\"ms-auto\">";
+
+            $template .= $studnum;
+            $template .= "</h6> </div> <hr class=\"text-black\" style=\"margin: 0.125% !important;\"> 
+                <div class=\"container align-items-center\"> <div class=\"row py-2\"> <div class=\"col-sm-5\"> <span>";
+
+            $template .= $college . " - " . $degprog;
+            $template .= "</span> </div> <div class=\"col-sm-4\"> <span>";
+
+            $template .= "YEAR LEVEL: " . $yearlevel;
+            $template .= "</span> </div> <div class=\"col-sm-3\"> <span>";
+
+            $template .= "Units Enlisted: " . $unitsenlisted;
+            $template .= "</span> </div> </div> </div> <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
+                <div class=\"row\"> <span>";
+
+            $template .= "Birthdate: " . $bdate;
+            $template .= "</span> </div> <div class=\"row\"> <span>";
+
+            $template .= $address1;
+            $template .= "</span></div><div class=\"row\"><span>";
+                
+            $template .= $address2;
+            $template .= "</span></div></div>";
+
+            return $template;
+        }
             if(isset($_POST['send'])) {
                 if (mysqli_affected_rows($mysqli) == 0) { echo "<div class=\"w-75 mx-auto mt-4\"><h1>There are no records that match.</h1></div>";}
 
-                else {
-
-                    echo "<div class=\"border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto row-gap-2\">
-                        <h1>MATCHING RECORDS</h1>";
-                    while ($data = $result -> fetch_assoc()) {
-                        echo "
-                        <div class=\"row border border-1 rounded rounded-1 border-primary-subtle my-auto p-2 m-2 mb-2\">
-                            <div class=\"d-flex align-items-end\">";
-    
-                        echo "<h2 class=\"m-1\">";
-                        echo $data["lname"] . ",";
-                        echo "</h2>";
-    
-                        echo "<h4 class=\"m-1\">";
-                        echo $data["fname"] . ", " . $data["mname"];
-                        echo "</h4>";
-    
-                        echo "<h6 class=\"m-1\">";
-                        echo "(" . $data["sex"] . ")";
-                        echo "</h6>";
-    
-                        echo "<h6 class=\"ms-auto\">";
-                        echo $data["stud_num"];
-                        echo "</h6>";
-    
-                        echo "</div>";
-                        echo "<hr class=\"text-black\" style=\"margin: 0.125% !important;\">";
-    
-                        echo "<div class=\"d-flex align-items-center justify-content-around\">";
-                    
-                        echo "<span class=\"m-1\">";
-                        echo $data["college"] . " - " . $data["degprog"];
-                        echo "</span>";
-    
-                        echo "<span class=\"m-1\">";
-                        echo "YEAR LEVEL: " . $data["yearlevel"];
-                        echo "</span>";
-    
-                        echo "<span class=\"m-1\">";
-                        echo "Units Enlisted: " . $data["units_enlisted"];
-                        echo "</span></div>
-                        
-                        <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
-                        <div class=\"row\">";
-    
-                        echo "<span>";
-                        echo "Birthdate: " . $data["bdate"];
-                        echo "</span>
-                        </div>
-                        <div class=\"row\">
-                        <span>";
-    
-                        echo $data["address1"];
-                        echo "</span></div><div class=\"row\"><span>";
-                        
-                        echo $data["address2"];
-                        echo "</span></div></div>";
+                $exact_result = $mysqli -> query($allquery);
+                echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 p-3 w-75 mx-auto my-auto row-gap-2\">";
+                if(mysqli_affected_rows($mysqli) == 0){
+                    echo "<h3>NO EXACT MATCH. </h3>";
+                }else{
+                    echo "<h1>EXACT MATCHES: </h1>";
+                    while ($data = $exact_result -> fetch_assoc()) {
+                        echo format_results($data['lname'], $data['fname'], $data['mname'], $data['sex'], 
+                            $data['stud_num'], $data['college'], $data['degprog'], $data['yearlevel'], 
+                            $data['units_enlisted'], $data['bdate'], $data['address1'], $data['address2']);
                     }
                     echo "</div>";
 
@@ -275,20 +303,19 @@
                         echo $data["degprog"];
                         echo "</td></tr>";
                     }
-
-                    echo "</tbody></table></div>";
-
-                    
-                */
                 }
-            }  
+                echo "</div>";
+            }
         ?>
 
         <footer>
             <p>Copyright © 2023 NALASA PLARIZA</p>
         </footer>
+      
+        <?php echo "<script src=\"../popper.min.js\"></script>
+        <script src=\"../node_modules/bootstrap/dist/js/bootstrap.min.js\"></script>";
+        ?>
 
-        <script src="../popper.min.js"></script>
-        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <?php $mysqli -> close(); ?>
     </body>
 </html>

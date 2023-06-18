@@ -19,21 +19,159 @@
     </form>
     <div class="position-absolute row w-100 h-100">
         <form method="POST" action="search_display.php"
-            class="border border-2 rounded rounded-2 border-primary bg-light m-2 p-3 w-75 mx-auto my-auto">
+            class="border border-2 rounded rounded-2 border-primary bg-light shadow m-2 p-3 w-75 mx-auto my-auto">
             <h2>Record Search</h2>
             <div class="container py-2 px-2">
-                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2">
+                <div class="row m-1 p-2 border border-1 border-primary rounded-2">
                     <div class="col col-2 m-2">
                         <label class="form-label" for="stud_num">Student Number:</label>
                         <input class="form-control border border-1 border-primary-subtle" type="text" name="stud_num">
                     </div>
                     <div class="col col-2 m-2">
-                        <label class="form-label" for="year_level">Year Level:</label>
-                        <input class="form-control border border-1 border-primary-subtle" type="number"
-                            name="year_level">
+                        <label class="form-label" for="stud_num_number">Student Number (num):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="number" name="stud_num_number">
+                    </div>
+                    <div class="col col-2 m-2">
+                        <label class="form-label" for="name">Name (contains): </label>
+                        <input class="form-control border border-1 border-primary-subtle" type="text" name="name">
+                    </div>
+                    <div class="col col-3 m-2">
+                        <label class="form-label" for="address">Address (contains): </label>
+                        <input class="form-control border border-1 border-primary-subtle" type="text" name="address">
                     </div>
                     <div class="col col-2 m-2">
                         <label class="form-label">Sex:</label>
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="radio"
+                                value="M" id="male" name="sex">
+                            <label class="form-check-label" for="male">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="radio"
+                                value="F" id="female" name="sex">
+                            <label class="form-check-label" for="female">
+                                Female
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="radio"
+                                value="B" id="both_genders" name="sex" checked aria-checked="true">
+                            <label class="form-check-label" for="both_genders">
+                                Both
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2 align-items-center">
+                    <div class="col-auto">
+                        <h4>Birthday: </h4>
+                    </div>
+                    <div class="col col-2 m-2">
+                        <label class="form-label" for="bdate_exact">Birthdate (exact):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_exact">
+                    </div>
+                    <div class="col col-2 m-2">
+                        <label class="form-label" for="bdate_from">Birthdate (from):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_from">
+                    </div>
+                    <div class="col col-2 m-2">
+                        <label class="form-label" for="bdate_to">Birthdate (to):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_to">
+                    </div>
+                    <div class="col col-2 m-2">
+                        <span class="form-text">Note: Only exact date searched if specified, regardless of from or to dates.
+                        </span>
+                    </div>
+
+                </div>
+                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2 align-items-center">
+                    <div class="col-auto">
+                        <h4>Include Year Levels:</h4>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="1" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr_1">
+                                1
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="2" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr_2">
+                                2
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="3" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr_3">
+                                3
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="4" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr">
+                                4
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="5" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr_5">
+                                5
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
+                                value="6" id="yr" name="yr[]">
+                            <label class="form-check-label" for="yr_6">
+                                6
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
+                    <div class="col-auto">
+                        <h4>Birthday: </h4>
+                    </div>
+                    <div class="col col-2 m-2">
+                        <label class="form-label" for="bdate_exact">Birthdate (exact):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_exact">
+                    </div>
+                    <div class="col col-2 m-2">
+                        <label class="form-label" for="bdate_from">Birthdate (from):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_from">
+                    </div>
+                    <div class="col col-2 m-2">
+                        <label class="form-label" for="bdate_to">Birthdate (to):</label>
+                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_to">
+                    </div>
+                    <div class="col col-2 m-2">
+                        <span class="form-text">Note: Only exact date searched if specified, regardless of from or to dates.
+                        </span>
+                    </div>
+
+                </div>
+                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
+                    <div class="col-auto">
+                        <h4>Include Year Levels:</h4>
+                    </div>
+                    <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
                                 value="M" id="male" name="male" checked aria-checked="true">
@@ -50,7 +188,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2"><!--select colleges to hit-->
+                <div class="row m-1 p-2 border border-1 border-primary rounded-2"><!--select colleges to hit-->
                     <div class="row">
                         <h4>Select Courses:</h2>
                     </div>
@@ -151,7 +289,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary-subtle bg-light-subtle rounded-2 align-items-center">
+                <div class="row m-1 p-2 border border-1 border-primary rounded-2 align-items-center">
                     <div class="col-auto">
                         <h4>Select Colleges:</h4>
                     </div>
@@ -191,57 +329,6 @@
                 </div>
             </div>
         </form>
-        <div class="border border-2 rounded rounded-2 border-primary bg-light m-2 p-3 w-75 mx-auto my-auto">
-            <div class="row border border-1 rounded rounded-1 border-primary-subtle bg-light-subtle my-auto p-2 m-2 mb-2">
-                <div class="d-flex align-items-end">
-                    <h2 class="m-1">LASTNAME, </h2>
-                    <h4 class="m-1">Firstname, Middle Name </h4>
-                    <h6 class="m-1"> (M/F) </h6>
-                    <h6 class="ms-auto">20XX-#####</h6>
-                </div>
-                <hr class="text-black" style="margin: 0.125% !important;">
-                <div class="d-flex align-items-center justify-content-around">
-                    <span class="m-1">CLG - DEGPROG</span>
-                    <span class="m-1">YEAR LEVEL: X</span>
-                    <span class="m-1">Units Enlisted: XX</span>
-                </div>
-                <hr class="text-black" style="margin: 0.125% !important;">
-                <div class="row">
-                    <span>Birthdate: YYYY-MM-DD</span>
-                </div>
-                <div class="row">
-                    <span>AddressLine3</span>
-                </div>
-                <div class="row">
-                    <span>AddressLine2</span>
-                </div>
-            </div>
-            <div class="row border border-1 rounded rounded-1 border-primary-subtle bg-light-subtle my-auto p-2 m-2 mb-2">
-                <div class="d-flex align-items-end">
-                    <h2 class="m-1">LASTNAME, </h2>
-                    <h4 class="m-1">Firstname, Middle Name </h4>
-                    <h6 class="m-1"> (M/F) </h6>
-                    <h6 class="ms-auto">20XX-#####</h6>
-                </div>
-                <hr class="text-black" style="margin: 0.125% !important;">
-                <div class="d-flex align-items-center justify-content-around">
-                    <span class="m-1">CLG - DEGPROG</span>
-                    <span class="m-1">YEAR LEVEL: X</span>
-                    <span class="m-1">Units Enlisted: XX</span>
-                </div>
-                <hr class="text-black" style="margin: 0.125% !important;">
-                <div class="row">
-                    <span>Birthdate: YYYY-MM-DD</span>
-                </div>
-                <div class="row">
-                    <span>AddressLine3</span>
-                </div>
-                <div class="row">
-                    <span>AddressLine2</span>
-                </div>
-            </div>
-        </div>
-
     </div>
 
 

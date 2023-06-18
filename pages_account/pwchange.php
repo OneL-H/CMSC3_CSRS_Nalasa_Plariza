@@ -52,7 +52,7 @@
         </form>
 
         <div class="position-absolute row w-100 h-100">
-            <form method="POST" action="pwchange.php" class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-50 mx-auto my-auto">
+            <form method="POST" action="pwchange.php" class="border border-3 rounded rounded-2 border-light-subtle bg-light shadow m-2 p-3 w-50 mx-auto my-auto">
                 <h2>Password Change for <?php echo htmlspecialchars($_SESSION["studentnumber"]) ?></h2>
                 <input class="form-control" id="oldPassword" name="oldPassword" type="password">
                 <label class="form-text mb-2" for="oldPassword">Old Password</label>
@@ -69,5 +69,8 @@
 
         <script src="../popper.min.js"></script>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <?php $mysqli -> close(); ?>
+
     </body>
 </html>
