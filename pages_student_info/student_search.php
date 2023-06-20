@@ -153,7 +153,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BA Communication and Media Arts" id="flexCheckDefault" name="BACMA">
+                                    value="BA Communication and Media Arts" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BA Communication and Media Arts
                                 </label>
@@ -162,7 +162,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BA English" id="flexCheckDefault" name="BAE">
+                                    value="BA English" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BA English
                                 </label>
@@ -171,7 +171,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Agribusiness Economics" id="flexCheckDefault" name="ABE">
+                                    value="BS Agribusiness Economics" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BS Agribusiness Economics
                                 </label>
@@ -180,7 +180,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="ANTHRO" id="flexCheckDefault">
+                                    value="ANTHRO" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BS Anthropology
                                 </label>
@@ -191,7 +191,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Applied Mathematics" id="flexCheckDefault" name="AMATH">
+                                    value="BS Applied Mathematics" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BS Applied Mathematics
                                 </label>
@@ -200,7 +200,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Architecture" id="flexCheckDefault" name="ARKI">
+                                    value="BS Architecture" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BS Architecture
                                 </label>
@@ -209,7 +209,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="" id="flexCheckDefault" name="BIO">
+                                    value="BS Biology" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BS Biology
                                 </label>
@@ -218,7 +218,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Computer Science" id="flexCheckDefault" name="CS">
+                                    value="BS Computer Science" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BS Computer Science
                                 </label>
@@ -229,7 +229,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Food Technology" id="flexCheckDefault" name="FT">
+                                    value="BS Food Technology" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BS Food Technology
                                 </label>
@@ -238,7 +238,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Sports Science" id="flexCheckDefault" name="SS">
+                                    value="BS Sports Science" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BS Sports Science
                                 </label>
@@ -253,7 +253,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="CSM" id="CSM" name="CSM">
+                                value="CSM" id="CSM" name="colleges[]">
                             <label class="form-check-label" for="CSM">
                                 CSM
                             </label>
@@ -262,7 +262,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="CHSS" id="CHSS" name="CHSS">
+                                value="CHSS" id="CHSS" name="colleges[]">
                             <label class="form-check-label" for="CHSS">
                                 CHSS
                             </label>
@@ -271,7 +271,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="SOM" id="SOM" name="SOM">
+                                value="SOM" id="SOM" name="colleges[]">
                             <label class="form-check-label" for="SOM">
                                 SOM
                             </label>
