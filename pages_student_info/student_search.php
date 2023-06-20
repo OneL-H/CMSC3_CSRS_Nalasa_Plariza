@@ -180,7 +180,7 @@
                         <div class="col-auto">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="ANTHRO" id="flexCheckDefault" name="courses[]">
+                                    value="BS Anthropology" id="flexCheckDefault" name="courses[]">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     BS Anthropology
                                 </label>
