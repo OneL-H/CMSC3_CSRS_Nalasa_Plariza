@@ -194,7 +194,9 @@
                 <div class="navbar-collapse justify-content-end" id="">
                     <div class="row justify-content-end navbar-nav btn-group" style="width: 95%">
                         <div class="col-3">
-                            <button class="w-100 btn btn-primary text-center nav-link text-white" href="#">Home</button>
+                            <form action="adminlanding.php">
+                                <button class="w-100 btn btn-primary text-center nav-link text-white" href="#">Home</button>
+                            </form>
                         </div>
                         <div class="col-3">
                             <form action="add.php">
