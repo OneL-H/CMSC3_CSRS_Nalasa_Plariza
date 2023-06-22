@@ -152,7 +152,7 @@
 
             $id_limit = 5;
             if(isset($_POST["result_count"]) && !empty($_POST["result_count"])){
-                $id_limit = $_POST["result_count"]
+                $id_limit = $_POST["result_count"];
             }
             
             foreach($matching_ids as $k => $i){
