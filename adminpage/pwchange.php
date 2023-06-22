@@ -47,8 +47,8 @@
 
     <body>
         
-        <form action="../mainpage_loggedin_bootstrappified.php">
-            <button class="fixed-top btn btn-primary m-3" style="width: 5%" href="adminlanding.php">Back</button>
+        <form action="adminlanding.php">
+            <button class="fixed-top btn btn-primary m-3" style="width: 5%">Back</button>
         </form>
 
         <div class="position-absolute row w-100 h-100">
