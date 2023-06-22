@@ -50,7 +50,7 @@
                 <a class="navbar-brand text-white" href="#">
                     <img src="../logo_upmin_2.png" id="logo" alt="Logo" width="30" height="30"
                         class="d-inline-block align-text-top">
-                    UPMIN CSRS
+                    ADMIN PAGE
                 </a>
                 <div class="navbar-collapse justify-content-end" id="">
                     <div class="row justify-content-end navbar-nav btn-group" style="width: 95%">
@@ -58,10 +58,14 @@
                             <button class="w-100 btn btn-primary text-center nav-link text-white active" href="#">Home</button>
                         </div>
                         <div class="col-3">
-                            <button class="w-100 btn btn-primary text-center nav-link text-white" href="#">Add Record</button>
+                            <form action="add.php">
+                                <button class="w-100 btn btn-primary text-center nav-link text-white">Add Record</button>
+                            </form>
                         </div>
                         <div class="col-3">
-                            <button class="w-100 btn btn-primary text-center nav-link text-white" href="#">Search Records</button>
+                            <form action="student_search.php">
+                                <button class="w-100 btn btn-primary text-center nav-link text-white">Search Records</button>
+                            </form>
                         </div>
                         <div class="dropdown col-3">
                             <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
@@ -108,7 +112,7 @@
 
             $template .= "Units Enlisted: " . $unitsenlisted;
             $template .= "</span> </div> </div> </div> <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
-                <div class=\"container d-flex\"> <div class=\"col-auto\"> <div class=\"row\"> <span>";
+                <div class=\"container d-flex\"> <div class=\"col\"> <div class=\"row\"> <span>";
 
             $template .= "Birthdate: " . $bdate;
             $template .= "</span> </div> <div class=\"row\"> <span>";
@@ -119,10 +123,18 @@
             $template .= $address2;
             $template .= "</span> </div> </div>";
 
-            $template .= "<div class=\"d-flex col flex-column align-self-end align-items-end\">
-                        <form method=\"POST\" action=\"delete.php\">
-                        <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-danger\" name=\"rec_delete\">Delete</button>
+            $template .= "<div class=\"d-flex row float-end align-items-end\">
+                        <div class=\"col\">
+                        <form method=\"POST\" action=\"infochange.php\" class=\"col\">
+                            <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-primary\" name=\"rec_update\">Update</button>
                         </form>
+                        </div>
+                        <div class=\"col\">
+                        <form method=\"POST\" action=\"delete.php\">
+                            <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-danger\" name=\"rec_delete\">Delete</button>
+                        </form>
+                        </div>
+                        
                     </div> </div> </div>";
 
             return $template;
