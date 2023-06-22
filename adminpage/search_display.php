@@ -149,7 +149,12 @@
             $best_query = "SELECT * FROM student_info WHERE stud_num IN (";
             $best_ordering = ") ORDER BY FIELD (stud_num, ";
             $id_count = 0;
+
             $id_limit = 5;
+            if(isset($_POST["result_count"]) && !empty($_POST["result_count"])){
+                $id_limit = $_POST["result_count"]
+            }
+            
             foreach($matching_ids as $k => $i){
                 if($id_count == $id_limit) break;
                 if($id_count > 0){
@@ -162,7 +167,6 @@
             }
             $best_query .= $best_ordering . ")";
         }
-        
     }
 ?>
 

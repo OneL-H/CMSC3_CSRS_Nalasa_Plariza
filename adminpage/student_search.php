@@ -276,8 +276,15 @@
                             </label>
                         </div>
                     </div>
-                    <div class="d-flex col flex-column align-self-end align-items-end">
-                        <button type="submit" class="btn btn-secondary" name="send">Submit</button>
+                </div>
+                <div class="row m-1 p-2 border border-1 border-primary bg-light-subtle rounded-2 align-items-center d-flex align-self-end align-items-end">
+                    <div class="col-auto">
+                            <label for="result_count">Best Result Count</label>
+                            <input class="form-control border border-1 border-primary-subtle" 
+                                type="number" id="result_count" name="result_count" value="5">
+                    </div>        
+                    <div class="col col-1 flex-fill">
+                        <button type="submit" class="btn btn-secondary w-100" name="send">Submit</button>
                     </div>
                 </div>
             </div>
