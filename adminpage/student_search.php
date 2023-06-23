@@ -24,19 +24,19 @@
                 <div class="row m-1 p-2 border border-1 border-primary bg-light-subtle rounded-2">
                     <div class="col col-2 m-2">
                         <label class="form-label" for="stud_num">Student Number (year):</label>
-                        <input class="form-control border border-1 border-primary-subtle" type="text" name="stud_num_year">
+                        <input class="form-control border border-1 border-primary-subtle" type="text" id="stud_num" name="stud_num_year">
                     </div>
                     <div class="col col-2 m-2">
                         <label class="form-label" for="stud_num_number">Student Number (num):</label>
-                        <input class="form-control border border-1 border-primary-subtle" type="number" name="stud_num_number">
+                        <input class="form-control border border-1 border-primary-subtle" type="number" id="stud_num_number" name="stud_num_number">
                     </div>
                     <div class="col col-2 m-2">
                         <label class="form-label" for="name">Name (contains): </label>
-                        <input class="form-control border border-1 border-primary-subtle" type="text" name="name">
+                        <input class="form-control border border-1 border-primary-subtle" type="text" id="name" name="name">
                     </div>
                     <div class="col col-3 m-2">
                         <label class="form-label" for="address">Address (contains): </label>
-                        <input class="form-control border border-1 border-primary-subtle" type="text" name="address">
+                        <input class="form-control border border-1 border-primary-subtle" type="text" id="address" name="address">
                     </div>
                     <div class="col col-2 m-2">
                         <label class="form-label">Sex:</label>
@@ -69,15 +69,15 @@
                     </div>
                     <div class="col col-2 m-2">
                         <label class="form-label" for="bdate_exact">Birthdate (exact):</label>
-                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_exact">
+                        <input class="form-control border border-1 border-primary-subtle" type="date" id="bdate_exact" name="bdate_exact">
                     </div>
                     <div class="col col-2 m-2">
                         <label class="form-label" for="bdate_from">Birthdate (from):</label>
-                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_from">
+                        <input class="form-control border border-1 border-primary-subtle" type="date" id="bdate_from" name="bdate_from">
                     </div>
                     <div class="col col-2 m-2">
                         <label class="form-label" for="bdate_to">Birthdate (to):</label>
-                        <input class="form-control border border-1 border-primary-subtle" type="date" name="bdate_to">
+                        <input class="form-control border border-1 border-primary-subtle" type="date" id="bdate_to" name="bdate_to">
                     </div>
                     <div class="col col-2 m-2">
                         <span class="form-text">Note: Only exact date searched if specified, regardless of from or to dates.
@@ -92,7 +92,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="1" id="yr" name="yr[]">
+                                value="1" id="yr_1" name="yr[]">
                             <label class="form-check-label" for="yr_1">
                                 1
                             </label>
@@ -101,7 +101,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="2" id="yr" name="yr[]">
+                                value="2" id="yr_2" name="yr[]">
                             <label class="form-check-label" for="yr_2">
                                 2
                             </label>
@@ -110,7 +110,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="3" id="yr" name="yr[]">
+                                value="3" id="yr_3" name="yr[]">
                             <label class="form-check-label" for="yr_3">
                                 3
                             </label>
@@ -119,8 +119,8 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="4" id="yr" name="yr[]">
-                            <label class="form-check-label" for="yr">
+                                value="4" id="yr_4" name="yr[]">
+                            <label class="form-check-label" for="yr_4">
                                 4
                             </label>
                         </div>
@@ -128,7 +128,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="5" id="yr" name="yr[]">
+                                value="5" id="yr_5" name="yr[]">
                             <label class="form-check-label" for="yr_5">
                                 5
                             </label>
@@ -137,7 +137,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="6" id="yr" name="yr[]">
+                                value="6" id="yr_6" name="yr[]">
                             <label class="form-check-label" for="yr_6">
                                 6
                             </label>
@@ -152,8 +152,8 @@
                         <div class="col-3">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BA Communication and Media Arts" id="courses" name="courses[]">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    value="BA Communication and Media Arts" id="BA Communication and Media Arts" name="courses[]">
+                                <label class="form-check-label" for="BA Communication and Media Arts">
                                     BA Communication and Media Arts
                                 </label>
                             </div>
@@ -161,8 +161,8 @@
                         <div class="col-3">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BA English" id="courses" name="courses[]">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    value="BA English" id="BA English" name="courses[]">
+                                <label class="form-check-label" for="BA English">
                                     BA English
                                 </label>
                             </div>
@@ -170,8 +170,8 @@
                         <div class="col-3">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Agribusiness Economics" id="courses" name="courses[]">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    value="BS Agribusiness Economics" id="BS Agribusiness Economics" name="courses[]">
+                                <label class="form-check-label" for="BS Agribusiness Economics">
                                     BS Agribusiness Economics
                                 </label>
                             </div>
@@ -179,8 +179,8 @@
                         <div class="col-3">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Anthropology" id="courses" name="courses[]">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    value="BS Anthropology" id="BS Anthropology" name="courses[]">
+                                <label class="form-check-label" for="BS Anthropology">
                                     BS Anthropology
                                 </label>
                             </div>
@@ -190,8 +190,8 @@
                         <div class="col-3">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Applied Mathematics" id="courses" name="courses[]">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    value="BS Applied Mathematics" id="BS Applied Mathematics" name="courses[]">
+                                <label class="form-check-label" for="BS Applied Mathematics">
                                     BS Applied Mathematics
                                 </label>
                             </div>
@@ -199,8 +199,8 @@
                         <div class="col-3">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Architecture" id="courses" name="courses[]">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    value="BS Architecture" id="BS Architecture" name="courses[]">
+                                <label class="form-check-label" for="BS Architecture">
                                     BS Architecture
                                 </label>
                             </div>
@@ -208,8 +208,8 @@
                         <div class="col-3">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Biology" id="courses" name="courses[]">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    value="BS Biology" id="BS Biology" name="courses[]">
+                                <label class="form-check-label" for="BS Biology">
                                     BS Biology
                                 </label>
                             </div>
@@ -217,8 +217,8 @@
                         <div class="col-3">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Computer Science" id="courses" name="courses[]">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    value="BS Computer Science" id="BS Computer Science" name="courses[]">
+                                <label class="form-check-label" for="BS Computer Science">
                                     BS Computer Science
                                 </label>
                             </div>
@@ -228,8 +228,8 @@
                         <div class="col-3">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Food Technology" id="courses" name="courses[]">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    value="BS Food Technology" id="BS Food Technology" name="courses[]">
+                                <label class="form-check-label" for="BS Food Technology">
                                     BS Food Technology
                                 </label>
                             </div>
@@ -237,8 +237,8 @@
                         <div class="col-3">
                             <div class="form-check">
                                 <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                    value="BS Sports Science" id="courses" name="courses[]">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                    value="BS Sports Science" id="BS Sports Science" name="courses[]">
+                                <label class="form-check-label" for="BS Sports Science">
                                     BS Sports Science
                                 </label>
                             </div>
@@ -252,7 +252,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="CSM" id="colleges" name="colleges[]">
+                                value="CSM" id="CSM" name="colleges[]">
                             <label class="form-check-label" for="CSM">
                                 CSM
                             </label>
@@ -261,7 +261,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="CHSS" id="colleges" name="colleges[]">
+                                value="CHSS" id="CHSS" name="colleges[]">
                             <label class="form-check-label" for="CHSS">
                                 CHSS
                             </label>
@@ -270,7 +270,7 @@
                     <div class="col-auto">
                         <div class="form-check">
                             <input class="form-check-input border border-1 border-primary-subtle" type="checkbox"
-                                value="SOM" id="colleges" name="colleges[]">
+                                value="SOM" id="SOM" name="colleges[]">
                             <label class="form-check-label" for="SOM">
                                 SOM
                             </label>
