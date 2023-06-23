@@ -26,8 +26,6 @@
     }
 
     // redirect to set name
-
-
 ?>
 
 <!DOCTYPE html>

@@ -253,7 +253,7 @@
 
             $template .= "Units Enlisted: " . $unitsenlisted;
             $template .= "</span> </div> </div> </div> <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
-                <div class=\"container d-flex\"> <div class=\"col-auto\"> <div class=\"row\"> <span>";
+                <div class=\"container d-flex\"> <div class=\"col\"> <div class=\"row\"> <span>";
 
             $template .= "Birthdate: " . $bdate;
             $template .= "</span> </div> <div class=\"row\"> <span>";
@@ -264,11 +264,18 @@
             $template .= $address2;
             $template .= "</span> </div> </div>";
 
-            $template .= "<div class=\"d-flex col flex-column align-self-end align-items-end\">
-                        <form method=\"POST\" action=\"delete.php\">
-                        <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-danger\" name=\"rec_delete\">Delete</button>
+            $template .= "<div class=\"d-flex row float-end align-items-end\">
+                        <div class=\"col\">
+                        <form method=\"POST\" action=\"infochange.php\" class=\"col\">
+                            <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-primary\" name=\"rec_update\">Update</button>
                         </form>
-                    </div> </div> </div>";
+                        </div>
+                        <div class=\"col\">
+                        <form method=\"POST\" action=\"delete.php\">
+                            <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-danger\" name=\"rec_delete\">Delete</button>
+                        </form>
+                        </div>
+                        </div> </div> </div>";
 
             return $template;
         }
