@@ -277,14 +277,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-1 p-2 border border-1 border-primary bg-light-subtle rounded-2 align-items-center d-flex align-self-end align-items-end">
-                    <div class="col-auto">
+                <div class="row m-1 p-2 border border-1 border-primary bg-light-subtle rounded-2 align-items-center d-flex align-self-end justify-content-end">
+                <div class="col-auto align-self-start flex-fill">
+                        <h4>Search Parameters:</h4>
+                </div>    
+                <div class="col col-auto">
                             <label for="result_count">Best Result Count</label>
                             <input class="form-control border border-1 border-primary-subtle" 
                                 type="number" id="result_count" name="result_count" value="3">
                     </div>        
-                    <div class="col col-1 flex-fill">
-                        <button type="submit" class="btn btn-secondary w-100" name="send">Submit</button>
+                    <div class="col col-auto">
+                        <button type="submit" class="btn btn-secondary" name="send">Submit</button>
                     </div>
                 </div>
             </div>
