@@ -281,7 +281,7 @@
                     <div class="col-auto">
                             <label for="result_count">Best Result Count</label>
                             <input class="form-control border border-1 border-primary-subtle" 
-                                type="number" id="result_count" name="result_count" value="5">
+                                type="number" id="result_count" name="result_count" value="3">
                     </div>        
                     <div class="col col-1 flex-fill">
                         <button type="submit" class="btn btn-secondary w-100" name="send">Submit</button>

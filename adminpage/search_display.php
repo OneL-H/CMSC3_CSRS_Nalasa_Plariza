@@ -142,6 +142,11 @@
             }
         }
 
+        $id_limit = 5;
+        if(isset($_POST["result_count"]) && !empty($_POST["result_count"])){
+            $id_limit = $_POST["result_count"];
+        }
+
         if(empty($matching_ids)){
             $best_query = $allquery;
         }else{
@@ -150,11 +155,6 @@
             $best_ordering = ") ORDER BY FIELD (stud_num, ";
             $id_count = 0;
 
-            $id_limit = 5;
-            if(isset($_POST["result_count"]) && !empty($_POST["result_count"])){
-                $id_limit = $_POST["result_count"];
-            }
-            
             foreach($matching_ids as $k => $i){
                 if($id_count == $id_limit) break;
                 if($id_count > 0){
@@ -163,7 +163,7 @@
                 }
                 $best_query .= "'" . $k . "'";
                 $best_ordering .= "'" . $k . "'";
-                $id_count++;
+                $id_count += 1;
             }
             $best_query .= $best_ordering . ")";
         }
@@ -274,8 +274,6 @@
         }
 
             if(isset($_POST['send'])) {
-
-                
                 echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 mb-5 p-3 w-75 mx-auto my-auto row-gap-2\">";
                 $exact_result = $mysqli -> query($allquery);
                 if(mysqli_affected_rows($mysqli) == 0){
@@ -290,17 +288,18 @@
                 }
                 echo "</div>";
 
-                
                 echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 mb-5 p-3 w-75 mx-auto my-auto row-gap-2\">";
                 $best_result = $mysqli -> query($best_query);
                 if(mysqli_affected_rows($mysqli) == 0){
                     echo "<h3>NO GOOD MATCHES. </h3>";
                 }else{
-                    echo "<h1>BEST MATCHES: </h1>";
-                    while ($data = $best_result -> fetch_assoc()) {
+                    echo "<h1>BEST MATCHES:</h1>";
+                    $disp_count = 0;
+                    while (($data = $best_result -> fetch_assoc()) && $disp_count < $id_limit) {
                         echo format_results($data['lname'], $data['fname'], $data['mname'], $data['sex'], $data['stud_num'], 
                             $data['college'], $data['degprog'], $data['yearlevel'], $data['units_enlisted'], $data['bdate'], 
                             $data['address1'], $data['address2']);
+                        $disp_count += 1;
                     }
                 }
                 echo "</div>";
