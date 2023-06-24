@@ -16,7 +16,7 @@
     if (isset($_POST['send'])) {
         $query = "INSERT INTO `student_info` (`stud_num`, `password`, `didILoginForTheFirstTime`, `yearlevel`, 
         `fname`, `mname`, `lname`, `address1`, `address2`, `bdate`, `college`, `degprog`, `sex`)
-        VALUES ('{$_POST['stud_num']}', '{$_POST['password']}', 0, '{$_POST['yearlevel']}', 
+        VALUES ('{$_POST['stud_num']}', '{$_POST['password']}', 1, '{$_POST['yearlevel']}', 
         '{$_POST['firstName']}', '{$_POST['middleName']}', '{$_POST['lastName']}',
         '{$_POST['address1']}', '{$_POST['address2']}', '{$_POST['birthdate']}', '{$_POST['college']}',
         '{$_POST['degreeProgram']}', '{$_POST['sex']}')";
@@ -39,7 +39,7 @@
     </head>
 
     <body>
-        <a class="fixed-top btn btn-primary m-3" style="width: 5%" href="../mainpage_loggedin_bootstrappified.php">Back</a>
+        <a class="fixed-top btn btn-primary m-3" style="width: 5%" href="adminlanding.php">Back</a>
 
         <div class="position-absolute row w-100 h-100">
             <form method="POST" action="add.php" class="border border-2 rounded rounded-2 border-primary m-2 p-3 w-75 mx-auto my-auto was-validated">

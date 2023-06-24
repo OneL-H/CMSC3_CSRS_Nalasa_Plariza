@@ -102,7 +102,7 @@
 
     <body>
         
-        <a class="fixed-top btn btn-primary m-3" style="width: 5%" href="student_search.php">Back</a>
+        <a class="fixed-top btn btn-primary m-3" style="width: 5%" href="adminlanding.php">Back</a>
 
         <div class="position-absolute row w-100 h-100">
             <div class="border border-3 rounded rounded-2 border-light-subtle bg-light shadow m-2 p-3 w-75 mx-auto my-auto">

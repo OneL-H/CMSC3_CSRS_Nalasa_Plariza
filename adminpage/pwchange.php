@@ -14,14 +14,14 @@
     }
 
     if (isset($_POST["change"])) {
-        $query = "SELECT `password` FROM student_info WHERE stud_num = '{$_SESSION["studentnumber"]}'";
+        $query = "SELECT `password` FROM admin_info WHERE admin_num = '{$_SESSION["adminnumber"]}'";
         $result = $mysqli -> query($query);
         $oldpw = $result -> fetch_assoc();
 
         if ($oldpw["password"] === $_POST["oldPassword"]) {
             if (!empty($_POST["newPassword"]) == true or !empty($_POST["confirmPassword"]) == true) {
                 if ($_POST["newPassword"] === $_POST["confirmPassword"]) {
-                    $query = "UPDATE student_info SET `password` = '{$_POST["newPassword"]}' WHERE stud_num = '{$_SESSION["studentnumber"]}'";
+                    $query = "UPDATE admin_info SET `password` = '{$_POST["newPassword"]}' WHERE admin_num = '{$_SESSION["adminnumber"]}'";
                     $mysqli -> query($query);
                     header('location: ../logout.php');
                     exit;
@@ -47,13 +47,13 @@
 
     <body>
         
-        <form action="../mainpage_loggedin_bootstrappified.php">
-            <button class="fixed-top btn btn-primary m-3" style="width: 5%" href="../mainpage_loggedin_bootstrappified.php">Back</button>
+        <form action="adminlanding.php">
+            <button class="fixed-top btn btn-primary m-3" style="width: 5%">Back</button>
         </form>
 
         <div class="position-absolute row w-100 h-100">
             <form method="POST" action="pwchange.php" class="border border-3 rounded rounded-2 border-light-subtle bg-light shadow m-2 p-3 w-50 mx-auto my-auto">
-                <h2>Password Change for <?php echo htmlspecialchars($_SESSION["studentnumber"]) ?></h2>
+                <h2>Password Change for <?php echo htmlspecialchars($_SESSION["adminnumber"]) ?></h2>
                 <input class="form-control" id="oldPassword" name="oldPassword" type="password">
                 <label class="form-text mb-2" for="oldPassword">Old Password</label>
                 <input class="form-control" id="newPassword" name="newPassword" type="password">

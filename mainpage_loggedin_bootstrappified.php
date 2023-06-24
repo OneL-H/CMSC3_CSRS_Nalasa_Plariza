@@ -46,7 +46,7 @@
                 <a class="navbar-brand text-white" href="#">
                     <img src="logo_upmin_2.png" id="logo" alt="Logo" width="30" height="30"
                         class="d-inline-block align-text-top">
-                    UPMIN CSRS
+                    CSRS ADMIN PAGE
                 </a>
                 <div class="navbar-collapse justify-content-end" id="">
                     <div class="row justify-content-end navbar-nav btn-group" style="width: 95%">
@@ -68,9 +68,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false" href="#">Student Info</button>
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
                                 <li><a href="pages_student_info/info.php">student details</a></li>
-                                <li><a href="pages_student_info/student_search.php">record search</a></li>
-                                <li><a href="pages_student_info/add.php">add record</a></li>
-                                <li><a href="pages_student_info/prospectus.php">prospectus & grades</a></li>
+                                <li><a href="pages_student_info/prospectus.php">prospectus</a></li>
                                 <li><a href="pages_student_info/calendar.php">academic calendar</a></li>
                             </ul>
                         </div>

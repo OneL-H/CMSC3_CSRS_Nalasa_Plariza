@@ -25,6 +25,23 @@
                 else $error = "login failed";
             }
         }
+
+        $query = "SELECT * FROM admin_info";
+
+        if ($result = $mysqli -> query($query)) {
+            while ($row = $result -> fetch_assoc()) {
+                if ($sn == $row["admin_num"] && $pw == $row["password"]) {
+                    session_start();
+                    $_SESSION["adminnumber"] = $sn;
+                    $_SESSION["loggedin"] = true;
+                    $_SESSION["error"] = "";
+                    header('location: adminpage/adminlanding.php');
+                }
+
+                else $error = "login failed";
+            }
+        }
+
         $mysqli -> close();
     }
 ?>

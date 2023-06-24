@@ -103,7 +103,7 @@
                 $sex_query = "sex = 'M'";
             }else if ($_POST['sex'] == 'F'){
                 $sex_query = "sex = 'F'";
-            }
+            };
         }
         
         $allquery = "SELECT * FROM student_info";
@@ -123,6 +123,7 @@
             }
             $allquery .= $q;
         }
+        if ($firstinsert == 0) $allquery .= " WHERE sex IN ('M', 'F')";
         
         
         $templatequery = "SELECT stud_num FROM student_info WHERE ";
@@ -141,6 +142,11 @@
             }
         }
 
+        $id_limit = 5;
+        if(isset($_POST["result_count"]) && !empty($_POST["result_count"])){
+            $id_limit = $_POST["result_count"];
+        }
+
         if(empty($matching_ids)){
             $best_query = $allquery;
         }else{
@@ -148,7 +154,7 @@
             $best_query = "SELECT * FROM student_info WHERE stud_num IN (";
             $best_ordering = ") ORDER BY FIELD (stud_num, ";
             $id_count = 0;
-            $id_limit = 5;
+
             foreach($matching_ids as $k => $i){
                 if($id_count == $id_limit) break;
                 if($id_count > 0){
@@ -157,11 +163,10 @@
                 }
                 $best_query .= "'" . $k . "'";
                 $best_ordering .= "'" . $k . "'";
-                $id_count++;
+                $id_count += 1;
             }
             $best_query .= $best_ordering . ")";
         }
-        
     }
 ?>
 
@@ -179,48 +184,37 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top" style="width: 97%">
+        <nav class="navbar navbar-expand-sm body bg-primary m-3 rounded rounded-2 fixed-top mx-auto" style="width: 97%">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" href="#">
                     <img src="../logo_upmin_2.png" id="logo" alt="Logo" width="30" height="30"
                         class="d-inline-block align-text-top">
                     UPMIN CSRS
                 </a>
-    
                 <div class="navbar-collapse justify-content-end" id="">
                     <div class="row justify-content-end navbar-nav btn-group" style="width: 95%">
                         <div class="col-3">
-                            <form action="../mainpage_loggedin_bootstrappified.php">
-                                <button class="w-100 btn btn-primary text-center nav-link text-white" href="../mainpage_loggedin_bootstrappified.php">Home</button>
+                            <form action="adminlanding.php">
+                                <button class="w-100 btn btn-primary text-center nav-link text-white" href="#">Home</button>
                             </form>
                         </div>
-                        <div class="dropdown col-3">
-                            <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">Sections</button>
-                            <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
-                                <li><a href="../pages_menu/about.php">about</a></li>
-                                <li><a href="../pages_menu/privacy.php">privacy notice</a></li>
-                                <li><a href="../pages_menu/up_email.php">up email</a></li>
-                                <li><a href="../pages_menu/faq.php">faq</a></li>
-                            </ul>
+                        <div class="col-3">
+                            <form action="add.php">
+                                <button class="w-100 btn btn-primary text-center nav-link text-white">Add Record</button>
+                            </form>
                         </div>
-                        <div class="dropdown col-3">
-                            <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle active"
-                                data-bs-toggle="dropdown" aria-expanded="false" href="#">Student Info</button>
-                            <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
-                                <li><a href="info.php">student details</a></li>
-                                <li><a href="student_search.php">record search</a></li>
-                                <li><a href="add.php">add record</a></li>
-                                <li><a href="prospectus.php">prospectus & grades</a></li>
-                                <li><a href="calendar.php">personal calendar</a></li>
-                            </ul>
+                        <div class="col-3">
+                            <form action="student_search.php">
+                                <button class="w-100 btn btn-primary text-center nav-link text-white active">Search Records</button>
+                            </form>
                         </div>
                         <div class="dropdown col-3">
                             <button class="w-100 btn btn-primary text-center nav-link text-white dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false" href="#">Account</button>
                             <ul class="dropdown-menu dropdown-menu-start w-100 px-2">
-                                <li><a href="../pages_account/pwchange.php">change password</a></li>
-                                <li><a href="../mainpage.php">log out</a></li>
+                                <li><a href="namechange.php">change name</a></li>
+                                <li><a href="pwchange.php">change password</a></li>
+                                <li><a href="../logout.php">log out</a></li>
                             </ul>
                         </div>
                     </div>
@@ -259,7 +253,7 @@
 
             $template .= "Units Enlisted: " . $unitsenlisted;
             $template .= "</span> </div> </div> </div> <hr class=\"text-black\" style=\"margin: 0.125% !important;\">
-                <div class=\"container d-flex\"> <div class=\"col-auto\"> <div class=\"row\"> <span>";
+                <div class=\"container d-flex\"> <div class=\"col\"> <div class=\"row\"> <span>";
 
             $template .= "Birthdate: " . $bdate;
             $template .= "</span> </div> <div class=\"row\"> <span>";
@@ -270,18 +264,23 @@
             $template .= $address2;
             $template .= "</span> </div> </div>";
 
-            $template .= "<div class=\"d-flex col flex-column align-self-end align-items-end\">
-                        <form method=\"POST\" action=\"delete.php\">
-                        <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-danger\" name=\"rec_delete\">Delete</button>
+            $template .= "<div class=\"d-flex row float-end align-items-end\">
+                        <div class=\"col\">
+                        <form method=\"POST\" action=\"infochange.php\" class=\"col\">
+                            <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-primary\" name=\"rec_update\">Update</button>
                         </form>
-                    </div> </div> </div>";
+                        </div>
+                        <div class=\"col\">
+                        <form method=\"POST\" action=\"delete.php\">
+                            <button type=\"submit\" value=\"{$studnum}\"class=\"btn btn-danger\" name=\"rec_delete\">Delete</button>
+                        </form>
+                        </div>
+                        </div> </div> </div>";
 
             return $template;
         }
 
             if(isset($_POST['send'])) {
-
-                
                 echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 mb-5 p-3 w-75 mx-auto my-auto row-gap-2\">";
                 $exact_result = $mysqli -> query($allquery);
                 if(mysqli_affected_rows($mysqli) == 0){
@@ -296,17 +295,18 @@
                 }
                 echo "</div>";
 
-                
                 echo "<div class=\"border border-2 rounded rounded-2 border-primary shadow m-2 mb-5 p-3 w-75 mx-auto my-auto row-gap-2\">";
                 $best_result = $mysqli -> query($best_query);
                 if(mysqli_affected_rows($mysqli) == 0){
                     echo "<h3>NO GOOD MATCHES. </h3>";
                 }else{
-                    echo "<h1>BEST MATCHES: </h1>";
-                    while ($data = $best_result -> fetch_assoc()) {
+                    echo "<h1>BEST MATCHES:</h1>";
+                    $disp_count = 0;
+                    while (($data = $best_result -> fetch_assoc()) && $disp_count < $id_limit) {
                         echo format_results($data['lname'], $data['fname'], $data['mname'], $data['sex'], $data['stud_num'], 
                             $data['college'], $data['degprog'], $data['yearlevel'], $data['units_enlisted'], $data['bdate'], 
                             $data['address1'], $data['address2']);
+                        $disp_count += 1;
                     }
                 }
                 echo "</div>";
